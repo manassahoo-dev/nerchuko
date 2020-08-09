@@ -5,7 +5,9 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>The best way to learn Telugu - Nerchuko</title>
+		<meta name="keywords" content="learn, telugu, free, lessons, course, language, study, flashcards"  />
+		<meta name="description" content="Learn Telugu through our lessons such as alphabet, adjectives, nouns, plural, gender, numbers, phrases, grammar, vocabulary, verbs, exam, audio, translation and much more online and for free easily and quickly.">
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
