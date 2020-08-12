@@ -6,14 +6,14 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>The best way to learn Telugu - Nerchuko</title>
-		<meta name="keywords" content="learn, telugu, free, lessons, course, language, study, flashcards"  />
-		<meta name="description" content="Learn Telugu through our lessons such as alphabet, adjectives, nouns, plural, gender, numbers, phrases, grammar, vocabulary, verbs, exam, audio, translation and much more online and for free easily and quickly." />
+        <meta name="keywords" content="learn, telugu, free, lessons, course, language, study, flashcards" />
+        <meta name="description" content="Learn Telugu through our lessons such as alphabet, adjectives, nouns, plural, gender, numbers, phrases, grammar, vocabulary, verbs, exam, audio, translation and much more online and for free easily and quickly." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Welcome to <a href="https://nerchuko.in">Nerchuko!</a>
         </h1>
 
         <p className={styles.description}>
