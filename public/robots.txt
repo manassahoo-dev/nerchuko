@@ -1,2 +1,3 @@
+Sitemap: https://nerchuko.in/sitemap
 User-agent: *
 Allow: /
