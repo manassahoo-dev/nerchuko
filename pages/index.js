@@ -1,67 +1,68 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>The best way to learn Telugu - Nerchuko</title>
         <meta name="keywords" content="learn, telugu, free, lessons, course, language, study, flashcards" />
         <meta name="description" content="Learn Telugu through our lessons such as alphabet, adjectives, nouns, plural, gender, numbers, phrases, grammar, vocabulary, verbs, exam, audio, translation and much more online and for free easily and quickly." />
         <link rel="icon" href="/favicon.ico" />
+        <meta name="title" content="The best way to learn Telugu - Nerchuko" />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://nerchuko.in/" />
+        <meta property="og:title" content="The best way to learn Telugu - Nerchuko" />
+        <meta property="og:description" content="Learn Telugu through our lessons such as alphabet, adjectives, nouns, plural, gender, numbers, phrases, grammar, vocabulary, verbs, exam, audio, translation and much more online and for free easily and quickly." />
+        <meta property="og:image" content="" />
+
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://nerchuko.in/" />
+        <meta property="twitter:title" content="The best way to learn Telugu - Nerchuko" />
+        <meta property="twitter:description" content="Learn Telugu through our lessons such as alphabet, adjectives, nouns, plural, gender, numbers, phrases, grammar, vocabulary, verbs, exam, audio, translation and much more online and for free easily and quickly." />
+        <meta property="twitter:image" content="" />
+
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nerchuko.in">Nerchuko!</a>
-        </h1>
+      <main>
+        <h1 className="display- text-center py-4 mt-4 font-weight-bold ">Welcome to <span className="text-primary">Nerchuko!</span></h1>
+        <h2 className="text-center mb-4">Learn Telugu Easily</h2>
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+        <div className="container">
+          <div className="row">
+            <div className="col-12 col-md-4">
+              <div className="card">
+                <div className="card-body">
+                  <h5 className="card-title">Card title &rarr;</h5>
+                  <h6 className="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                  <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" className="card-link">Card link</a>
+                  <a href="#" className="card-link">Another link</a>
+                </div>
+              </div>
+            </div>
+            <div className="col-12 col-md-4"><div className="card">
+              <div className="card-body">
+                <h5 className="card-title">Card title &rarr;</h5>
+                <h6 className="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" className="card-link">Card link</a>
+                <a href="#" className="card-link">Another link</a>
+              </div>
+            </div></div>
+            <div className="col-12 col-md-4"><div className="card">
+              <div className="card-body">
+                <h5 className="card-title">Card title</h5>
+                <h6 className="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" className="card-link">Card link</a>
+                <a href="#" className="card-link">Another link</a>
+              </div>
+            </div></div>
+          </div>
         </div>
-      </main>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
+
+      </main>
     </div>
   )
 }
