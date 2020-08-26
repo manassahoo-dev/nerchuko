@@ -16,13 +16,22 @@ export default function Login() {
                                 <label htmlFor="exampleInputPassword1">Password</label>
                                 <input type="password" className="form-control" id="exampleInputPassword1" />
                             </div>
-                            <div className="form-group form-check">
-                                <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-                                <label className="form-check-label" htmlFor="exampleCheck1">Keep me logged in</label>
+                            <div className="form-group">
+                                <label for="remember">
+                                    <input className="checkbox" id="remember" type="checkbox" />
+                                    <span>Remember me</span>
+                                </label>
+                                <Link href="/forgot"><a className="float-right">Forgot password?</a></Link>
                             </div>
-                            <button type="submit" className="btn btn-primary btn-block">Login</button>
+                            <div className="form-group">
+                                <button type="submit" className="btn btn-primary btn-block">Login</button>
+                            </div>
+                            <div className="form-group">
+                                <p className="text-muted text-center">Do not have an account?
+                                    <Link href="/signup"><a className="mx-2">Signup</a></Link>
+                                </p>
+                            </div>
                         </form>
-                        <span>Don't have an account?</span><Link href="/signup"><a className="text-decoration-none mx-2">Signup</a></Link>
                     </div>
                 </div>
             </div>

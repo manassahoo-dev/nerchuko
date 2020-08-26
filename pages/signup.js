@@ -22,7 +22,7 @@ export default function Signup() {
                             </div>
                             <button type="submit" className="btn btn-primary btn-block">Signup</button>
                         </form>
-                        <span>Already have an account?</span><Link href="/login"><a className="text-decoration-none mx-2">Login</a></Link>
+                        <span>Already have an account?</span><Link href="/login"><a className="mx-2">Login</a></Link>
                     </div>
                 </div>
             </div>
