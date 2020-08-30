@@ -8,7 +8,7 @@ export default function Home() {
         <meta name="description" content="Learn Telugu through our lessons such as alphabet, adjectives, nouns, plural, gender, numbers, phrases, grammar, vocabulary, verbs, exam, audio, translation and much more online and for free easily and quickly." />
         <link rel="icon" href="/favicon.ico" />
         <meta name="title" content="The best way to learn Telugu - Nerchuko" />
-
+        <link rel="canonical" href="https://nerchuko.in/" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://nerchuko.in/" />
         <meta property="og:title" content="The best way to learn Telugu - Nerchuko" />
