@@ -13,13 +13,13 @@ export default function Home() {
         <meta property="og:url" content="https://nerchuko.in/" />
         <meta property="og:title" content="The best way to learn Telugu - Nerchuko" />
         <meta property="og:description" content="Learn Telugu through our lessons such as alphabet, adjectives, nouns, plural, gender, numbers, phrases, grammar, vocabulary, verbs, exam, audio, translation and much more online and for free easily and quickly." />
-        <meta property="og:image" content="/thumbnail.png" />
+        <meta property="og:image" content="https://nerchuko.in/thumbnail.png" />
 
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://nerchuko.in/" />
         <meta property="twitter:title" content="The best way to learn Telugu - Nerchuko" />
         <meta property="twitter:description" content="Learn Telugu through our lessons such as alphabet, adjectives, nouns, plural, gender, numbers, phrases, grammar, vocabulary, verbs, exam, audio, translation and much more online and for free easily and quickly." />
-        <meta property="twitter:image" content="/thumbnail.png" />
+        <meta property="twitter:image" content="https://nerchuko.in/thumbnail.png" />
 
       </Head>
 
