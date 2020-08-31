@@ -17,7 +17,7 @@ export default function Login() {
                                 <input type="password" className="form-control" id="exampleInputPassword1" />
                             </div>
                             <div className="form-group">
-                                <label for="remember">
+                                <label htmlFor="remember">
                                     <input className="checkbox" id="remember" type="checkbox" />
                                     <span>Remember me</span>
                                 </label>
