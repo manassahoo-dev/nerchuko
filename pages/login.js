@@ -9,12 +9,12 @@ export default function Login() {
                         <h1 className="text-primary text-center">Login</h1>
                         <form className="my-4">
                             <div className="form-group">
-                                <label htmlFor="exampleInputEmail1">Email address</label>
-                                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                                <label htmlFor="exampleInputEmail">Email address</label>
+                                <input type="email" className="form-control" id="exampleInputEmail" aria-describedby="emailHelp" />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="exampleInputPassword1">Password</label>
-                                <input type="password" className="form-control" id="exampleInputPassword1" />
+                                <label htmlFor="exampleInputPassword">Password</label>
+                                <input type="password" className="form-control" id="exampleInputPassword" />
                             </div>
                             <div className="form-group">
                                 <label htmlFor="remember">

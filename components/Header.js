@@ -17,7 +17,7 @@ const Header = () => (
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto"></ul>
                     <form className="form-inline my-2 my-lg-0">
-                        <Link href="/login"><a className="btn btn-primary btn-sm">Login</a></Link>
+                        <Link href="/login"><a className="btn btn-primary">Login</a></Link>
                     </form>
                 </div>
             </nav>
