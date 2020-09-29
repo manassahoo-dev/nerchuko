@@ -59,8 +59,6 @@ export default function Login() {
             <Meta
                 title='Login'
                 desc='Login Form'
-                css='/static/css/styles.css'
-                js='/static/js/scripts.js'
             />
             <div className="col d-none d-sm-block"></div>
             <div className="col-sm-6 col-lg-5">
