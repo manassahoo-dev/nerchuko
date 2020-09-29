@@ -3,6 +3,24 @@ import Head from 'next/head'
 const Header = () => (
     <>
         <Head>
+            <title>The best way to learn Telugu - Nerchuko</title>
+            <meta name="keywords" content="learn, telugu, free, lessons, course, language, study, flashcards" />
+            <meta name="description" content="Learn Telugu through our lessons such as alphabet, adjectives, nouns, plural, gender, numbers, phrases, grammar, vocabulary, verbs, exam, audio, translation and much more online and for free easily and quickly." />
+            <link rel="icon" href="/favicon.ico" />
+            <meta name="title" content="The best way to learn Telugu - Nerchuko" />
+            <link rel="canonical" href="https://nerchuko.in/" />
+            <meta property="og:type" content="website" />
+            <meta property="og:url" content="https://nerchuko.in/" />
+            <meta property="og:title" content="The best way to learn Telugu - Nerchuko" />
+            <meta property="og:description" content="Learn Telugu through our lessons such as alphabet, adjectives, nouns, plural, gender, numbers, phrases, grammar, vocabulary, verbs, exam, audio, translation and much more online and for free easily and quickly." />
+            <meta property="og:image" content="https://nerchuko.in/thumbnail.png" />
+
+            <meta property="twitter:card" content="summary_large_image" />
+            <meta property="twitter:url" content="https://nerchuko.in/" />
+            <meta property="twitter:title" content="The best way to learn Telugu - Nerchuko" />
+            <meta property="twitter:description" content="Learn Telugu through our lessons such as alphabet, adjectives, nouns, plural, gender, numbers, phrases, grammar, vocabulary, verbs, exam, audio, translation and much more online and for free easily and quickly." />
+            <meta property="twitter:image" content="https://nerchuko.in/thumbnail.png" />
+
             <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossOrigin="anonymous"></script>
             <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossOrigin="anonymous"></script>
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossOrigin="anonymous"></script>
