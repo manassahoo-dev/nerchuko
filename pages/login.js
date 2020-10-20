@@ -1,16 +1,23 @@
-import React, { useState } from 'react';
-import Link from 'next/link'
+import React, { useState, useContext } from 'react';
+import Link from 'next/link';
+import Router from 'next/router';
 import axios from 'axios';
 import { API_BASE_URL, APP_BASE_URL } from '../components/constants/api-config';
+import { authHeader } from '../components/constants/authHeader';
+import UserContext from '../components/contexts/UserContext';
+
 import Meta from '../components/Meta';
 
-export default function Login() {
+export default function Login(props) {
+    const { login } = useContext(UserContext);
+
     const [state, setState] = useState({
         email: "",
         password: "",
         successMessage: null,
         processing: false
     })
+
     const handleChange = (e) => {
         const { id, value } = e.target
         setState(prevState => ({
@@ -29,20 +36,44 @@ export default function Login() {
             "email": state.email,
             "password": state.password,
         }
-        axios.post(`${API_BASE_URL}/login`, payload)
+        axios.post(`${API_BASE_URL}/auth/login`, payload)
             .then(function (response) {
-                if (response.data.code === 200) {
+                if (response.status === 200) {
                     setState(prevState => ({
                         ...prevState,
                         'successMessage': 'Login successful. Redirecting to home page..',
                         'processing': false
                     }))
-                    redirectToHome();
-                    props.showError(null)
-                } else if (response.data.code === 204) {
-                    props.showError("Username and password do not match");
+                    Router.push('/');
+                    // props.showError(null);
+                    localStorage.setItem("token", response.data.accessToken);
+                    getCurrentUser();
+                } else if (response.status === 204) {
+                    // props.showError("Username and password do not match");
                 } else {
-                    props.showError("Username does not exists");
+                    // props.showError("Username does not exists");
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+                setState(prevState => ({
+                    ...prevState,
+                    'processing': false
+                }))
+            });
+    }
+
+    const getCurrentUser = () => {
+        axios.get(`${API_BASE_URL}/user/me`, {
+            headers: authHeader()
+        })
+            .then(function (response) {
+                if (response.status === 200) {
+                    login(response.data);
+                } else if (response.status === 204) {
+                    // props.showError("Username and password do not match");
+                } else {
+                    // props.showError("Username does not exists");
                 }
             })
             .catch(function (error) {
@@ -72,7 +103,6 @@ export default function Login() {
                                     type="email"
                                     className="form-control"
                                     id="email"
-                                    aria-describedby="emailHelp"
                                     value={state.email}
                                     onChange={handleChange} />
                             </div>
@@ -117,4 +147,10 @@ export default function Login() {
             <div className="col d-none d-sm-block"></div>
         </div>
     )
+}
+
+Login.getInitialProps = async () => {
+    return {
+        page: 'Login Page'
+    }
 }
