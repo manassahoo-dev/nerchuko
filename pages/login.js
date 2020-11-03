@@ -78,7 +78,7 @@ export default function Login(props) {
             <div className="col-sm-6 col-lg-5">
                 <div className="card shadow  m-auto">
                     <div className="card-body m-4">
-                        <h1 className="text-primary text-center">Login</h1>
+                        <h1 className="text-primary text-center mb-4">Login</h1>
                         {error && <div class="alert alert-danger alert-dismissible fade show" role="alert">
                             {error}
                             <button type="button" class="close" aria-label="Close" onClick={() => setError(null)}>
