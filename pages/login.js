@@ -1,6 +1,8 @@
 import React, { useState, useContext } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
+import { Row, Col, Card } from 'antd';
+
 import axios from 'axios';
 import { Formik, Field, Form } from 'formik';
 import * as Yup from 'yup';
@@ -76,7 +78,7 @@ export default function Login(props) {
             />
             <div className="col d-none d-sm-block"></div>
             <div className="col-sm-6 col-lg-5">
-                <div className="card shadow  m-auto">
+                <Card>
                     <div className="card-body m-4">
                         <h1 className="text-primary text-center mb-4">Login</h1>
                         {error && <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -117,7 +119,7 @@ export default function Login(props) {
                                     <Link href="/signup"><a className="mx-2">Signup</a></Link>
                         </p>
                     </div>
-                </div>
+                </Card>
             </div>
             <div className="col d-none d-sm-block"></div>
         </div >

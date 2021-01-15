@@ -31,6 +31,5 @@ export default function Terms() {
         <p>nerchuko may revise these terms of service for its website at any time without notice. By using this website you are agreeing to be bound by the then current version of these terms of service.</p>
         <h3>8. Governing Law</h3>
         <p>These terms and conditions are governed by and construed in accordance with the laws of Telangana and you irrevocably submit to the exclusive jurisdiction of the courts in that State or location.</p>
-        <p><a href="https://getterms.io" title="Generate a free terms of use document">Terms of Use created with GetTerms.</a></p>
     </>
 }

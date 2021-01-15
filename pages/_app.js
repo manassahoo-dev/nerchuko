@@ -3,10 +3,9 @@ import Router from 'next/router';
 import { initGA, logPageView } from '../components/GoogleAnalytics'
 import NProgress from 'nprogress'; //nprogress module
 import 'nprogress/nprogress.css'; //styles of nprogress
-import '../styles/globals.css';
-import '../styles/app.scss';
+import '../styles/antd.less';
 
-import Layout from "../components/Layout";
+import AppLayout from "../components/AppLayout";
 import UserContext from '../components/contexts/UserContext';
 
 //Binding events. 
@@ -35,7 +34,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <UserContext.Provider value={{ user: user, login: login, logout: logout }}>
-      <Layout><div className="container my-4"><Component {...pageProps} /></div></Layout>
+      <AppLayout><Component {...pageProps} /></AppLayout>
     </UserContext.Provider>
   )
 }
