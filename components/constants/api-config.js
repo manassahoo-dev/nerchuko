@@ -3,11 +3,12 @@ let APP_URL;
 var window = global.window;
 const hostname = window && window.location && window.location.hostname;
 
-if (hostname === 'cforcode.github.io' || hostname === 'nerchuko.in') {
-  API_URL = 'https://nerchuko.tk';
+if (hostname !== 'localhost') {
+  API_URL = 'https://nerchuko.tk/';
   APP_URL = `https://${hostname}`;
 } else {
-  API_URL = process.env.REACT_APP_BACKEND_HOST || 'https://nerchuko.tk';
+  API_URL = process.env.REACT_APP_BACKEND_HOST || 'http://localhost:8080/ohm/';
+  // API_URL = 'http://13.127.232.144/ohm/';
   APP_URL = 'http://localhost:3000';
 }
 

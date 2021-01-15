@@ -1,128 +1,143 @@
 import React, { useState, useContext } from 'react';
 import Link from 'next/link';
 import Router from 'next/router';
-import { Row, Col, Card } from 'antd';
-
 import axios from 'axios';
-import { Formik, Field, Form } from 'formik';
-import * as Yup from 'yup';
 
-import { API_BASE_URL, APP_BASE_URL } from '../components/constants/api-config';
+import { API_BASE_URL } from '../components/constants/api-config';
 import { authHeader } from '../components/constants/authHeader';
 import UserContext from '../components/contexts/UserContext';
-
-import Meta from '../components/Meta';
-
-const validationSchema = Yup.object().shape({
-    email: Yup
-        .string()
-        .email()
-        .required(),
-    password: Yup
-        .string()
-        .min(4)
-        .max(16)
-        .required(),
-});
+import { Form, Input, Button, Row, Col, Card, Spin, Alert } from 'antd';
 
 export default function Login(props) {
+    const [loginForm] = Form.useForm();
+    const [otpForm] = Form.useForm();
     const { login } = useContext(UserContext);
     const [error, setError] = useState(null);
-    const initialValues = {
-        email: '',
-        password: '',
-    }
-    const onSubmit = (values, actions) => {
-        handleAuthentication(values, actions);
-    }
+    const [loading, setLoading] = useState(false);
+    const [loginType, setLoginType] = useState('password');
 
-    const handleAuthentication = (values, actions) => {
-        axios.post(`${API_BASE_URL}/auth/login`, values)
+    const handleAuthentication = (values) => {
+        setLoading(true);
+        setError(null);
+        const param = isNaN(values.mobileOrEmail) ?
+            {
+                "mail_id": values.mobileOrEmail,
+                "password": values.password,
+            } : {
+                "phone_number": values.mobileOrEmail,
+                "password": values.password,
+            }
+
+        axios.post(`${API_BASE_URL}user/login`, param)
             .then(function (response) {
                 if (response.status === 200) {
-                    Router.push('/');
-                    localStorage.setItem("token", response.data.accessToken);
-                    getCurrentUser();
+                    processAfterLoginSuccess(response);
                 }
             })
             .catch(function (error) {
-                setError(" Incorrect email or password. ");
+                setError(error.response ? error.response.data.msg : error.message);
             }).then(function () {
-                actions.setSubmitting(false);
+                setLoading(false);
             });
     }
 
-    const getCurrentUser = () => {
-        axios.get(`${API_BASE_URL}/user/me`, {
-            headers: authHeader()
-        })
+    const onFinish = values => {
+        loginType === 'password' ? handleAuthentication(values) : sendEmailOTP();
+    };
+
+    const onFinishFailed = errorInfo => {
+        console.log('Failed:', errorInfo);
+    };
+
+    const processAfterLoginSuccess = (response) => {
+        getProfile(response.data.user_id);
+        Router.push('/dashboard');
+        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("user_id", response.data.user_id);
+    }
+
+    const getProfile = (userId) => {
+        const param = {
+            "user_id": userId
+        }
+        axios.post(`${API_BASE_URL}user/get_profile`, param)
             .then(function (response) {
                 if (response.status === 200) {
+                    debugger;
                     login(response.data);
-                } else if (response.status === 401) {
-                    setError(" Incorrect email or password. ");
-                } else {
-                    // props.showError("Username does not exists");
                 }
             })
             .catch(function (error) {
-                console.log(error);
+                setError(error.response.data);
+            }).then(function () {
+                setLoading(false);
             });
     }
 
     return (
-        <div className="row">
-            <Meta
-                title='Login'
-                desc='Login Form'
-            />
-            <div className="col d-none d-sm-block"></div>
-            <div className="col-sm-6 col-lg-5">
-                <Card>
-                    <div className="card-body m-4">
-                        <h1 className="text-primary text-center mb-4">Login</h1>
-                        {error && <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            {error}
-                            <button type="button" class="close" aria-label="Close" onClick={() => setError(null)}>
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>}
-                        <Formik
-                            initialValues={initialValues}
-                            validationSchema={validationSchema}
-                            onSubmit={onSubmit}
-                        >
-                            {formik => {
-                                const { errors, touched, isValid, isSubmitting } = formik;
-                                return (
-                                    <Form>
-                                        <div className="form-group">
-                                            <label htmlFor="email" className="m-0 font-weight-bold text-black-50">Email address</label>
-                                            <Field name="email" type="email" className={`${(errors.email && touched.email) ? "form-control is-invalid" : "form-control "}`} />
-                                            <div className="invalid-feedback">{errors.email && touched.email && errors.email}</div>
-                                        </div>
-                                        <div className="form-group">
-                                            <label htmlFor="password" className="m-0 font-weight-bold text-black-50">Password</label>
-                                            <Link href="/forgot"><a className="float-right">Forgot password?</a></Link>
-                                            <Field name="password" type="password" className={`${(errors.password && touched.password) ? "form-control is-invalid" : 'form-control '}`} />
-                                            <div className="invalid-feedback">{errors.password && touched.password && errors.password}</div>
-                                        </div>
-                                        <button type="submit" className="btn btn-primary btn-block my-4" disabled={!isValid || isSubmitting}>
-                                            {isSubmitting ? <div><span className="spinner-border spinner-border-sm text-light" role="status" aria-hidden="true"></span>
-                                                <span className="ml-2">Logging in</span></div> : 'Login'}
-                                        </button>
-                                    </Form>
-                                )
-                            }}
-                        </Formik>
-                        <p className="text-muted text-center">Do not have an account?
-                                    <Link href="/signup"><a className="mx-2">Signup</a></Link>
+        <>
+            <Row>
+                <Col xs={24} sm={24} md={12} lg={12} xl={12}>
+                    <Card bordered={false}>
+                        <div>
+                            <div className="clearfix">
+                                <Link href="/">
+                                    <a className="btn btn-outline-secondary float-end">Home</a>
+                                </Link>
+                            </div>
+                            <h1 className="m0">Login</h1>
+                            <p>Log in with your data that you entered during your registraion</p><br />
+                            {error &&
+                                <Alert
+                                    className="mb-4"
+                                    message={error}
+                                    type="error"
+                                    showIcon
+                                    closable
+                                    onClose={() => setError(null)}
+                                />
+                            }
+                            <Form
+                                name="loginForm"
+                                form={loginForm}
+                                layout="vertical"
+                                onFinish={onFinish}
+                                onFinishFailed={onFinishFailed}
+                            >
+                                <Form.Item
+                                    label="Mobile number/ Email address"
+                                    name="mobileOrEmail"
+                                    rules={[{ required: true, message: 'Please input your mobile/ email' }]}
+                                >
+                                    <Input />
+                                </Form.Item>
+
+                                <Form.Item
+                                    label="Password"
+                                    name="password"
+                                    rules={[{ required: loginType === 'password', message: 'Please input your password' }]}
+                                >
+                                    <Input.Password />
+                                </Form.Item>
+
+                                <Form.Item>
+                                    <Button type="primary" htmlType="submit" block
+                                        disabled={loading}
+                                        loading={loading && loginType === 'password'}
+                                        onClick={() => setLoginType('password')}>Login</Button>
+                                </Form.Item>
+                            </Form>
+                        </div>
+                        <p className="text-muted text-center mt-5">Do not have an account?
+                            <Link href="/signup"><a className="mx-2">Signup</a></Link>
                         </p>
-                    </div>
-                </Card>
-            </div>
-            <div className="col d-none d-sm-block"></div>
-        </div >
+                    </Card>
+                </Col>
+                <Col xs={0} sm={0} md={12} lg={12} xl={12} className="text-center" style={{ backgroundColor: '#ccc', minHeight: '100vh' }}>
+
+                </Col>
+            </Row>
+        </>
     )
 }
 

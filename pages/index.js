@@ -1,6 +1,8 @@
 import { Typography, Row, Col, Card } from 'antd';
 
 const { Title } = Typography;
+const { Meta } = Card;
+
 export default function Home() {
 
   const categories = [
@@ -12,8 +14,8 @@ export default function Home() {
       <Row gutter={[16, 16]}>
         {categories.map((category, key) =>
           <Col xs={12} sm={6} key={key}>
-            <Card>
-              {category}
+            <Card hoverable>
+              <Meta title={category} description="10 words" />
             </Card>
           </Col>
         )}

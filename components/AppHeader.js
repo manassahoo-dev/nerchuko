@@ -10,6 +10,7 @@ const AppHeader = () => {
         { link: 'vocabulary', title: 'VOCABULARY' },
         { link: 'resources', title: 'RESOURCES' },
         { link: 'forum', title: 'FORUM' },
+        { link: 'translate', title: 'TRANSLATE' },
     ];
     const { user, logout } = useContext(UserContext);
     return (
@@ -42,10 +43,10 @@ const AppHeader = () => {
                     <Col xs={0} sm={12}>
                         <Row justify="center">
                             <Col>
-                                <Space size="large">
+                                <Space size={48}>
                                     {links.map((link, key) =>
                                         <Link href={link.link} key={key}>
-                                            <a>{link.title}</a>
+                                            <a className="menu-item">{link.title}</a>
                                         </Link>
                                     )}
                                 </Space>

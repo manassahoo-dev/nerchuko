@@ -98,7 +98,7 @@ export default function Login(props) {
                         <h1 className="text-primary text-center">Login</h1>
                         <form className="my-4">
                             <div className="form-group">
-                                <label htmlFor="email" className="m-0 font-weight-bold text-black-50">Email address</label>
+                                <label htmlFor="email" className="m0 font-weight-bold text-black-50">Email address</label>
                                 <input
                                     type="email"
                                     className="form-control"
@@ -107,7 +107,7 @@ export default function Login(props) {
                                     onChange={handleChange} />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="password" className="m-0 font-weight-bold text-black-50">Password</label>
+                                <label htmlFor="password" className="m0 font-weight-bold text-black-50">Password</label>
                                 <input
                                     type="password"
                                     className="form-control"
