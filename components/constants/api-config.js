@@ -3,7 +3,7 @@ let APP_URL;
 var window = global.window;
 const hostname = window && window.location && window.location.hostname;
 
-if (hostname === 'localhost') {
+if (hostname !== 'localhost') {
   API_URL = 'https://nerchuko.tk/';
   APP_URL = `https://${hostname}`;
 } else {
