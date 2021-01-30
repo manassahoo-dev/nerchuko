@@ -3,6 +3,7 @@ import Router from 'next/router';
 import { initGA, logPageView } from '../components/GoogleAnalytics'
 import NProgress from 'nprogress'; //nprogress module
 import 'nprogress/nprogress.css'; //styles of nprogress
+import 'antd-mobile/dist/antd-mobile.less';
 import '../styles/antd.less';
 
 import AppLayout from "../components/AppLayout";
