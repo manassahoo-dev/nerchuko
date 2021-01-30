@@ -14,12 +14,11 @@
     "antd": "^4.10.2",
     "axios": "^0.21.1",
     "babel-plugin-import": "^1.13.3",
-    "formik": "^2.2.1",
+    "framer-motion": "^3.2.1",
     "less": "^4.1.0",
-    "next": "^10.0.0",
-    "nprogress": "^0.2.0",
+    "next": "10.0.5",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "react-ga": "^3.2.0",
+    "react-ga": "^3.2.0"
   }
 }
