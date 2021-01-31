@@ -11,15 +11,18 @@ const MobileTopicsIndex = (props) => {
     return (
         <List renderHeader={() => 'Topics'}>
             {data.map((item, key) =>
-                <Item
-                    arrow="horizontal"
-                    thumb={item.imageUrl}
-                    multipleLine
-                    onClick={() => { }}
-                    key={key}
-                >
-                    {item.name}
-                </Item>
+                <Link href={`/topics/${item.name}`} key={key}>
+                    <a>
+                        <Item
+                            arrow="horizontal"
+                            thumb={item.imageUrl}
+                            multipleLine
+                            onClick={() => { }}
+                        >
+                            {item.name}
+                        </Item>
+                    </a>
+                </Link>
             )}
         </List>
     )

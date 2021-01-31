@@ -23,7 +23,6 @@ const AppLayout = props => {
                 <div style={{ minHeight: "100vh" }}>
                     {props.children}
                 </div>}
-
         </>
     )
 };

@@ -7,10 +7,10 @@ const { Header } = Layout;
 
 const AppHeader = () => {
     const links = [
-        { link: 'vocabulary', title: 'VOCABULARY' },
-        { link: 'resources', title: 'RESOURCES' },
-        { link: 'forum', title: 'FORUM' },
-        { link: 'translate', title: 'TRANSLATE' },
+        { link: '/vocabulary', title: 'VOCABULARY' },
+        { link: '/resources', title: 'RESOURCES' },
+        { link: '/forum', title: 'FORUM' },
+        { link: '/translate', title: 'TRANSLATE' },
     ];
     const { user, logout } = useContext(UserContext);
     return (

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { useMediaQuery } from 'react-responsive'
+import MediaQuery from 'react-responsive'
 
 import MobileTopicsIndex from '../../components/mobile/index';
 import DesktopTopicsIndex from '../../components/desktop/index';
@@ -12,9 +13,14 @@ const TopicsIndex = (props) => {
     const loading = false
 
     return (
-        <>
-            { isTabletOrMobile ? <MobileTopicsIndex data={data} /> : <DesktopTopicsIndex data={data} />}
-        </>
+        <div>
+            <MediaQuery maxDeviceWidth={768}>
+                <MobileTopicsIndex data={data} />
+            </MediaQuery>
+            <MediaQuery minDeviceWidth={768}>
+                <DesktopTopicsIndex data={data} />
+            </MediaQuery>
+        </div>
     )
 }
 export default TopicsIndex;
