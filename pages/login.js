@@ -21,17 +21,17 @@ export default function Login(props) {
         setError(null);
         const param = isNaN(values.mobileOrEmail) ?
             {
-                "mail_id": values.mobileOrEmail,
+                "email": values.mobileOrEmail,
                 "password": values.password,
             } : {
                 "phone_number": values.mobileOrEmail,
                 "password": values.password,
             }
 
-        axios.post(`${API_BASE_URL}user/login`, param)
+        axios.post(`${API_BASE_URL}auth/login`, param)
             .then(function (response) {
                 if (response.status === 200) {
-                    processAfterLoginSuccess(response);
+                    processAfterLoginSuccess(response.data.accessToken);
                 }
             })
             .catch(function (error) {
@@ -49,21 +49,19 @@ export default function Login(props) {
         console.log('Failed:', errorInfo);
     };
 
-    const processAfterLoginSuccess = (response) => {
-        getProfile(response.data.user_id);
-        Router.push('/dashboard');
-        localStorage.setItem("token", response.data.token);
-        localStorage.setItem("user_id", response.data.user_id);
+    const processAfterLoginSuccess = (accessToken) => {
+        getProfile(accessToken);
+        Router.push('/');
+        localStorage.setItem("token", accessToken);
     }
 
-    const getProfile = (userId) => {
-        const param = {
-            "user_id": userId
-        }
-        axios.post(`${API_BASE_URL}user/get_profile`, param)
+    const getProfile = (accessToken) => {
+        const config = {
+            headers: { Authorization: `Bearer ${accessToken}` }
+        };
+        axios.get(`${API_BASE_URL}user/me`, config)
             .then(function (response) {
                 if (response.status === 200) {
-                    debugger;
                     login(response.data);
                 }
             })

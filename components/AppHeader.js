@@ -59,7 +59,6 @@ const AppHeader = () => {
                                 <Button type="primary" block>
                                     <Link href="/login"><a>Login</a></Link>
                                 </Button>
-
                             </Col>
                         </Row>
                     </Col>
