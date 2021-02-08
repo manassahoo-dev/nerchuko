@@ -38,7 +38,9 @@ const AppHeader = () => {
             <Header>
                 <Row>
                     <Col xs={12} sm={6}>
-                        <Link href="/"><b><a>NERCHUKO</a></b></Link>
+                        <Link href="/"><a>
+                            <img src="/logo.svg" height="50"></img>
+                            </a></Link>
                     </Col>
                     <Col xs={0} sm={12}>
                         <Row justify="center">
