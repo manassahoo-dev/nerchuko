@@ -1,6 +1,5 @@
 import React from 'react';
 
-import MobileTopicsIndex from '../../components/mobile/index';
 import DesktopTopicsIndex from '../../components/desktop/index';
 
 const TopicsIndex = (props) => {
