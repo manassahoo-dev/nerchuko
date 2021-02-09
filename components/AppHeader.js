@@ -40,7 +40,7 @@ const AppHeader = () => {
                     <Col xs={12} sm={6}>
                         <Link href="/"><a>
                             <img src="/logo.svg" height="50"></img>
-                            </a></Link>
+                        </a></Link>
                     </Col>
                     <Col xs={0} sm={12}>
                         <Row justify="center">
@@ -58,9 +58,12 @@ const AppHeader = () => {
                     <Col xs={12} sm={6}>
                         <Row justify="end">
                             <Col>
-                                <Button type="primary" block>
-                                    <Link href="/login"><a>Login</a></Link>
-                                </Button>
+                                <Space>
+                                    <Button type="primary">+ Contribute</Button>
+                                    <Button>
+                                        <Link href="/login"><a>Login</a></Link>
+                                    </Button>
+                                </Space>
                             </Col>
                         </Row>
                     </Col>
