@@ -59,7 +59,6 @@ const AppHeader = () => {
                         <Row justify="end">
                             <Col>
                                 <Space>
-                                    <Button type="primary">+ Contribute</Button>
                                     <Button>
                                         <Link href="/login"><a>Login</a></Link>
                                     </Button>
