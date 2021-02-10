@@ -10,7 +10,7 @@ const DesktopTopicsIndex = (props) => {
     const { data } = props
 
     return (
-        <Row gutter={[{ xs: 8, sm: 16, md: 24, lg: 32 },{ xs: 12, sm: 16, md: 24, lg: 32 }]}>
+        <Row gutter={[{ xs: 8, sm: 16, md: 24, lg: 32 }, { xs: 12, sm: 16, md: 24, lg: 32 }]}>
             {data.map((item, index) => (
                 <>
                     <Col key={`${index}`} xs={0} sm={8} md={6} lg={6} xl={4} xxl={3}>
@@ -21,7 +21,7 @@ const DesktopTopicsIndex = (props) => {
                                     style={{ textAlign: "center", borderRadius: '2rem' }}
                                     cover={<img alt={item.name} rel="preconnect" src={item.imageUrl} style={{ height: "80px", width: "auto", margin: "24px auto 0" }} />}
                                 >
-                                    <Meta title={item.name} style={{ textAlign: "center", marginTop: '-1rem' }} />
+                                    <Meta title={item.name} description={item.telugu} style={{ textAlign: "center" }} />
                                 </Card>
                             </a>
                         </Link>
@@ -33,10 +33,10 @@ const DesktopTopicsIndex = (props) => {
                                     style={{ borderRadius: '1rem' }}>
                                     <Meta
                                         avatar={
-                                            <Avatar src={item.imageUrl} shape="square" size={50}/>
+                                            <Avatar src={item.imageUrl} shape="square" size={50} />
                                         }
                                         title={item.name}
-                                        description={item.name}
+                                        description={item.telugu}
                                     />
                                 </Card>
                             </a>
