@@ -12,7 +12,7 @@ const DesktopTopicsIndex = (props) => {
     return (
         <Row gutter={[24, 24]}>
             {data.map((item, index) => (
-                <Col key={index} className="gutter-row xs-hide" sm={8} md={6} lg={6} xl={4}>
+                <Col key={index} className="gutter-row xs-hide" xs={12} sm={8} md={6} lg={6} xl={4} xxl={3}>
                     <Link href={`/topics/${item.name}`}>
                         <a>
                             <Card
