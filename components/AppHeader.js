@@ -39,7 +39,7 @@ const AppHeader = () => {
                 <Row>
                     <Col xs={12} sm={6}>
                         <Link href="/"><a>
-                            <img src="/logo.svg" height="50"></img>
+                            <img src="/logo.svg" className="logo"></img>
                         </a></Link>
                     </Col>
                     <Col xs={0} sm={12}>
@@ -59,7 +59,7 @@ const AppHeader = () => {
                         <Row justify="end">
                             <Col>
                                 <Space>
-                                    <Button>
+                                    <Button type="primary">
                                         <Link href="/login"><a>Login</a></Link>
                                     </Button>
                                 </Space>
