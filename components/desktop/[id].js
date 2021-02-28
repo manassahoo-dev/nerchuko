@@ -67,7 +67,7 @@ const Topics = (props) => {
                 onBack={() => router.back()}
                 title={topicName}
             />
-            { !loading && <Table dataSource={phrases} columns={columns} rowKey="engPhraseName" size="small" />}
+            { !loading && <Table dataSource={phrases} columns={columns} rowKey="engPhraseName" />}
         </>
     )
 }

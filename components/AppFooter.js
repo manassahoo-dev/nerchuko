@@ -4,9 +4,9 @@ const { Footer } = Layout;
 
 const AppFooter = () => {
   const links = [
-    { link: 'privacy', title: 'Privacy Policy' },
-    { link: 'terms', title: 'Terms of Service' },
-    { link: 'sitemap', title: 'Sitemap' },
+    { link: '/privacy', title: 'Privacy Policy' },
+    { link: '/terms', title: 'Terms of Service' },
+    { link: '/sitemap', title: 'Sitemap' },
   ];
   return (
     <Footer>

@@ -1,34 +1,24 @@
-import React, { useState, useContext } from 'react';
+import { Alert, Button, Card, Col, Form, Input, Row } from 'antd';
+import axios from 'axios';
 import Link from 'next/link';
 import Router from 'next/router';
-import axios from 'axios';
-
+import React, { useContext, useState } from 'react';
 import { API_BASE_URL } from '../components/constants/api-config';
 import { authHeader } from '../components/constants/authHeader';
 import UserContext from '../components/contexts/UserContext';
-import { Form, Input, Button, Row, Col, Card, Spin, Alert } from 'antd';
+
 
 export default function Login(props) {
     const [loginForm] = Form.useForm();
-    const [otpForm] = Form.useForm();
     const { login } = useContext(UserContext);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
-    const [loginType, setLoginType] = useState('password');
 
     const handleAuthentication = (values) => {
         setLoading(true);
         setError(null);
-        const param = isNaN(values.mobileOrEmail) ?
-            {
-                "email": values.mobileOrEmail,
-                "password": values.password,
-            } : {
-                "phone_number": values.mobileOrEmail,
-                "password": values.password,
-            }
 
-        axios.post(`${API_BASE_URL}auth/login`, param)
+        axios.post(`${API_BASE_URL}auth/login`, values)
             .then(function (response) {
                 if (response.status === 200) {
                     processAfterLoginSuccess(response.data.accessToken);
@@ -42,7 +32,7 @@ export default function Login(props) {
     }
 
     const onFinish = values => {
-        loginType === 'password' ? handleAuthentication(values) : sendEmailOTP();
+        handleAuthentication(values);
     };
 
     const onFinishFailed = errorInfo => {
@@ -50,19 +40,18 @@ export default function Login(props) {
     };
 
     const processAfterLoginSuccess = (accessToken) => {
-        getProfile(accessToken);
-        Router.push('/');
-        localStorage.setItem("token", accessToken);
-    }
-
-    const getProfile = (accessToken) => {
-        const config = {
-            headers: { Authorization: `Bearer ${accessToken}` }
-        };
-        axios.get(`${API_BASE_URL}user/me`, config)
+        localStorage.setItem("t", accessToken);
+        axios.get(`${API_BASE_URL}user/me`, authHeader())
             .then(function (response) {
                 if (response.status === 200) {
+                    localStorage.setItem("r", window.btoa(response.data.roles));
+                    localStorage.setItem("m", window.btoa(response.data.email))
                     login(response.data);
+                    if (response.data.role === 'admin') {
+                        Router.push('/admin');
+                    } else {
+                        Router.push('/');
+                    }
                 }
             })
             .catch(function (error) {
@@ -103,9 +92,9 @@ export default function Login(props) {
                                 onFinishFailed={onFinishFailed}
                             >
                                 <Form.Item
-                                    label="Mobile number/ Email address"
-                                    name="mobileOrEmail"
-                                    rules={[{ required: true, message: 'Please input your mobile/ email' }]}
+                                    label="Email address"
+                                    name="email"
+                                    rules={[{ required: true, message: 'Please input your Email' }]}
                                 >
                                     <Input />
                                 </Form.Item>
@@ -113,16 +102,13 @@ export default function Login(props) {
                                 <Form.Item
                                     label="Password"
                                     name="password"
-                                    rules={[{ required: loginType === 'password', message: 'Please input your password' }]}
+                                    rules={[{ required: true, message: 'Please input your Password' }]}
                                 >
                                     <Input.Password />
                                 </Form.Item>
 
                                 <Form.Item>
-                                    <Button type="primary" htmlType="submit" block
-                                        disabled={loading}
-                                        loading={loading && loginType === 'password'}
-                                        onClick={() => setLoginType('password')}>Login</Button>
+                                    <Button type="primary" htmlType="submit" block disabled={loading} loading={loading}>Login</Button>
                                 </Form.Item>
                             </Form>
                         </div>

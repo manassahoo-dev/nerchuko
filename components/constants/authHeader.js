@@ -1,3 +1,5 @@
 export function authHeader() {
-    return { Authorization: `Bearer ${localStorage.getItem('token')}`};
+    return {
+        headers: { Authorization: `Bearer ${localStorage.getItem('t')}` }
+    };
 }

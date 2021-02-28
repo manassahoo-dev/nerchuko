@@ -1,12 +1,13 @@
-import AppHeader from "./AppHeader";
-import AppFooter from "./AppFooter";
 import { Layout } from 'antd';
+import AppFooter from "./AppFooter";
+import AppHeader from "./AppHeader";
 const { Content } = Layout;
 
 const AppLayout = props => {
     let showHeaderFooter = true;
+    let pathName = "/"
     if (typeof window !== "undefined") {
-        const pathName = window.location.pathname;
+        pathName = window.location.pathname;
         const paths = ["/login", "/signup", "/forgot",
             "/profile", "/dashboard", "/courses", "/settings"];
         showHeaderFooter = paths.includes(pathName) ? false : true;
@@ -16,7 +17,7 @@ const AppLayout = props => {
         <>
             {showHeaderFooter ?
                 <Layout style={{ minHeight: "100vh" }}>
-                    <AppHeader />
+                    <AppHeader current={pathName} />
                     <Content>{props.children}</Content>
                     <AppFooter />
                 </Layout> :

@@ -1,18 +1,39 @@
-import Link from 'next/link';
+import { DownOutlined, LogoutOutlined, UserOutlined } from '@ant-design/icons';
+import { Button, Col, Dropdown, Layout, Menu, Row, Space } from 'antd';
 import Head from 'next/head';
-import { useContext } from 'react';
+import Link from 'next/link';
+import { useContext, useEffect, useState } from 'react';
 import UserContext from './contexts/UserContext';
-import { Layout, Row, Col, Space, Button } from 'antd';
+
 const { Header } = Layout;
 
-const AppHeader = () => {
+const AppHeader = (props) => {
+    const { current } = props;
+    console.log(current)
+    const [user, setUser] = useState(null);
+
     const links = [
         { link: '/vocabulary', title: 'VOCABULARY' },
         { link: '/resources', title: 'RESOURCES' },
         { link: '/forum', title: 'FORUM' },
         { link: '/translate', title: 'TRANSLATE' },
     ];
-    const { user, logout } = useContext(UserContext);
+    const { logOut } = useContext(UserContext);
+
+    const menu = (
+        <Menu style={{ minWidth: '150px' }}>
+            <Menu.Item key="profile" icon={<UserOutlined />}><Link href="/profile"><a>Profile</a></Link></Menu.Item>
+            <Menu.Divider></Menu.Divider>
+            <Menu.Item key="logOut" icon={<LogoutOutlined />}><Link href="/"><a onClick={logOut}>Logout</a></Link></Menu.Item>
+        </Menu>
+    );
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            const pathName = window.location.pathname;
+            setUser(localStorage.getItem("m"));
+        }
+    }, []);
+
     return (
         <>
             <Head>
@@ -59,9 +80,16 @@ const AppHeader = () => {
                         <Row justify="end">
                             <Col>
                                 <Space>
-                                    <Button type="primary">
-                                        <Link href="/login"><a>Login</a></Link>
-                                    </Button>
+
+                                    {user ?
+                                        <Dropdown overlay={menu} className="float-end" placement="bottomCenter">
+                                            <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+                                                <img src="/images/user.png" height="32" style={{ marginRight: '10px' }} /> <DownOutlined />
+                                            </a>
+                                        </Dropdown>
+                                        :
+                                        <Button type="primary"><Link href="/login"><a>LOGIN</a></Link></Button>
+                                    }
                                 </Space>
                             </Col>
                         </Row>
