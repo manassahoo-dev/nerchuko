@@ -1,4 +1,5 @@
-import { Card, Col, Row, Rate } from 'antd';
+import { Card, Col, Rate, Row } from 'antd';
+import Link from 'next/link';
 
 const { Meta } = Card;
 export default function Books() {
@@ -13,7 +14,7 @@ export default function Books() {
             image: 'https://images-na.ssl-images-amazon.com/images/I/41dADkCMIxL.jpg'
         },
         {
-            name: 'SPOKEN TELUGU FOR ABSOLUTE BEGINNERS',
+            name: 'Spoken Telugu for absolute beginners',
             author: 'Sanjay D',
             pages: 249,
             reviews: 4.3,
@@ -34,15 +35,21 @@ export default function Books() {
         <h1>Books</h1>
         <Row gutter={16}>
             {books.map((book, key) =>
-                <Col xs={24} sm={5} key={key}>
-                    <Card
-                        bordered={false}
-                        hoverable
-                        cover={<img alt={book.name} src={book.image} style={{ maxHeight: 300, padding: 10 }} />}
-                    >
-                        <Meta title={book.name} description={book.author} />
-                        <Rate disabled defaultValue={book.reviews} />
-                    </Card>
+                <Col xs={24} sm={4} key={key}>
+                    <Link href={`/books/${book.ISBN10}`}>
+                        <a>
+                            <Card
+                                style={{ background: 'none' }}
+                                bordered={false}
+                                cover={<img alt={book.name} src={book.image} style={{
+                                    maxHeight: 200, padding: 10, margin: 'auto', display: 'block', width: 'auto'
+                                }} />}
+                            >
+                                <Meta title={book.name} description={book.author} />
+                                <Rate disabled defaultValue={book.reviews} />
+                            </Card>
+                        </a>
+                    </Link>
                 </Col>
             )}
         </Row>

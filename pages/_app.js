@@ -5,7 +5,7 @@ import { useState } from 'react';
 import AppLayout from "../components/AppLayout";
 import UserContext from '../components/contexts/UserContext';
 import { initGA, logPageView } from '../components/GoogleAnalytics';
-import '../styles/antd.less';
+import '../public/styles/antd.less';
 
 
 //Binding events. 

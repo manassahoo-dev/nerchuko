@@ -1,7 +1,7 @@
+import { Avatar, Card, Col, Layout, Row } from 'antd';
+import Link from 'next/link';
 import React from 'react';
 
-import Link from 'next/link'
-import { Card, Layout, Row, Col, List, Avatar, Skeleton } from 'antd';
 
 const { Content } = Layout;
 const { Meta } = Card;
