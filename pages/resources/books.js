@@ -34,7 +34,7 @@ export default function Books() {
         <h1>Books</h1>
         <Row gutter={16}>
             {books.map((book, key) =>
-                <Col span={5} key={key}>
+                <Col xs={24} sm={5} key={key}>
                     <Card
                         bordered={false}
                         hoverable

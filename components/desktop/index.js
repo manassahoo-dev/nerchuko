@@ -18,7 +18,7 @@ const DesktopTopicsIndex = (props) => {
                             <a>
                                 <Card
                                     hoverable
-                                    style={{ textAlign: "center", borderRadius: '2rem' }}
+                                    style={{ textAlign: "center", borderRadius: '2rem', borderColor: '#fff' }}
                                     cover={<img alt={item.name} rel="preconnect" src={item.imageUrl} style={{ height: "80px", width: "auto", margin: "24px auto 0" }} />}
                                 >
                                     <Meta title={item.name} description={item.telugu} style={{ textAlign: "center" }} />
