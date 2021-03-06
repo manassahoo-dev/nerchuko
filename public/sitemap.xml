@@ -9,32 +9,87 @@
 
 <url>
   <loc>https://nerchuko.in/</loc>
-  <lastmod>2020-08-25T20:46:00+00:00</lastmod>
+  <lastmod>2021-03-06T20:07:14+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
+  <loc>https://nerchuko.in/vocabulary</loc>
+  <lastmod>2021-03-06T20:07:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://nerchuko.in/resources</loc>
+  <lastmod>2021-03-06T20:07:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://nerchuko.in/forum</loc>
+  <lastmod>2021-03-06T20:07:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://nerchuko.in/translate</loc>
+  <lastmod>2021-03-06T20:07:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
   <loc>https://nerchuko.in/login</loc>
-  <lastmod>2020-08-25T20:46:00+00:00</lastmod>
+  <lastmod>2021-03-06T20:07:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://nerchuko.in/topics/Greetings</loc>
+  <lastmod>2021-03-06T20:07:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://nerchuko.in/topics/Numbers</loc>
+  <lastmod>2021-03-06T20:07:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://nerchuko.in/topics/Family</loc>
+  <lastmod>2021-03-06T20:07:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://nerchuko.in/topics/Vegetables</loc>
+  <lastmod>2021-03-06T20:07:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://nerchuko.in/topics/Fruits</loc>
+  <lastmod>2021-03-06T20:07:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://nerchuko.in/topics/Colors</loc>
+  <lastmod>2021-03-06T20:07:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://nerchuko.in/topics/Days</loc>
+  <lastmod>2021-03-06T20:07:14+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://nerchuko.in/privacy</loc>
-  <lastmod>2020-08-25T20:46:00+00:00</lastmod>
+  <lastmod>2021-03-06T20:07:14+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://nerchuko.in/terms</loc>
-  <lastmod>2020-08-25T20:46:00+00:00</lastmod>
+  <lastmod>2021-03-06T20:07:14+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://nerchuko.in/sitemap</loc>
-  <lastmod>2020-08-25T20:46:00+00:00</lastmod>
+  <lastmod>2021-03-06T20:07:14+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://nerchuko.in/signup</loc>
-  <lastmod>2020-08-25T20:46:00+00:00</lastmod>
+  <lastmod>2021-03-06T20:07:14+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 
