@@ -1,6 +1,6 @@
-import { Card, Layout, Row, Col, List, Avatar, Skeleton, Typography } from 'antd';
+import { Card, Layout, Typography } from 'antd';
+import Topics from './topics/index';
 
-import Topics from './topics/index'
 
 const { Title } = Typography;
 const { Meta } = Card;
