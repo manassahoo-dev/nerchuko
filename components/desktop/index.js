@@ -12,7 +12,7 @@ const DesktopTopicsIndex = (props) => {
     return (
         <Row gutter={[{ xs: 8, sm: 16, md: 24, lg: 32 }, { xs: 12, sm: 16, md: 24, lg: 32 }]}>
             {data.map((item, index) => (
-                <>
+                <React.Fragment key={index} >
                     <Col key={`${index}`} xs={0} sm={8} md={6} lg={6} xl={4} xxl={3}>
                         <Link href={`/topics/${item.name}`}>
                             <a>
@@ -42,9 +42,10 @@ const DesktopTopicsIndex = (props) => {
                             </a>
                         </Link>
                     </Col>
-                </>
-            ))}
-        </Row>
+                </React.Fragment >
+            ))
+            }
+        </Row >
     )
 }
 export default DesktopTopicsIndex;

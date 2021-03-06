@@ -9,7 +9,6 @@ const { Header } = Layout;
 
 const AppHeader = (props) => {
     const { current } = props;
-    console.log(current)
     const [user, setUser] = useState(null);
 
     const links = [

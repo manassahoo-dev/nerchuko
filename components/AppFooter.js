@@ -1,6 +1,8 @@
-import { Col, Layout, Row } from 'antd';
+import { Col, Layout, Row, Typography } from 'antd';
 import Link from 'next/link';
+import { BsBoxArrowUpRight } from "react-icons/bs";
 const { Footer } = Layout;
+const { Text } = Typography;
 
 const AppFooter = () => {
   const links = [
@@ -26,15 +28,21 @@ const AppFooter = () => {
     <>
       <Footer>
         <Row>
-          {links.map((item, index) => <Col span={6} key={index}>
+          {links.map((item, index) => <Col xs={12} sm={6} key={index}>
             <h3>{item.name}</h3>
             {item.links.map((link, index) =>
-              <Link key={index} href={link.link}><a target={item.name === 'Social' && "_blank"}><h5>{link.title}</h5></a></Link>
+              <Link key={index} href={link.link}>
+                <a target={item.name === 'Connect with Us' ? "_blank" : "_self"}>
+                  <h5><Text type="secondary">{link.title}&nbsp;{item.name === 'Connect with Us' && <BsBoxArrowUpRight />}</Text></h5>
+                </a>
+              </Link>
             )}
           </Col>)}
         </Row>
       </Footer >
-      <Link href="/"><a>© nerchuko.in</a></Link>
+      <Footer style={{ background: '#ececec' }}>
+        <Link href="/"><a>© nerchuko.in</a></Link>
+      </Footer>
     </>
   )
 };

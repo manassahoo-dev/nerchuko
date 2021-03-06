@@ -10,6 +10,7 @@ if (typeof require !== "undefined") {
 }
 
 module.exports = withCSS({
+    reactStrictMode: true,
     cssModules: true,
     cssLoaderOptions: {
         importLoaders: 1,
