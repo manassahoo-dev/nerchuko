@@ -41,7 +41,7 @@ const AppFooter = () => {
         </Row>
       </Footer >
       <Footer style={{ background: '#ececec' }}>
-        <Link href="/"><a>© nerchuko.in</a></Link>
+        <Link href="/"><a>© nerchuko.in, All rights reserved.</a></Link>
       </Footer>
     </>
   )

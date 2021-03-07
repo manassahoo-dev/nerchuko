@@ -11,7 +11,7 @@ const AppHeader = (props) => {
     const { current } = props;
     const [user, setUser] = useState(null);
 
-    const links = [
+    const menus = [
         { link: '/vocabulary', title: 'VOCABULARY' },
         { link: '/resources', title: 'RESOURCES' },
         { link: '/forum', title: 'FORUM' },
@@ -57,25 +57,22 @@ const AppHeader = (props) => {
             </Head>
             <Header>
                 <Row>
-                    <Col xs={12} sm={6}>
+                    <Col xs={12} md={4}>
                         <Link href="/"><a>
                             <img src="/images/logo.svg" className="logo"></img>
                         </a></Link>
                     </Col>
-                    <Col xs={0} sm={12}>
+                    <Col xs={0} md={16}>
                         <Row justify="center">
                             <Col>
-                                <Space size={48}>
-                                    {links.map((link, key) =>
-                                        <Link href={link.link} key={key}>
-                                            <a className="menu-item">{link.title}</a>
-                                        </Link>
-                                    )}
-                                </Space>
+                                {menus.map((menu, index) =>
+                                    <Link key={index} href={menu.link}>
+                                        <a className={current === menu.link ? 'menu-item active' : 'menu-item'}>{menu.title}</a>
+                                    </Link>)}
                             </Col>
                         </Row>
                     </Col>
-                    <Col xs={12} sm={6}>
+                    <Col xs={12} md={4}>
                         <Row justify="end">
                             <Col>
                                 <Space>

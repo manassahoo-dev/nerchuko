@@ -24,7 +24,7 @@ const AuthHeader = () => {
             {/* <Search placeholder="input search text" style={{ width: 250, margin: '16px' }} /> */}
             <Dropdown overlay={menu} className="float-end" placement="bottomCenter">
                 <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-                    <img src="/image/profile.png" height="40" style={{ margin: '12px' }} /> <DownOutlined />
+                    <img src="/images/user.png" height="40" style={{ margin: '12px' }} /> <DownOutlined />
                 </a>
             </Dropdown>
             <div className="float-end" style={{ margin: '0 16px' }}>

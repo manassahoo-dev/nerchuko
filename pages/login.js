@@ -47,7 +47,8 @@ export default function Login(props) {
                     localStorage.setItem("r", window.btoa(response.data.roles));
                     localStorage.setItem("m", window.btoa(response.data.email))
                     login(response.data);
-                    if (response.data.role === 'admin') {
+                    const roles = response.data.roles;
+                    if (roles.some(role => role.name === 'ADMIN')) {
                         Router.push('/admin');
                     } else {
                         Router.push('/');

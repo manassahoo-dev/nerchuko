@@ -34,7 +34,7 @@ const SideNavBar = props => {
     return (
         <>
             <Sider theme="light" collapsible collapsed={collapsed} onCollapse={onCollapse}>
-                <div className="text-center"> <img src="/image/logo.png" alt="logo" height="60" style={{ padding: '10px' }} /></div>
+                <div className="text-center"> <img src="/images/logo.svg" alt="logo" height="60" style={{ padding: '10px' }} /></div>
                 {role === 'student' ?
                     <Menu onClick={handleClick} selectedKeys={[current]} theme="light" mode="inline">
                         <Menu.Item key="/dashboard" icon={<HomeOutlined />}><Link href="/dashboard"><a>Dashboard</a></Link></Menu.Item>
