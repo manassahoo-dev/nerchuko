@@ -13,8 +13,8 @@ const Meta = (props) => (
         <meta name="twitter:description" content={props.desc} />
         <meta name="twitter:site" content="@propernounco" />
         <meta name="twitter:creator" content="@propernounco" />
-        <link rel="icon" type="image/png" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/images/favicon.ico" />
+        <link rel="apple-touch-icon" href="/images/favicon.ico" />
         {
             props.css &&
             <link rel="stylesheet" href={`${props.css}`} />
@@ -23,8 +23,8 @@ const Meta = (props) => (
             props.image ? (
                 <meta property="og:image" content={`${props.image}`} />
             ) : (
-                    <meta property="og:image" content="https://www.propernoun.co/static/images/proper-noun-social.png" />
-                )
+                <meta property="og:image" content="https://www.propernoun.co/static/images/proper-noun-social.png" />
+            )
         }
         {
             props.image &&
