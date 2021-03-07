@@ -4,7 +4,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import { useContext, useEffect, useState } from 'react';
 import UserContext from './contexts/UserContext';
-
+import Login from '../pages/login';
 const { Header } = Layout;
 
 const AppHeader = (props) => {
@@ -84,7 +84,7 @@ const AppHeader = (props) => {
                                             </a>
                                         </Dropdown>
                                         :
-                                        <Button type="primary"><Link href="/login"><a>LOGIN</a></Link></Button>
+                                        <Login />
                                     }
                                 </Space>
                             </Col>

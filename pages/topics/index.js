@@ -1,57 +1,74 @@
-import React from 'react';
+import { Card, Col, Row } from 'antd';
+import axios from 'axios';
+import Link from 'next/link';
+import React, { useEffect, useState } from 'react';
+import { API_BASE_URL } from '../../components/constants/api-config';
 
-import DesktopTopicsIndex from '../../components/desktop/index';
-
+const { Meta } = Card;
 const TopicsIndex = (props) => {
-    const data = [
-        {
-           "id":1,
-           "name":"Greetings",
-           "imageUrl":"https://image.flaticon.com/icons/svg/1006/1006555.svg",
-           "telugu": "శుభాకాంక్షలు"
-        },
-        {
-            "id":2,
-            "name":"Numbers",
-            "imageUrl":"https://image.flaticon.com/icons/svg/2890/2890747.svg",
-            "telugu": "సంఖ్యలు"
-        },
-        {
-            "id":3,
-            "name":"Family",
-            "imageUrl":"https://image.flaticon.com/icons/svg/2219/2219802.svg",
-            "telugu": "కుటుంబం"
-        },
-        {
-            "id":4,
-            "name":"Vegetables",
-            "imageUrl":"https://image.flaticon.com/icons/svg/2921/2921855.svg",
-            "telugu": "కూరగాయలు"
-        },
-        {
-            "id":5,
-            "name":"Fruits",
-            "imageUrl":"https://image.flaticon.com/icons/svg/2224/2224249.svg",
-            "telugu": "పండ్లు"
-        },
-        {
-            "id":6,
-            "name":"Colors",
-            "imageUrl":"https://image.flaticon.com/icons/svg/1831/1831908.svg",
-            "telugu": "రంగులు"
-        },
-        {
-           "id":7,
-           "name":"Days",
-           "imageUrl":"https://image.flaticon.com/icons/svg/2922/2922993.svg",
-           "telugu": "రోజులు"
-        }
-     ]
-    const loading = false
+    const [topics, setTopics] = useState([]);
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false);
+
+    const listTopics = () => {
+        setLoading(true);
+        setError(null);
+
+        axios.get(`${API_BASE_URL}topics`)
+            .then(function (response) {
+                if (response.status === 200) {
+                    setTopics(response.data);
+                }
+            })
+            .catch(function (error) {
+                setError(error.response ? error.response.data.msg : error.message);
+            }).then(function () {
+                setLoading(false);
+            });
+    }
+
+    useEffect(() => {
+        listTopics()
+    }, []);
 
     return (
         <div>
-            <DesktopTopicsIndex data={data} />
+            <Row gutter={[{ xs: 12, sm: 16, md: 24, lg: 32 }, { xs: 12, sm: 16, md: 24, lg: 32 }]}>
+                {topics.map((item, index) => (
+                    <React.Fragment key={index} >
+                        <Col key={`${index}`} xs={12} sm={8} md={6} lg={6} xl={4} xxl={3}>
+                            <Link href={`/topics/${item.name}`}>
+                                <a>
+                                    <Card
+                                        hoverable
+                                        style={{ textAlign: "center", borderRadius: '2rem', borderColor: '#fff' }}
+                                        cover={<img alt={item.name} rel="preconnect" src={item.imageUrl} style={{ height: "80px", width: "auto", margin: "24px auto 0" }} />}
+                                    >
+                                        <Meta title={item.name} description={item.telugu} style={{ textAlign: "center" }} />
+                                    </Card>
+                                </a>
+                            </Link>
+                        </Col>
+                        {/* <Col key={`m${index}`} xs={24} sm={0}>
+                            <Link href={`/topics/${item.name}`}>
+                                <a>
+                                    <Card hoverable
+                                        style={{ borderRadius: '1rem' }}>
+                                        <Meta
+                                            avatar={
+                                                <Avatar src={item.imageUrl} shape="square" size={50} />
+                                            }
+                                            title={item.name}
+                                            description={item.telugu}
+                                        />
+                                    </Card>
+                                </a>
+                            </Link>
+                        </Col> */}
+                    </React.Fragment >
+                ))
+                }
+            </Row >
         </div>
     )
 }

@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps }) {
   const logOut = (e) => {
     localStorage.clear();
     setUser(null);
-    Router.push('/login');
+    Router.push('/');
   }
 
   return (

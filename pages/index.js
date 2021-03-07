@@ -9,15 +9,15 @@ export default function Home() {
   return (
     <main>
       <Row>
-        <Col span={12}>
+        <Col xs={24} sm={12}>
           <Title>Learn Telugu</Title>
           <Title level={5}>The best new way to learn a language.</Title>
           <Space>
-            <Button size="large" shape="round">Get Started</Button>
-            <Button size="large" type="primary" shape="round">I Already Have An Account</Button>
+            <Button size="large" shape="round">GET STARTED</Button>
+            <Button size="large" type="primary" shape="round">ALREADY HAVE AN ACCOUNT</Button>
           </Space>
         </Col>
-        <Col span={12}>
+        <Col xs={24} sm={12}>
           <img style={{ maxWidth: '100%' }} src="/images/banner.png" />
         </Col>
       </Row>
