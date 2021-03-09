@@ -6,7 +6,6 @@ const { Text } = Typography;
 const { Panel } = Collapse;
 
 const AppFooter = (props) => {
-  console.log(props);
   const links = [
     {
       name: 'Privacy & Terms',
