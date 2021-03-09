@@ -1,4 +1,4 @@
-import { Card, Col, Row } from 'antd';
+import { Avatar, Card, Col, Row } from 'antd';
 import axios from 'axios';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
@@ -36,7 +36,7 @@ const TopicsIndex = (props) => {
             <Row gutter={[{ xs: 12, sm: 16, md: 24, lg: 32 }, { xs: 12, sm: 16, md: 24, lg: 32 }]}>
                 {topics.map((item, index) => (
                     <React.Fragment key={index} >
-                        <Col key={`${index}`} xs={12} sm={8} md={6} lg={6} xl={4} xxl={3}>
+                        <Col key={`${index}`} xs={0} sm={8} md={6} lg={6} xl={4} xxl={3}>
                             <Link href={`/topics/${item.name}`}>
                                 <a>
                                     <Card
@@ -49,7 +49,7 @@ const TopicsIndex = (props) => {
                                 </a>
                             </Link>
                         </Col>
-                        {/* <Col key={`m${index}`} xs={24} sm={0}>
+                        <Col key={`m${index}`} xs={24} sm={0}>
                             <Link href={`/topics/${item.name}`}>
                                 <a>
                                     <Card hoverable
@@ -64,7 +64,7 @@ const TopicsIndex = (props) => {
                                     </Card>
                                 </a>
                             </Link>
-                        </Col> */}
+                        </Col>
                     </React.Fragment >
                 ))
                 }
