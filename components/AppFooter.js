@@ -1,10 +1,12 @@
-import { Col, Layout, Row, Typography } from 'antd';
+import { Col, Collapse, Layout, Row, Typography } from 'antd';
 import Link from 'next/link';
 import { BsBoxArrowUpRight } from "react-icons/bs";
 const { Footer } = Layout;
 const { Text } = Typography;
+const { Panel } = Collapse;
 
-const AppFooter = () => {
+const AppFooter = (props) => {
+  console.log(props);
   const links = [
     {
       name: 'Privacy & Terms',
@@ -28,7 +30,7 @@ const AppFooter = () => {
     <>
       <Footer>
         <Row>
-          {links.map((item, index) => <Col xs={12} sm={6} key={index}>
+          {links.map((item, index) => <Col xs={0} sm={6} key={index}>
             <h3>{item.name}</h3>
             {item.links.map((link, index) =>
               <Link key={index} href={link.link}>
@@ -38,6 +40,24 @@ const AppFooter = () => {
               </Link>
             )}
           </Col>)}
+        </Row>
+        <Row>
+          <Col xs={24} sm={0}>
+            <Collapse bordered={false} style={{ backgroundColor: '#f1f1f1' }}>
+              {links.map((item, index) =>
+                <Panel header={item.name} key={index} showArrow={false}>
+                  {item.links.map((link, index) =>
+                    <Link key={index} href={link.link}>
+                      <a target={item.name === 'Connect with Us' ? "_blank" : "_self"}>
+                        <h5><Text type="secondary">{link.title}&nbsp;{item.name === 'Connect with Us' && <BsBoxArrowUpRight />}</Text></h5>
+                      </a>
+                    </Link>
+                  )}
+                </Panel>
+              )}
+
+            </Collapse>
+          </Col>
         </Row>
       </Footer >
       <Footer style={{ background: '#ececec' }}>

@@ -1,10 +1,10 @@
 import { DownOutlined, LogoutOutlined, UserOutlined } from '@ant-design/icons';
-import { Button, Col, Dropdown, Layout, Menu, Row, Space } from 'antd';
+import { Col, Dropdown, Layout, Menu, Row, Space } from 'antd';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useContext, useEffect, useState } from 'react';
-import UserContext from './contexts/UserContext';
 import Login from '../pages/login';
+import UserContext from './contexts/UserContext';
 const { Header } = Layout;
 
 const AppHeader = (props) => {
@@ -53,7 +53,6 @@ const AppHeader = (props) => {
                 <meta property="twitter:title" content="The best way to learn Telugu - Nerchuko" />
                 <meta property="twitter:description" content="Learn Telugu through our lessons such as alphabet, adjectives, nouns, plural, gender, numbers, phrases, grammar, vocabulary, verbs, exam, audio, translation and much more online and for free easily and quickly." />
                 <meta property="twitter:image" content="https://nerchuko.in/images/thumbnail.png" />
-
             </Head>
             <Header>
                 <Row>

@@ -1,9 +1,10 @@
 import Router from 'next/router';
 import NProgress from 'nprogress'; //nprogress module
 import 'nprogress/nprogress.css'; //styles of nprogress
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import AppLayout from "../components/AppLayout";
 import UserContext from '../components/contexts/UserContext';
+import { screenResolution } from '../components/constants/screenResolution';
 import { initGA, logPageView } from '../components/GoogleAnalytics';
 import '../public/styles/antd.less';
 
@@ -21,6 +22,8 @@ Router.events.on('routeChangeComplete', () => {
 Router.events.on('routeChangeError', () => NProgress.done());
 
 function MyApp({ Component, pageProps }) {
+  const resolution = screenResolution();
+
   const [user, setUser] = useState(null)
   const login = (e) => { setUser(e); }
   const logOut = (e) => {
@@ -29,9 +32,11 @@ function MyApp({ Component, pageProps }) {
     Router.push('/');
   }
 
+
+
   return (
     <UserContext.Provider value={{ user: user, login: login, logOut: logOut }}>
-      <AppLayout><Component {...pageProps} /></AppLayout>
+      <AppLayout><Component {...pageProps} resolution={resolution} /></AppLayout>
     </UserContext.Provider>
   )
 }

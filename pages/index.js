@@ -2,19 +2,15 @@ import { Button, Card, Col, Layout, Row, Space, Typography } from 'antd';
 import Topics from './topics/index';
 
 const { Title } = Typography;
-const { Meta } = Card;
-const { Content } = Layout;
-export default function Home() {
-
+const Home = () => {
   return (
     <main>
-      <Row>
+      <Row justify="center" align="middle">
         <Col xs={24} sm={12}>
           <Title>Learn Telugu</Title>
           <Title level={5}>The best new way to learn a language.</Title>
           <Space>
-            <Button size="large" shape="round">GET STARTED</Button>
-            <Button size="large" type="primary" shape="round">ALREADY HAVE AN ACCOUNT</Button>
+            <Button size="large" type="primary">START LEARNING</Button>
           </Space>
         </Col>
         <Col xs={24} sm={12}>
@@ -25,3 +21,4 @@ export default function Home() {
     </main>
   )
 }
+export default Home;
