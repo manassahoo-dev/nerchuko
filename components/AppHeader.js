@@ -53,6 +53,7 @@ const AppHeader = (props) => {
                 <meta property="twitter:title" content="The best way to learn Telugu - Nerchuko" />
                 <meta property="twitter:description" content="Learn Telugu through our lessons such as alphabet, adjectives, nouns, plural, gender, numbers, phrases, grammar, vocabulary, verbs, exam, audio, translation and much more online and for free easily and quickly." />
                 <meta property="twitter:image" content="https://nerchuko.in/images/thumbnail.png" />
+                <script type="text/javascript" src="/scripts/clarity.js"></script>
             </Head>
             <Header>
                 <Row>
