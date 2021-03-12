@@ -33,7 +33,13 @@ export default function Login(props) {
     }
 
     const onFinish = values => {
-        handleAuthentication(values);
+        loginForm.validateFields()
+            .then(values => {
+                handleAuthentication(values);
+            })
+            .catch(form => {
+                console.log(form.errorFields);
+            });
     };
 
     const onFinishFailed = errorInfo => {
@@ -75,6 +81,16 @@ export default function Login(props) {
                 setIsModalVisible(false);
             });
     }
+    const validateMessages = {
+        required: '${label} is required!',
+        types: {
+            email: '${label} is not a valid email',
+            number: '${label} is not a valid number!',
+        },
+        number: {
+            range: '${label} must be between ${min} and ${max}',
+        },
+    };
 
     return (
         <>
@@ -103,11 +119,12 @@ export default function Login(props) {
                             layout="vertical"
                             onFinish={onFinish}
                             onFinishFailed={onFinishFailed}
+                            validateMessages={validateMessages}
                         >
                             <Form.Item
                                 label="Email address"
                                 name="email"
-                                rules={[{ required: true, message: 'Please input your Email' }]}
+                                rules={[{ type: 'email' }]}
                             >
                                 <Input />
                             </Form.Item>
