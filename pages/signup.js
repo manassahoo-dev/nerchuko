@@ -1,4 +1,4 @@
-import { Alert, Button, Card, Col, Form, Input, Row, Modal } from 'antd';
+import { Alert, Button, Card, Form, Input, Modal } from 'antd';
 import axios from 'axios';
 import Link from 'next/link';
 import React, { useState } from 'react';
