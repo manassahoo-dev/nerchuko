@@ -1,13 +1,12 @@
 import Router from 'next/router';
 import NProgress from 'nprogress'; //nprogress module
 import 'nprogress/nprogress.css'; //styles of nprogress
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import AppLayout from "../components/AppLayout";
-import UserContext from '../components/contexts/UserContext';
 import { screenResolution } from '../components/constants/screenResolution';
+import UserContext from '../components/contexts/UserContext';
 import { initGA, logPageView } from '../components/GoogleAnalytics';
 import '../public/styles/antd.less';
-
 
 //Binding events. 
 Router.events.on('routeChangeStart', () => NProgress.start());
