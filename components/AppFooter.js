@@ -32,11 +32,20 @@ const AppFooter = (props) => {
           {links.map((item, index) => <Col xs={0} sm={6} key={index}>
             <h3>{item.name}</h3>
             {item.links.map((link, index) =>
-              <Link key={index} href={link.link}>
-                <a target={item.name === 'Connect with Us' ? "_blank" : "_self"}>
-                  <h5><Text type="secondary">{link.title}&nbsp;{item.name === 'Connect with Us' && <BsBoxArrowUpRight />}</Text></h5>
-                </a>
-              </Link>
+              <>
+                {
+                  item.name === 'Connect with Us' ?
+                    <a href={link.link} target="_blank" rel="noopener noreferrer">
+                      <h5><Text type="secondary">{link.title}&nbsp;<BsBoxArrowUpRight /></Text></h5>
+                    </a>
+                    :
+                    <Link key={index} href={link.link}>
+                      <a>
+                        <h5><Text type="secondary">{link.title}</Text></h5>
+                      </a>
+                    </Link>
+                }
+              </>
             )}
           </Col>)}
         </Row>
@@ -46,11 +55,20 @@ const AppFooter = (props) => {
               {links.map((item, index) =>
                 <Panel header={item.name} key={index} showArrow={false}>
                   {item.links.map((link, index) =>
-                    <Link key={index} href={link.link}>
-                      <a target={item.name === 'Connect with Us' ? "_blank" : "_self"}>
-                        <h5><Text type="secondary">{link.title}&nbsp;{item.name === 'Connect with Us' && <BsBoxArrowUpRight />}</Text></h5>
-                      </a>
-                    </Link>
+                    <>
+                      {
+                        item.name === 'Connect with Us' ?
+                          <a href={link.link} target="_blank" rel="noopener noreferrer">
+                            <h5><Text type="secondary">{link.title}&nbsp;<BsBoxArrowUpRight /></Text></h5>
+                          </a>
+                          :
+                          <Link key={index} href={link.link}>
+                            <a>
+                              <h5><Text type="secondary">{link.title}</Text></h5>
+                            </a>
+                          </Link>
+                      }
+                    </>
                   )}
                 </Panel>
               )}
