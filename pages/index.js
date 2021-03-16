@@ -15,7 +15,7 @@ const Home = ({ resolution }) => {
           </Space>
         </Col>
         <Col xs={24} sm={12}>
-          <img style={{ maxWidth: '100%' }} src="/images/banner.png" />
+          <img style={{ maxWidth: '100%' }} src="/images/banner.png" alt="Banner" />
         </Col>
       </Row>
       <br />

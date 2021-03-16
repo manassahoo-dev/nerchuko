@@ -59,7 +59,7 @@ const AppHeader = (props) => {
                 <Row>
                     <Col xs={12} md={4}>
                         <Link href="/"><a>
-                            <img src="/images/logo.svg" className="logo"></img>
+                            <img src="/images/logo.svg" alt="logo" className="logo"></img>
                         </a></Link>
                     </Col>
                     <Col xs={0} md={16}>
