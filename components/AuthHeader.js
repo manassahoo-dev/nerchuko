@@ -22,12 +22,12 @@ const AuthHeader = () => {
     return (
         <Header style={{ textAlign: 'center' }}>
             {/* <Search placeholder="input search text" style={{ width: 250, margin: '16px' }} /> */}
-            <Dropdown overlay={menu} className="float-end" placement="bottomCenter">
+            <Dropdown overlay={menu} className="float-right" placement="bottomCenter">
                 <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
                     <img src="/images/user.png" height="40" style={{ margin: '12px' }} /> <DownOutlined />
                 </a>
             </Dropdown>
-            <div className="float-end" style={{ margin: '0 16px' }}>
+            <div className="float-right" style={{ margin: '0 16px' }}>
                 <Badge dot>
                     <Avatar icon={<BellOutlined />} size={32} style={{ color: '#ff4d4f', backgroundColor: '#f9f9f9' }} />
                 </Badge>

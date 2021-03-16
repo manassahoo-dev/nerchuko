@@ -78,7 +78,7 @@ const AppHeader = (props) => {
                                 <Space>
 
                                     {user ?
-                                        <Dropdown overlay={menu} className="float-end" placement="bottomCenter">
+                                        <Dropdown overlay={menu} className="float-right" placement="bottomCenter">
                                             <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
                                                 <img src="/images/user.png" height="32" style={{ marginRight: '10px' }} /> <DownOutlined />
                                             </a>

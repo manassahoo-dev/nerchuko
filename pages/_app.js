@@ -31,8 +31,6 @@ function MyApp({ Component, pageProps }) {
     Router.push('/');
   }
 
-
-
   return (
     <UserContext.Provider value={{ user: user, login: login, logOut: logOut }}>
       <AppLayout><Component {...pageProps} resolution={resolution} /></AppLayout>

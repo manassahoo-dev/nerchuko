@@ -1,4 +1,5 @@
-import { Alert, Button, Card, Form, Input, Modal } from 'antd';
+import { LockOutlined, UserOutlined } from '@ant-design/icons';
+import { Alert, Button, Card, Checkbox, Form, Input, Modal } from 'antd';
 import axios from 'axios';
 import Link from 'next/link';
 import Router from 'next/router';
@@ -6,7 +7,7 @@ import React, { useContext, useState } from 'react';
 import { API_BASE_URL } from '../components/constants/api-config';
 import { authHeader } from '../components/constants/authHeader';
 import UserContext from '../components/contexts/UserContext';
-
+import Signup from './signup';
 
 export default function Login(props) {
     const [loginForm] = Form.useForm();
@@ -26,7 +27,7 @@ export default function Login(props) {
                 }
             })
             .catch(function (error) {
-                setError(error.response ? error.response.data.msg : error.message);
+                setError(error.response ? error.response.data.message : error.message);
             }).then(function () {
                 setLoading(false);
             });
@@ -84,7 +85,7 @@ export default function Login(props) {
     const validateMessages = {
         required: '${label} is required!',
         types: {
-            email: '${label} is not a valid email',
+            email: '${label} is not a valid',
             number: '${label} is not a valid number!',
         },
         number: {
@@ -101,17 +102,17 @@ export default function Login(props) {
                 visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
                 <Card bordered={false}>
                     <div>
-                        <h1 className="m0">Login</h1>
-                        <p>Log in with your data that you entered during your registraion</p><br />
+                        <h1 className="m0">Login</h1><br />
                         {error &&
-                            <Alert
-                                className="mb-4"
-                                message={error}
-                                type="error"
-                                showIcon
-                                closable
-                                onClose={() => setError(null)}
-                            />
+                            <>
+                                <Alert
+                                    className="mb-4"
+                                    message={error}
+                                    type="error"
+                                    showIcon
+                                    closable
+                                    onClose={() => setError(null)}
+                                /><br /></>
                         }
                         <Form
                             name="loginForm"
@@ -124,27 +125,32 @@ export default function Login(props) {
                             <Form.Item
                                 label="Email address"
                                 name="email"
-                                rules={[{ type: 'email' }]}
+                                rules={[{ type: 'email', required: true }]}
                             >
-                                <Input />
+                                <Input prefix={<UserOutlined />} placeholder="email" />
                             </Form.Item>
 
                             <Form.Item
                                 label="Password"
                                 name="password"
-                                rules={[{ required: true, message: 'Please input your Password' }]}
+                                rules={[{ required: true }]}
                             >
-                                <Input.Password />
+                                <Input.Password prefix={<LockOutlined />} placeholder="Password" />
                             </Form.Item>
-
+                            <Form.Item>
+                                <Form.Item name="remember" valuePropName="checked" noStyle>
+                                    <Checkbox>Remember me</Checkbox>
+                                </Form.Item>
+                                <span className="float-right">
+                                    <Link href="/forgot"><a className="mx-2">Forgot password</a></Link>
+                                </span>
+                            </Form.Item>
                             <Form.Item>
                                 <Button type="primary" htmlType="submit" block disabled={loading} loading={loading}>Login</Button>
                             </Form.Item>
                         </Form>
                     </div>
-                    <p className="text-muted text-center mt-5">Do not have an account?
-                            <Link href="/signup"><a className="mx-2">Signup</a></Link>
-                    </p>
+                    <p className="text-center">Do not have an account? <Signup /></p>
                 </Card>
             </Modal>
         </>
