@@ -7,15 +7,13 @@ const Home = ({ resolution }) => {
   return (
     <main>
       <Row justify="center" align="middle" gutter={[16, 32]}>
-        <Col xs={24} sm={12} className="text-center">
+        <Col xs={24} sm={12} className="text-center1">
           <Title>Learn Telugu</Title>
-          <Title level={5}>The best new way to learn a language.</Title>
-          <Space>
-            <Button size="large" type="primary">START LEARNING</Button>
-          </Space>
+          <Title level={2} type="secondary" className="m0">The best new way to learn a language.</Title>
+          <br /><Button size="large" type="primary">START LEARNING</Button>
         </Col>
         <Col xs={24} sm={12}>
-          <img style={{ maxWidth: '100%' }} src="/images/banner.png" alt="Banner" />
+          <img style={{ maxWidth: '100%' }} src="/images/banner.webp" alt="Banner" />
         </Col>
       </Row>
       <br />

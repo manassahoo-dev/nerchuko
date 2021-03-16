@@ -32,7 +32,7 @@ const AppFooter = (props) => {
           {links.map((item, index) => <Col xs={0} sm={6} key={index}>
             <h3>{item.name}</h3>
             {item.links.map((link, index) =>
-              <>
+              <section key={index}>
                 {
                   item.name === 'Connect with Us' ?
                     <a href={link.link} target="_blank" rel="noopener noreferrer">
@@ -45,7 +45,7 @@ const AppFooter = (props) => {
                       </a>
                     </Link>
                 }
-              </>
+              </section>
             )}
           </Col>)}
         </Row>
@@ -55,7 +55,7 @@ const AppFooter = (props) => {
               {links.map((item, index) =>
                 <Panel header={item.name} key={index} showArrow={false}>
                   {item.links.map((link, index) =>
-                    <>
+                    <section key={index}>
                       {
                         item.name === 'Connect with Us' ?
                           <a href={link.link} target="_blank" rel="noopener noreferrer">
@@ -68,7 +68,7 @@ const AppFooter = (props) => {
                             </a>
                           </Link>
                       }
-                    </>
+                    </section>
                   )}
                 </Panel>
               )}
