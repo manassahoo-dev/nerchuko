@@ -1,9 +1,9 @@
 import { DownOutlined, LogoutOutlined, UserOutlined } from '@ant-design/icons';
-import { Col, Dropdown, Layout, Menu, Row, Space } from 'antd';
+import { Button, Col, Dropdown, Layout, Menu, Row, Space } from 'antd';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useContext, useEffect, useState } from 'react';
-import Login from '../pages/login';
+import Auth from '../pages/auth';
 import UserContext from './contexts/UserContext';
 const { Header } = Layout;
 
@@ -76,7 +76,7 @@ const AppHeader = (props) => {
                         <Row justify="end">
                             <Col>
                                 <Space>
-
+                                    <Button>+</Button>
                                     {user ?
                                         <Dropdown overlay={menu} className="float-right" placement="bottomCenter">
                                             <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
@@ -84,7 +84,7 @@ const AppHeader = (props) => {
                                             </a>
                                         </Dropdown>
                                         :
-                                        <Login />
+                                        <Auth />
                                     }
                                 </Space>
                             </Col>
