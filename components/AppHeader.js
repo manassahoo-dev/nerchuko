@@ -54,6 +54,19 @@ const AppHeader = (props) => {
                 <meta property="twitter:description" content="Learn Telugu through our lessons such as alphabet, adjectives, nouns, plural, gender, numbers, phrases, grammar, vocabulary, verbs, exam, audio, translation and much more online and for free easily and quickly." />
                 <meta property="twitter:image" content="https://nerchuko.in/images/thumbnail.png" />
                 <script type="text/javascript" src="/scripts/clarity.js"></script>
+                <script type="application/ld+json">
+                    {`{
+                        "@context": "https://schema.org/",
+                        "@type": "WebSite",
+                        "name": "nerchuko",
+                        "url": "https://nerchuko.in/",
+                        "potentialAction": {
+                            "@type": "SearchAction",
+                            "target": "{search_term_string}",
+                            "query-input": "required name=search_term_string"
+                        }
+                    }`}
+                </script>
             </Head>
             <Header>
                 <Row>
