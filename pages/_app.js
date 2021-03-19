@@ -5,19 +5,11 @@ import { useState } from 'react';
 import AppLayout from "../components/AppLayout";
 import { screenResolution } from '../components/constants/screenResolution';
 import UserContext from '../components/contexts/UserContext';
-import { initGA, logPageView } from '../components/GoogleAnalytics';
 import '../public/styles/antd.less';
 
 //Binding events. 
 Router.events.on('routeChangeStart', () => NProgress.start());
-Router.events.on('routeChangeComplete', () => {
-  NProgress.done();
-  if (!window.GA_INITIALIZED) {
-    initGA()
-    window.GA_INITIALIZED = true
-  }
-  logPageView()
-});
+Router.events.on('routeChangeComplete', () => { NProgress.done(); });
 Router.events.on('routeChangeError', () => NProgress.done());
 
 function MyApp({ Component, pageProps }) {
