@@ -45,7 +45,7 @@ class MyDocument extends Document {
                         }
                     }`}
                     </script>
-
+                    <script src="https://www.googleoptimize.com/optimize.js?id=OPT-NJP7KPV"></script>
                     <script async src={`https://www.googletagmanager.com/gtag/js?id=UA-49136745-2`} />
                     <script
                         dangerouslySetInnerHTML={{
