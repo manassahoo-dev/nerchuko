@@ -41,6 +41,7 @@ const TopicsIndex = (props) => {
                                 <a>
                                     <Card
                                         hoverable
+                                        className="animate__animated animate__fadeIn animate__slow"
                                         style={{ textAlign: "center", borderRadius: '2rem', borderColor: '#fff' }}
                                         cover={<img alt={`Vocabulary ${item.name}`} rel="preconnect" src={item.imageUrl} style={{ height: "80px", width: "auto", margin: "24px auto 0" }} />}
                                     >

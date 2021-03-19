@@ -33,7 +33,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <UserContext.Provider value={{ user: user, login: login, logOut: logOut }}>
-      <AppLayout><Component {...pageProps} resolution={resolution} /></AppLayout>
+      <AppLayout><Component {...pageProps} resolution={resolution} className="animate__animated animate__fadeInLeft" /></AppLayout>
     </UserContext.Provider>
   )
 }

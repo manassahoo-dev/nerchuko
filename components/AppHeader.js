@@ -35,39 +35,6 @@ const AppHeader = (props) => {
 
     return (
         <>
-            <Head>
-                <title>The best way to learn Telugu - Nerchuko</title>
-                <meta name="keywords" content="learn, telugu, free, lessons, course, language, study, flashcards" />
-                <meta name="description" content="Learn Telugu through our lessons such as alphabet, adjectives, nouns, plural, gender, numbers, phrases, grammar, vocabulary, verbs, exam, audio, translation and much more online and for free easily and quickly." />
-                <link rel="icon" href="/images/favicon.ico" />
-                <meta name="title" content="The best way to learn Telugu - Nerchuko" />
-                <link rel="canonical" href="https://nerchuko.in/" />
-                <meta property="og:type" content="website" />
-                <meta property="og:url" content="https://nerchuko.in/" />
-                <meta property="og:title" content="The best way to learn Telugu - Nerchuko" />
-                <meta property="og:description" content="Learn Telugu through our lessons such as alphabet, adjectives, nouns, plural, gender, numbers, phrases, grammar, vocabulary, verbs, exam, audio, translation and much more online and for free easily and quickly." />
-                <meta property="og:image" content="https://nerchuko.in/images/thumbnail.png" />
-
-                <meta property="twitter:card" content="summary_large_image" />
-                <meta property="twitter:url" content="https://nerchuko.in/" />
-                <meta property="twitter:title" content="The best way to learn Telugu - Nerchuko" />
-                <meta property="twitter:description" content="Learn Telugu through our lessons such as alphabet, adjectives, nouns, plural, gender, numbers, phrases, grammar, vocabulary, verbs, exam, audio, translation and much more online and for free easily and quickly." />
-                <meta property="twitter:image" content="https://nerchuko.in/images/thumbnail.png" />
-                <script type="text/javascript" src="/scripts/clarity.js"></script>
-                <script type="application/ld+json">
-                    {`{
-                        "@context": "https://schema.org/",
-                        "@type": "WebSite",
-                        "name": "nerchuko",
-                        "url": "https://nerchuko.in/",
-                        "potentialAction": {
-                            "@type": "SearchAction",
-                            "target": "{search_term_string}",
-                            "query-input": "required name=search_term_string"
-                        }
-                    }`}
-                </script>
-            </Head>
             <Header>
                 <Row>
                     <Col xs={12} md={4}>

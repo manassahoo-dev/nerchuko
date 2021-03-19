@@ -67,8 +67,8 @@ export default function Auth(props) {
         axios.get(`${API_BASE_URL}user/me`, authHeader())
             .then(function (response) {
                 if (response.status === 200) {
-                    localStorage.setItem("r", window.btoa(response.data.roles));
-                    localStorage.setItem("m", window.btoa(response.data.email))
+                    localStorage.setItem("r", btoa(JSON.stringify(response.data.roles)));
+                    localStorage.setItem("m", btoa(response.data.email))
                     login(response.data);
                     const roles = response.data.roles;
                     if (roles.some(role => role.name === 'ADMIN')) {
@@ -122,11 +122,11 @@ export default function Auth(props) {
                             {action === Authentication.LOGIN
                                 &&
                                 <>
-                                    <Form.Item label="Email address" name="email" rules={[{ type: 'email', required: true }]}>
+                                    <Form.Item label="Email address" name="email" rules={[{ type: 'email', required: true }]} >
                                         <Input prefix={<UserOutlined />} placeholder="email" />
                                     </Form.Item>
 
-                                    <Form.Item label="Password" name="password" rules={[{ required: true }]}>
+                                    <Form.Item label="Password" name="password" rules={[{ required: true }]} >
                                         <Input.Password prefix={<LockOutlined />} placeholder="Password" />
                                     </Form.Item>
                                     <Form.Item>

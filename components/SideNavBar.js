@@ -1,18 +1,15 @@
-import { useState, useEffect } from 'react';
+import { LogoutOutlined } from '@ant-design/icons';
+import { Layout, Menu } from 'antd';
 import Link from 'next/link';
-import React from 'react';
-
-import { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { menus } from '../components/constants/menus';
 import UserContext from '../components/contexts/UserContext';
-import { Layout, Menu, Switch } from 'antd';
 const { Header, Sider, Content } = Layout;
-
-import { HomeOutlined, UnorderedListOutlined, UserOutlined, MailOutlined, LogoutOutlined, ReadOutlined, QuestionOutlined } from '@ant-design/icons';
 
 const SideNavBar = props => {
     const { logOut } = useContext(UserContext);
     const [current, setCurrent] = useState('dashboard');
-    const [role, setRole] = useState(false);
+    const [roles, setRoles] = useState([]);
     const [collapsed, setCollapsed] = useState(null);
 
     useEffect(() => {
@@ -20,7 +17,8 @@ const SideNavBar = props => {
             const pathName = window.location.pathname;
             setCurrent(pathName);
         }
-        setRole(window.atob(localStorage.getItem("r")));
+        let result = JSON.parse(atob(localStorage.getItem("r"))).map(a => a.name);
+        setRoles(result);
     }, []);
 
     function onCollapse(collapsed) {
@@ -35,23 +33,14 @@ const SideNavBar = props => {
         <>
             <Sider theme="light" collapsible collapsed={collapsed} onCollapse={onCollapse}>
                 <div className="text-center"> <img src="/images/logo.svg" alt="logo" height="60" style={{ padding: '10px' }} /></div>
-                {role === 'student' ?
-                    <Menu onClick={handleClick} selectedKeys={[current]} theme="light" mode="inline">
-                        <Menu.Item key="/dashboard" icon={<HomeOutlined />}><Link href="/dashboard"><a>Dashboard</a></Link></Menu.Item>
-                        <Menu.Item key="/courses" icon={<UnorderedListOutlined />}><Link href="/courses"><a>Courses</a></Link></Menu.Item>
-                        <Menu.Item key="/profile" icon={<UserOutlined />}><Link href="/profile"><a>Profile</a></Link></Menu.Item>
-                        <Menu.Item key="/contact-us" icon={<MailOutlined />}><Link href="/contact-us"><a>Contact Us</a></Link></Menu.Item>
-                        <Menu.Item key="5" icon={<LogoutOutlined />}><Link href="/"><a onClick={logOut}>Logout</a></Link></Menu.Item>
-                    </Menu>
-                    :
-                    <Menu onClick={handleClick} selectedKeys={[current]} theme="light" mode="inline">
-                        <Menu.Item key="/admin/courses" icon={<UnorderedListOutlined />}><Link href="/admin/courses"><a>Courses</a></Link></Menu.Item>
-                        <Menu.Item key="/admin/blog" icon={<ReadOutlined />}><Link href="/admin/blog"><a>Blog</a></Link></Menu.Item>
-                        <Menu.Item key="/admin/users" icon={<UserOutlined />}><Link href="/admin/users"><a>Users</a></Link></Menu.Item>
-                        <Menu.Item key="/admin/quiz" icon={<QuestionOutlined />}><Link href="/admin/quiz"><a>Quiz</a></Link></Menu.Item>
-                        <Menu.Item key="5" icon={<LogoutOutlined />}><Link href="/"><a onClick={logOut}>Logout</a></Link></Menu.Item>
-                    </Menu>
-                }
+                <Menu onClick={handleClick} selectedKeys={[current]} theme="light" mode="inline">
+                    {menus.map((menu, key) =>
+                        <Menu.Item key={menu.link} icon={menu.icon} className={!roles.includes(menu.role) && 'd-none'}>
+                            <Link href={menu.link}><a>{menu.name}</a></Link>
+                        </Menu.Item>
+                    )}
+                    <Menu.Item key="5" icon={<LogoutOutlined />}><Link href="/"><a onClick={logOut}>Logout</a></Link></Menu.Item>
+                </Menu>
             </Sider>
         </>
     )
