@@ -27,10 +27,13 @@ class MyDocument extends Document {
                     <meta property="twitter:title" content="The best way to learn Telugu - Nerchuko" />
                     <meta property="twitter:description" content="Learn Telugu through our lessons such as alphabet, adjectives, nouns, plural, gender, numbers, phrases, grammar, vocabulary, verbs, exam, audio, translation and much more online and for free easily and quickly." />
                     <meta property="twitter:image" content="https://nerchuko.in/images/thumbnail.png" />
-                    <link
-                        rel="stylesheet"
-                        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-                    />
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+
+                </Head>
+                <body>
+                    <Main />
+                    <NextScript />
                     <script type="text/javascript" src="/scripts/clarity.js"></script>
                     <script type="application/ld+json" dangerouslySetInnerHTML={{
                         __html: JSON.stringify({
@@ -59,11 +62,6 @@ class MyDocument extends Document {
                             gtag('config', 'UA-49136745-2');`,
                         }}
                     />
-
-                </Head>
-                <body>
-                    <Main />
-                    <NextScript />
                 </body>
             </Html>
         )
