@@ -33,17 +33,17 @@ class MyDocument extends Document {
                     />
                     <script type="text/javascript" src="/scripts/clarity.js"></script>
                     <script type="application/ld+json">
-                        {`{
-                        "@context": "https://schema.org/",
-                        "@type": "WebSite",
-                        "name": "nerchuko",
-                        "url": "https://nerchuko.in/",
-                        "potentialAction": {
-                            "@type": "SearchAction",
-                            "target": "{search_term_string}",
-                            "query-input": "required name=search_term_string"
-                        }
-                    }`}
+                        {{
+                            "@context": "https://schema.org/",
+                            "@type": "WebSite",
+                            "name": "nerchuko",
+                            "url": "https://nerchuko.in/",
+                            "potentialAction": {
+                                "@type": "SearchAction",
+                                "target": "{search_term_string}",
+                                "query-input": "required name=search_term_string"
+                            }
+                        }}
                     </script>
                     <script src="https://www.googleoptimize.com/optimize.js?id=OPT-NJP7KPV"></script>
                     <script async src={`https://www.googletagmanager.com/gtag/js?id=UA-49136745-2`} />
