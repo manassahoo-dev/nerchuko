@@ -32,8 +32,8 @@ class MyDocument extends Document {
                         href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
                     />
                     <script type="text/javascript" src="/scripts/clarity.js"></script>
-                    <script type="application/ld+json">
-                        {{
+                    <script type="application/ld+json" dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
                             "@context": "https://schema.org/",
                             "@type": "WebSite",
                             "name": "nerchuko",
@@ -43,7 +43,8 @@ class MyDocument extends Document {
                                 "target": "{search_term_string}",
                                 "query-input": "required name=search_term_string"
                             }
-                        }}
+                        })
+                    }}>
                     </script>
                     <script src="https://www.googleoptimize.com/optimize.js?id=OPT-NJP7KPV"></script>
                     <script async src={`https://www.googletagmanager.com/gtag/js?id=UA-49136745-2`} />
