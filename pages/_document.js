@@ -37,12 +37,14 @@ class MyDocument extends Document {
                             "@context": "https://schema.org/",
                             "@type": "WebSite",
                             "name": "nerchuko",
-                            "url": "https://nerchuko.in/",
-                            "potentialAction": {
-                                "@type": "SearchAction",
-                                "target": "{search_term_string}",
-                                "query-input": "required name=search_term_string"
-                            }
+                            "logo": "/images/logo.svg",
+                            "url": "https://nerchuko.in",
+                            "sameAs": [
+                                "https://www.facebook.com/telugu.nerchuko",
+                                "https://www.facebook.com/groups/nerchuko",
+                                "https://www.instagram.com/telugu.nerchuko",
+                                "https://pinterest.com/nerchuko",
+                            ],
                         })
                     }}>
                     </script>
