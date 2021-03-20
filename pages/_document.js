@@ -37,7 +37,7 @@ class MyDocument extends Document {
                             "@context": "https://schema.org/",
                             "@type": "WebSite",
                             "name": "nerchuko",
-                            "logo": "/images/logo.svg",
+                            "logo": "https://nerchuko.in/images/logo.svg",
                             "url": "https://nerchuko.in",
                             "sameAs": [
                                 "https://www.facebook.com/telugu.nerchuko",
