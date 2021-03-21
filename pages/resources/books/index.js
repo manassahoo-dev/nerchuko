@@ -2,7 +2,7 @@ import { Card, Col, Rate, Row } from 'antd';
 import Link from 'next/link';
 
 const { Meta } = Card;
-export default function Books() {
+export default function BooksIndex() {
     const books = [
         {
             name: 'Learn Telugu through English',
@@ -36,7 +36,7 @@ export default function Books() {
         <Row gutter={16}>
             {books.map((book, key) =>
                 <Col xs={24} sm={4} key={key}>
-                    <Link href={`/books/${book.ISBN10}`}>
+                    <Link href={`/resources/books/${book.ISBN10}`}>
                         <a>
                             <Card
                                 style={{ background: 'none' }}

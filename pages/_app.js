@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import Router from 'next/router';
 import NProgress from 'nprogress'; //nprogress module
 import 'nprogress/nprogress.css'; //styles of nprogress
@@ -25,6 +26,9 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <UserContext.Provider value={{ user: user, login: login, logOut: logOut }}>
+      <Head>
+        <title>The best way to learn Telugu - Nerchuko</title>
+      </Head>
       <AppLayout><Component {...pageProps} resolution={resolution} className="animate__animated animate__fadeInLeft" /></AppLayout>
     </UserContext.Provider>
   )

@@ -1,5 +1,5 @@
 import { Typography } from 'antd';
-import Topics from './topics/index';
+import Topics from '../topics/index';
 
 const { Title } = Typography;
 

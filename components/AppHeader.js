@@ -12,10 +12,11 @@ const AppHeader = (props) => {
     const [user, setUser] = useState(null);
 
     const menus = [
-        { link: '/vocabulary', title: 'VOCABULARY' },
+        { link: '/telugu/vocabulary', title: 'VOCABULARY' },
         { link: '/resources', title: 'RESOURCES' },
-        { link: '/forum', title: 'FORUM' },
-        { link: '/translate', title: 'TRANSLATE' },
+        { link: '/telugu/forum', title: 'FORUM' },
+        { link: '/telugu/translate', title: 'TRANSLATE' },
+        { link: '/telugu/alphabets', title: 'ALPHABETS' },
     ];
     const { logOut } = useContext(UserContext);
 

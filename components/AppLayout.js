@@ -8,22 +8,31 @@ const AppLayout = props => {
     let pathName = "/"
     if (typeof window !== "undefined") {
         pathName = window.location.pathname;
-        const paths = ["/login", "/signup", "/forgot",
-            "/profile", "/dashboard", "/courses", "/settings", "/admin"];
+        const paths = ["/login", "/signup", "/forgot", "/", "/profile", "/dashboard", "/courses", "/settings", "/admin"];
         showHeaderFooter = paths.includes(pathName) ? false : true;
 
     }
     return (
         <>
-            {showHeaderFooter ?
-                <Layout style={{ minHeight: "100vh" }}>
+            {pathName === '/' ?
+                <>
                     <AppHeader current={pathName} />
-                    <Content>{props.children}</Content>
-                    <AppFooter />
-                </Layout> :
-                <div style={{ minHeight: "100vh" }}>
                     {props.children}
-                </div>}
+                    <AppFooter />
+                </>
+                :
+
+
+                pathName !== '/' && showHeaderFooter ?
+                    <Layout style={{ minHeight: "100vh" }}>
+                        <AppHeader current={pathName} />
+                        <Content>{props.children}</Content>
+                        <AppFooter />
+                    </Layout> :
+                    <div style={{ minHeight: "100vh" }}>
+                        {props.children}
+                    </div>
+            }
         </>
     )
 };
