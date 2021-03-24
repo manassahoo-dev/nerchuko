@@ -1,13 +1,13 @@
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/router'
+import { Layout, PageHeader, Table, Typography } from 'antd';
 import axios from 'axios';
-import { API_BASE_URL } from '../../components/constants/api-config';
-import { PageHeader, Layout, Typography, Table, } from 'antd';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import { API_BASE_URL } from '../../../components/constants/api-config';
 
 const { Text } = Typography;
 const { Content } = Layout;
 
-const Topics = (props) => {
+const Vocabulary = (props) => {
     const router = useRouter()
     const [phrases, setPhrases] = useState(null);
     const [topicName, setTopicName] = useState(null);
@@ -71,4 +71,4 @@ const Topics = (props) => {
         </>
     )
 }
-export default Topics;
+export default Vocabulary;

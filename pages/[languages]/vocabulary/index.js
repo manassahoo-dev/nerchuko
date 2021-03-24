@@ -2,10 +2,10 @@ import { Avatar, Card, Col, Row } from 'antd';
 import axios from 'axios';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
-import { API_BASE_URL } from '../../components/constants/api-config';
+import { API_BASE_URL } from '../../../components/constants/api-config';
 
 const { Meta } = Card;
-const TopicsIndex = (props) => {
+const VocabularyIndex = (props) => {
     const [topics, setTopics] = useState([]);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -37,7 +37,7 @@ const TopicsIndex = (props) => {
                 {topics.map((item, index) => (
                     <React.Fragment key={index} >
                         <Col key={`${index}`} xs={0} sm={8} md={6} lg={6} xl={4} xxl={3}>
-                            <Link href={`/topics/${item.name}`}>
+                            <Link href={`/telugu/vocabulary/${item.name}`}>
                                 <a>
                                     <Card
                                         hoverable
@@ -51,7 +51,7 @@ const TopicsIndex = (props) => {
                             </Link>
                         </Col>
                         <Col key={`m${index}`} xs={24} sm={0}>
-                            <Link href={`/topics/${item.name}`}>
+                            <Link href={`/telugu/vocabulary/${item.name}`}>
                                 <a>
                                     <Card hoverable
                                         style={{ borderRadius: '1rem' }}>
@@ -73,4 +73,4 @@ const TopicsIndex = (props) => {
         </div>
     )
 }
-export default TopicsIndex;
+export default VocabularyIndex;

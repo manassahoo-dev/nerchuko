@@ -1,5 +1,5 @@
 import { Button, Col, Layout, Row, Typography } from 'antd';
-import Topics from './topics/index';
+import VocabularyIndex from './[languages]/vocabulary/index';
 
 const { Content } = Layout;
 const { Title } = Typography;
@@ -24,7 +24,7 @@ const Home = ({ resolution }) => {
       </Layout>
       <Content style={{ backgroundColor: '#eaeaea' }}>
         <Title className="m1">Learn Telugu Vocabulary</Title>
-        <Topics />
+        <VocabularyIndex />
       </Content>
     </main >
   )
