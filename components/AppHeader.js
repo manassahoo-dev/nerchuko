@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { useContext, useEffect, useState } from 'react';
 import Auth from '../pages/auth';
 import UserContext from './contexts/UserContext';
+import { Authentication } from './constants/authentication';
+
 const { Header } = Layout;
 
 const AppHeader = (props) => {
@@ -65,7 +67,7 @@ const AppHeader = (props) => {
                                             </a>
                                         </Dropdown>
                                         :
-                                        <Auth />
+                                        <Auth action={Authentication.LOGIN} label="Login" />
                                     }
                                 </Space>
                             </Col>

@@ -21,7 +21,7 @@ const Vocabulary = (props) => {
                 getPhrasesByTopic(topicName);
             }
         }
-    }, [topicName]);
+    }, [router, topicName]);
 
     const getPhrasesByTopic = (topicName) => {
         if (topicName) {
@@ -42,7 +42,7 @@ const Vocabulary = (props) => {
             dataIndex: 'engPhraseName',
             key: 'engPhraseName',
             render: (text, record) => (
-                <h4>{record.engPhraseName}</h4>
+                <h4 className="animate__animated animate__fadeInUp">{record.engPhraseName}</h4>
             )
         },
         {
@@ -51,7 +51,7 @@ const Vocabulary = (props) => {
             key: 'nonEngPhrases',
             render: (text, record) => (
                 <>{text.map((item, key) => (
-                    <div key={key} >
+                    <div key={key} className="animate__animated animate__fadeInUp">
                         <h4>{item.transliteration}</h4>
                         <Text type="secondary">{item.nonEngPhraseName}</Text>
                     </div>
@@ -67,7 +67,7 @@ const Vocabulary = (props) => {
                 onBack={() => router.back()}
                 title={topicName}
             />
-            { !loading && <Table rowClassName="animate__animated animate__fadeInUpBig" pagination={false} dataSource={phrases} columns={columns} rowKey="engPhraseName" size="small" />}
+            { !loading && <Table pagination={false} dataSource={phrases} columns={columns} rowKey="engPhraseName" size="small" />}
         </>
     )
 }

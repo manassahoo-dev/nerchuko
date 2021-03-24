@@ -1,19 +1,20 @@
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Alert, Button, Card, Checkbox, Form, Input, Modal } from 'antd';
 import axios from 'axios';
-import Link from 'next/link';
 import Router from 'next/router';
 import React, { useContext, useState } from 'react';
 import { API_BASE_URL } from '../components/constants/api-config';
 import { authHeader } from '../components/constants/authHeader';
+import { Authentication } from '../components/constants/authentication';
 import UserContext from '../components/contexts/UserContext';
 
 export default function Auth(props) {
-
+    console.log(props);
     const [form] = Form.useForm();
     const { login } = useContext(UserContext);
     const [error, setError] = useState(null);
-    const [action, setAction] = useState(Authentication.LOGIN);
+    const [action, setAction] = useState(props.action);
+    const [label, setLabel] = useState(props.label);
 
     const [loading, setLoading] = useState(false);
     const [isModalVisible, setIsModalVisible] = useState(false);
@@ -94,7 +95,7 @@ export default function Auth(props) {
 
     return (
         <>
-            <Button type="primary" onClick={showModal}>Login</Button>
+            <Button type="primary" onClick={showModal}>{label}</Button>
             <Modal title={false} footer={false} centered
                 visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
                 <Card bordered={false}>
@@ -186,8 +187,3 @@ export default function Auth(props) {
     )
 }
 
-const Authentication = {
-    LOGIN: "Login",
-    SIGNUP: "Signup",
-    FORGOT_PASSWORD: "Forgot Password",
-}

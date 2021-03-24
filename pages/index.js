@@ -1,5 +1,7 @@
 import { Button, Col, Layout, Row, Typography } from 'antd';
+import { Authentication } from '../components/constants/authentication';
 import VocabularyIndex from './[languages]/vocabulary/index';
+import Auth from './auth';
 
 const { Content } = Layout;
 const { Title } = Typography;
@@ -14,7 +16,9 @@ const Home = ({ resolution }) => {
             <Col xs={24} sm={12} className="text-center1">
               <Title className="m0 animate__animated animate__fadeInUp">Learn Telugu</Title>
               <Title level={2} type="secondary" className="m0 fw-100 animate__animated animate__slideInUp">The best new way to learn a language.</Title>
-              <br /><Button size="large" type="primary">START LEARNING</Button>
+              <br />
+              <Auth action={Authentication.SIGNUP} label="START LEARNING" />
+              <Button size="large" type="primary"></Button>
             </Col>
             <Col xs={24} sm={12}>
               <img style={{ maxWidth: '100%' }} src="/images/banner.webp" alt="Banner" />

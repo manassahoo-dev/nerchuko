@@ -37,13 +37,13 @@ const VocabularyIndex = (props) => {
                 {topics.map((item, index) => (
                     <React.Fragment key={index} >
                         <Col key={`${index}`} xs={0} sm={8} md={6} lg={6} xl={4} xxl={3}>
-                            <Link href={`/telugu/vocabulary/${item.name}`}>
+                            <Link href={`/telugu/vocabulary/${item.name.toLowerCase()}`}>
                                 <a>
                                     <Card
                                         hoverable
                                         className="animate__animated animate__fadeIn animate__slow"
                                         style={{ textAlign: "center", borderRadius: '2rem', borderColor: '#fff' }}
-                                        cover={<img alt={`Vocabulary ${item.name}`} rel="preconnect" src={item.imageUrl} style={{ height: "80px", width: "auto", margin: "24px auto 0" }} />}
+                                        cover={<img alt={`Vocabulary ${item.name}`} rel="preconnect" src={item.imageUrl} style={{ height: "70px", width: "auto", margin: "20px auto -10px" }} />}
                                     >
                                         <Meta title={item.name} description={item.telugu} style={{ textAlign: "center" }} />
                                     </Card>
@@ -51,7 +51,7 @@ const VocabularyIndex = (props) => {
                             </Link>
                         </Col>
                         <Col key={`m${index}`} xs={24} sm={0}>
-                            <Link href={`/telugu/vocabulary/${item.name}`}>
+                            <Link href={`/telugu/vocabulary/${item.name.toLowerCase()}`}>
                                 <a>
                                     <Card hoverable
                                         style={{ borderRadius: '1rem' }}>

@@ -35,7 +35,7 @@ export default function BooksIndex() {
         <h1>Books</h1>
         <Row gutter={16}>
             {books.map((book, key) =>
-                <Col xs={24} sm={4} key={key}>
+                <Col xs={24} sm={12} md={6} key={key}>
                     <Link href={`/resources/books/${book.ISBN10}`}>
                         <a>
                             <Card

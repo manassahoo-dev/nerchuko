@@ -36,12 +36,12 @@ const AppFooter = (props) => {
                 {
                   item.name === 'Connect with Us' ?
                     <a href={link.link} target="_blank" rel="noopener noreferrer">
-                      <h5><Text type="secondary">{link.title}&nbsp;<BsBoxArrowUpRight /></Text></h5>
+                      <h5><Text>{link.title}&nbsp;<BsBoxArrowUpRight /></Text></h5>
                     </a>
                     :
                     <Link key={index} href={link.link}>
                       <a>
-                        <h5><Text type="secondary">{link.title}</Text></h5>
+                        <h5><Text>{link.title}</Text></h5>
                       </a>
                     </Link>
                 }
@@ -59,12 +59,12 @@ const AppFooter = (props) => {
                       {
                         item.name === 'Connect with Us' ?
                           <a href={link.link} target="_blank" rel="noopener noreferrer">
-                            <h5><Text type="secondary">{link.title}&nbsp;<BsBoxArrowUpRight /></Text></h5>
+                            <h5><Text>{link.title}&nbsp;<BsBoxArrowUpRight /></Text></h5>
                           </a>
                           :
                           <Link key={index} href={link.link}>
                             <a>
-                              <h5><Text type="secondary">{link.title}</Text></h5>
+                              <h5><Text>{link.title}</Text></h5>
                             </a>
                           </Link>
                       }
