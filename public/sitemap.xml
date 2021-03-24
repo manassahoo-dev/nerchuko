@@ -1,97 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
-<url>
-  <loc>https://nerchuko.in/</loc>
-  <lastmod>2021-03-06T20:07:14+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://nerchuko.in/vocabulary</loc>
-  <lastmod>2021-03-06T20:07:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://nerchuko.in/resources</loc>
-  <lastmod>2021-03-06T20:07:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://nerchuko.in/forum</loc>
-  <lastmod>2021-03-06T20:07:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://nerchuko.in/translate</loc>
-  <lastmod>2021-03-06T20:07:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://nerchuko.in/login</loc>
-  <lastmod>2021-03-06T20:07:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://nerchuko.in/topics/Greetings</loc>
-  <lastmod>2021-03-06T20:07:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://nerchuko.in/topics/Numbers</loc>
-  <lastmod>2021-03-06T20:07:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://nerchuko.in/topics/Family</loc>
-  <lastmod>2021-03-06T20:07:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://nerchuko.in/topics/Vegetables</loc>
-  <lastmod>2021-03-06T20:07:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://nerchuko.in/topics/Fruits</loc>
-  <lastmod>2021-03-06T20:07:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://nerchuko.in/topics/Colors</loc>
-  <lastmod>2021-03-06T20:07:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://nerchuko.in/topics/Days</loc>
-  <lastmod>2021-03-06T20:07:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://nerchuko.in/privacy</loc>
-  <lastmod>2021-03-06T20:07:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://nerchuko.in/terms</loc>
-  <lastmod>2021-03-06T20:07:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://nerchuko.in/sitemap</loc>
-  <lastmod>2021-03-06T20:07:14+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://nerchuko.in/signup</loc>
-  <lastmod>2021-03-06T20:07:14+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://nerchuko.in/</loc>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://nerchuko.in/privacy</loc>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://nerchuko.in/sitemap</loc>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://nerchuko.in/login</loc>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://nerchuko.in/resources</loc>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://nerchuko.in/signup</loc>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://nerchuko.in/telugu/alphabets</loc>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://nerchuko.in/resources/books/9350570769</loc>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://nerchuko.in/telugu/vocabulary</loc>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://nerchuko.in/resources/books/8128811886</loc>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://nerchuko.in/terms</loc>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://nerchuko.in/resources/books/9353618967</loc>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://nerchuko.in/telugu/translate</loc>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://nerchuko.in/telugu/forum</loc>
+    <changefreq>daily</changefreq>
+  </url>
 </urlset>
