@@ -31,18 +31,26 @@ const VocabularyIndex = (props) => {
         listTopics()
     }, []);
 
+    function getRandomColor() {
+        return 'rgb(' +
+            (Math.floor(Math.random() * 56) + 200) + ', ' +
+            (Math.floor(Math.random() * 56) + 200) + ', ' +
+            (Math.floor(Math.random() * 56) + 200) +
+            ')';
+    }
+
     return (
         <div>
-            <Row gutter={[{ xs: 12, sm: 16, md: 24, lg: 32 }, { xs: 12, sm: 16, md: 24, lg: 32 }]}>
+            <Row gutter={[{ xs: 12, sm: 16, md: 24, lg: 24 }, { xs: 12, sm: 16, md: 24, lg: 24 }]}>
                 {topics.map((item, index) => (
                     <React.Fragment key={index} >
-                        <Col key={`${index}`} xs={0} sm={8} md={6} lg={6} xl={4} xxl={3}>
+                        <Col key={`${index}`} xs={0} sm={8} md={6} lg={6} xl={3} xxl={3}>
                             <Link href={`/telugu/vocabulary/${item.name.toLowerCase()}`}>
                                 <a>
                                     <Card
                                         hoverable
                                         className="animate__animated animate__fadeIn animate__slow"
-                                        style={{ textAlign: "center", borderRadius: '2rem', borderColor: '#fff' }}
+                                        style={{ textAlign: "center", borderRadius: '1rem', backgroundColor: getRandomColor() }}
                                         cover={<img alt={`Vocabulary ${item.name}`} rel="preconnect" src={item.imageUrl} style={{ height: "70px", width: "auto", margin: "20px auto -10px" }} />}
                                     >
                                         <Meta title={item.name} description={item.telugu} style={{ textAlign: "center" }} />
@@ -54,13 +62,9 @@ const VocabularyIndex = (props) => {
                             <Link href={`/telugu/vocabulary/${item.name.toLowerCase()}`}>
                                 <a>
                                     <Card hoverable
-                                        style={{ borderRadius: '1rem' }}>
-                                        <Meta
-                                            avatar={
-                                                <Avatar alt={`Vocabulary ${item.name}`} src={item.imageUrl} shape="square" size={50} />
-                                            }
-                                            title={item.name}
-                                            description={item.telugu}
+                                        style={{ borderRadius: '1rem', backgroundColor: getRandomColor() }}>
+                                        <Meta avatar={<Avatar alt={`Vocabulary ${item.name}`} src={item.imageUrl} shape="square" size={50} />}
+                                            title={item.name} description={item.telugu}
                                         />
                                     </Card>
                                 </a>

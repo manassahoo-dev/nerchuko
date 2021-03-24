@@ -1,17 +1,17 @@
-import { DownOutlined, LogoutOutlined, UserOutlined } from '@ant-design/icons';
-import { Button, Col, Dropdown, Layout, Menu, Row, Space } from 'antd';
-import Head from 'next/head';
+import { DownOutlined, LogoutOutlined, UserOutlined, MenuOutlined } from '@ant-design/icons';
+import { Button, Col, Dropdown, Layout, Menu, Row, Space, Drawer } from 'antd';
 import Link from 'next/link';
 import { useContext, useEffect, useState } from 'react';
 import Auth from '../pages/auth';
-import UserContext from './contexts/UserContext';
 import { Authentication } from './constants/authentication';
+import UserContext from './contexts/UserContext';
 
 const { Header } = Layout;
 
 const AppHeader = (props) => {
     const { current } = props;
     const [user, setUser] = useState(null);
+    const [visible, setVisible] = useState(false);
 
     const menus = [
         { link: '/telugu/vocabulary', title: 'VOCABULARY' },
@@ -29,6 +29,7 @@ const AppHeader = (props) => {
             <Menu.Item key="logOut" icon={<LogoutOutlined />}><Link href="/"><a onClick={logOut}>Logout</a></Link></Menu.Item>
         </Menu>
     );
+
     useEffect(() => {
         if (typeof window !== "undefined") {
             const pathName = window.location.pathname;
@@ -36,26 +37,45 @@ const AppHeader = (props) => {
         }
     }, []);
 
+    const home = <Link href="/"><a><img src="/images/logo.svg" alt="logo" className="logo"></img></a></Link>
+
+    const showDrawer = () => {
+        setVisible(true);
+    };
+    const onClose = () => {
+        setVisible(false);
+    };
     return (
         <>
             <Header>
                 <Row>
-                    <Col xs={12} md={4}>
-                        <Link href="/"><a>
-                            <img src="/images/logo.svg" alt="logo" className="logo"></img>
-                        </a></Link>
+                    <Col xs={0} sm={4}>
+                        {home}
                     </Col>
-                    <Col xs={0} md={16}>
+                    <Col xs={0} sm={16}>
                         <Row justify="center">
                             <Col>
-                                {menus.map((menu, index) =>
-                                    <Link key={index} href={menu.link}>
-                                        <a className={current === menu.link ? 'menu-item active' : 'menu-item'}>{menu.title}</a>
-                                    </Link>)}
+                                <Menu selectedKeys={[current]} mode="horizontal">
+                                    {menus.map((menu, index) =>
+                                        <Menu.Item key={menu.link}>
+                                            <Link key={index} href={menu.link}>
+                                                <a style={{ fontWeight: 500 }}>{menu.title}</a>
+                                            </Link>
+                                        </Menu.Item>
+                                    )
+                                    }
+                                </Menu>
                             </Col>
                         </Row>
                     </Col>
-                    <Col xs={12} md={4}>
+                    <Col xs={4} sm={0}>
+                        <Button className="icon" onClick={showDrawer}>
+                            <MenuOutlined />
+                        </Button>
+                    </Col>
+                    <Col xs={16} sm={0} style={{ textAlign: 'center' }}>{home}</Col>
+                    <Col xs={4} sm={0}></Col>
+                    <Col xs={0} sm={4}>
                         <Row justify="end">
                             <Col>
                                 <Space>
@@ -74,6 +94,27 @@ const AppHeader = (props) => {
                         </Row>
                     </Col>
                 </Row>
+                <Drawer
+                    title={home}
+                    placement="right"
+                    onClose={onClose}
+                    visible={visible}
+                    width="100%"
+                >
+                    {user ?
+                        <Dropdown overlay={menu} placement="bottomCenter">
+                            <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+                                <img src="/image/profile.png" height="32" style={{ marginRight: '10px' }} /> <DownOutlined />
+                            </a>
+                        </Dropdown>
+                        :
+                        <h4><Link href="/login"><a onClick={onClose}>LOGIN</a></Link></h4>
+                    }
+                    {menus.map((menu, index) =>
+                        <h4 key={index}>
+                            <Link href={menu.link}><a onClick={onClose} className={current === menu.link ? 'active' : ''}>{menu.title}</a></Link>
+                        </h4>)}
+                </Drawer>
             </Header>
         </>
     )

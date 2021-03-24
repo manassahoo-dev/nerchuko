@@ -9,7 +9,6 @@ import { Authentication } from '../components/constants/authentication';
 import UserContext from '../components/contexts/UserContext';
 
 export default function Auth(props) {
-    console.log(props);
     const [form] = Form.useForm();
     const { login } = useContext(UserContext);
     const [error, setError] = useState(null);
