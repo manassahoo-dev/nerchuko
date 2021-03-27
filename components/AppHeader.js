@@ -53,24 +53,20 @@ const AppHeader = (props) => {
                         {home}
                     </Col>
                     <Col xs={0} sm={16}>
-                        <Row justify="center">
-                            <Col>
-                                <Menu selectedKeys={[current]} mode="horizontal">
-                                    {menus.map((menu, index) =>
-                                        <Menu.Item key={menu.link}>
-                                            <Link key={index} href={menu.link}>
-                                                <a style={{ fontWeight: 500 }}>{menu.title}</a>
-                                            </Link>
-                                        </Menu.Item>
-                                    )
-                                    }
-                                </Menu>
-                            </Col>
-                        </Row>
+                        <Menu selectedKeys={[current]} mode="horizontal">
+                            {menus.map((menu, index) =>
+                                <Menu.Item key={menu.link}>
+                                    <Link key={index} href={menu.link}>
+                                        <a style={{ fontWeight: 500 }}>{menu.title}</a>
+                                    </Link>
+                                </Menu.Item>
+                            )
+                            }
+                        </Menu>
                     </Col>
                     <Col xs={4} sm={0}>
                         <Button type="text" className="icon" onClick={showDrawer}>
-                            <MenuOutlined />
+                            <MenuOutlined style={{ fontSize: '24px', fontWeight: 'bold' }} />
                         </Button>
                     </Col>
                     <Col xs={16} sm={0} style={{ textAlign: 'center' }}>{home}</Col>
