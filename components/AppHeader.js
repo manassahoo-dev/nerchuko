@@ -1,9 +1,7 @@
-import { DownOutlined, LogoutOutlined, UserOutlined, MenuOutlined } from '@ant-design/icons';
-import { Button, Col, Dropdown, Layout, Menu, Row, Space, Drawer, Avatar } from 'antd';
+import { DownOutlined, LogoutOutlined, MenuOutlined, UserOutlined } from '@ant-design/icons';
+import { Avatar, Button, Col, Drawer, Dropdown, Layout, Menu, Row, Space } from 'antd';
 import Link from 'next/link';
 import { useContext, useEffect, useState } from 'react';
-import Auth from '../pages/auth';
-import { Authentication } from './constants/authentication';
 import UserContext from './contexts/UserContext';
 
 const { Header } = Layout;
@@ -84,7 +82,7 @@ const AppHeader = (props) => {
                                             </a>
                                         </Dropdown>
                                         :
-                                        <Auth action={Authentication.LOGIN} label="Login" />
+                                        <Link href="/login"><a><Button type="primary">Login</Button></a></Link>
                                     }
                                 </Space>
                             </Col>

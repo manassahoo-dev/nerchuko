@@ -1,4 +1,4 @@
-import { Alert, Button, Card, Form, Input, Modal } from 'antd';
+import { Alert, Button, Card, Col, Form, Input, Row } from 'antd';
 import axios from 'axios';
 import Link from 'next/link';
 import React, { useState } from 'react';
@@ -49,13 +49,10 @@ export default function Signup() {
     };
 
     return (
-        <>
-            <Button type="primary" onClick={showModal}>
-                Login
-            </Button>
-            <Modal title="Login" footer={false} centered
-                visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-                <Card bordered={false}>
+        <Row type="flex" justify="center" align="middle" style={{ minHeight: '100vh' }}>
+            <Col xs={1} sm={6} md={8}></Col>
+            <Col xs={22} sm={12} md={8}>
+                <Card>
                     <div>
                         <h1 className="m0">Sign Up</h1>
                         <p>Log in with your data that you entered during your registraion</p><br />
@@ -115,7 +112,8 @@ export default function Signup() {
                             <Link href="/login"><a className="mx-2">Login</a></Link>
                     </p>
                 </Card>
-            </Modal>
-        </>
+            </Col>
+            <Col xs={1} sm={6} md={8}></Col>
+        </Row>
     )
 }
