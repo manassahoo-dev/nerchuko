@@ -1,5 +1,5 @@
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import { Alert, Button, Card, Checkbox, Col, Form, Input, Row } from 'antd';
+import { Alert, Button, Card, Checkbox, Col, Form, Input, Layout, Row } from 'antd';
 import axios from 'axios';
 import Link from 'next/link';
 import Router from 'next/router';
@@ -76,58 +76,60 @@ export default function Login() {
     };
 
     return (
-        <Row type="flex" justify="center" align="middle" style={{ minHeight: '100vh' }}>
-            <Col xs={1} sm={6} md={8}></Col>
-            <Col xs={22} sm={12} md={8}>
-                <Card>
-                    <div>
-                        <h1 className="m0">Login</h1><br />
-                        {error &&
-                            <>
-                                <Alert
-                                    className="mb-4"
-                                    message={error}
-                                    type="error"
-                                    showIcon
-                                    closable
-                                    onClose={() => setError(null)}
-                                /><br /></>
-                        }
-                        <Form
-                            name="form"
-                            form={form}
-                            layout="vertical"
-                            onFinish={onFinish}
-                            onFinishFailed={onFinishFailed}
-                            validateMessages={validateMessages}
-                        >
-                            <Form.Item label="Email address" name="email" rules={[{ type: 'email', required: true }]} >
-                                <Input prefix={<UserOutlined />} placeholder="Email" />
-                            </Form.Item>
-
-                            <Form.Item label="Password" name="password" rules={[{ required: true }]} >
-                                <Input.Password prefix={<LockOutlined />} placeholder="Password" />
-                            </Form.Item>
-                            <Form.Item>
-                                <Form.Item name="remember" valuePropName="checked" noStyle>
-                                    <Checkbox>Remember me</Checkbox>
+        <Layout>
+            <Row type="flex" justify="center" align="middle" style={{ minHeight: '100vh' }}>
+                <Col xs={1} sm={6} md={8}></Col>
+                <Col xs={22} sm={12} md={8}>
+                    <Card>
+                        <div>
+                            <h1 className="m0">Login</h1><br />
+                            {error &&
+                                <>
+                                    <Alert
+                                        className="mb-4"
+                                        message={error}
+                                        type="error"
+                                        showIcon
+                                        closable
+                                        onClose={() => setError(null)}
+                                    /><br /></>
+                            }
+                            <Form
+                                name="form"
+                                form={form}
+                                layout="vertical"
+                                onFinish={onFinish}
+                                onFinishFailed={onFinishFailed}
+                                validateMessages={validateMessages}
+                            >
+                                <Form.Item label="Email address" name="email" rules={[{ type: 'email', required: true }]} >
+                                    <Input prefix={<UserOutlined />} placeholder="Email" />
                                 </Form.Item>
-                                <span className="float-right">
-                                    <Button type="link" className="mx-2" onClick={() => setAction(Authentication.FORGOT_PASSWORD)}>Forgot password</Button>
-                                </span>
-                            </Form.Item>
-                            <Form.Item>
-                                <Button type="primary" htmlType="submit" block disabled={loading} loading={loading}>Login</Button>
-                            </Form.Item>
-                        </Form>
-                    </div>
-                    <p className="text-center">Do not have an account yet?
+
+                                <Form.Item label="Password" name="password" rules={[{ required: true }]} >
+                                    <Input.Password prefix={<LockOutlined />} placeholder="Password" />
+                                </Form.Item>
+                                <Form.Item>
+                                    <Form.Item name="remember" valuePropName="checked" noStyle>
+                                        <Checkbox>Remember me</Checkbox>
+                                    </Form.Item>
+                                    <span className="float-right">
+                                        <Link href="/forgot"><a>Forgot Password?</a></Link>
+                                    </span>
+                                </Form.Item>
+                                <Form.Item>
+                                    <Button type="primary" htmlType="submit" block disabled={loading} loading={loading}>Login</Button>
+                                </Form.Item>
+                            </Form>
+                        </div>
+                        <p className="text-center">Do not have an account yet?
                         <Link href="/signup"><a>Signup</a></Link>
-                    </p>
-                </Card>
-            </Col>
-            <Col xs={1} sm={6} md={8}></Col>
-        </Row>
+                        </p>
+                    </Card>
+                </Col>
+                <Col xs={1} sm={6} md={8}></Col>
+            </Row>
+        </Layout>
     )
 }
 
