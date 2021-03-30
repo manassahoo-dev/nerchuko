@@ -39,11 +39,8 @@ export default function BooksIndex() {
                     <Link href={`/resources/books/${book.ISBN10}`}>
                         <a>
                             <Card
-                                style={{ background: 'none' }}
                                 bordered={false}
-                                cover={<img alt={book.name} src={book.image} style={{
-                                    maxHeight: 200, padding: 10, margin: 'auto', display: 'block', width: 'auto'
-                                }} />}
+                                cover={<img alt={book.name} src={book.image} className="book-card" />}
                             >
                                 <Meta title={book.name} description={book.author} />
                                 <Rate disabled defaultValue={book.reviews} />

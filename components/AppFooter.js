@@ -51,7 +51,7 @@ const AppFooter = (props) => {
         </Row>
         <Row>
           <Col xs={24} sm={0}>
-            <Collapse bordered={false} style={{ backgroundColor: '#f1f1f1' }}>
+            <Collapse bordered={false} >
               {links.map((item, index) =>
                 <Panel header={item.name} key={index} showArrow={false}>
                   {item.links.map((link, index) =>
@@ -77,7 +77,7 @@ const AppFooter = (props) => {
           </Col>
         </Row>
       </Footer >
-      <Footer style={{ background: '#ececec' }}>
+      <Footer className="copyright">
         <Link href="/"><a>© nerchuko.in, All rights reserved.</a></Link>
       </Footer>
     </>

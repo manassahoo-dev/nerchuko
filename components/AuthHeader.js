@@ -1,18 +1,15 @@
+import { DownOutlined, LogoutOutlined, MailOutlined, UserOutlined } from '@ant-design/icons';
+import { Avatar, Dropdown, Input, Layout, Menu } from 'antd';
 import Link from 'next/link';
 import { useContext } from 'react';
 import UserContext from '../components/contexts/UserContext';
 
-import { Layout, Input, Avatar, Badge, Dropdown } from 'antd';
-import { Menu, } from 'antd';
 const { Header } = Layout;
-const { Search } = Input;
-import { BellOutlined, DownOutlined } from '@ant-design/icons';
-import { UserOutlined, MailOutlined, LogoutOutlined } from '@ant-design/icons';
 
 const AuthHeader = () => {
     const { user, logOut } = useContext(UserContext);
     const menu = (
-        <Menu style={{ minWidth: '150px' }}>
+        <Menu>
             <Menu.Item key="profile" icon={<UserOutlined />}><Link href="/profile"><a>Profile</a></Link></Menu.Item>
             <Menu.Item key="contact-us" icon={<MailOutlined />}><Link href="/contact-us"><a>Contact Us</a></Link></Menu.Item>
             <Menu.Divider></Menu.Divider>
@@ -20,18 +17,13 @@ const AuthHeader = () => {
         </Menu>
     );
     return (
-        <Header style={{ textAlign: 'center' }}>
-            {/* <Search placeholder="input search text" style={{ width: 250, margin: '16px' }} /> */}
+        <Header className="text-center">
             <Dropdown overlay={menu} className="float-right" placement="bottomCenter">
                 <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-                    <img src="/images/user.png" height="40" style={{ margin: '12px' }} /> <DownOutlined />
+                    <Avatar>A</Avatar>
+                    <DownOutlined />
                 </a>
             </Dropdown>
-            <div className="float-right" style={{ margin: '0 16px' }}>
-                <Badge dot>
-                    <Avatar icon={<BellOutlined />} size={32} style={{ color: '#ff4d4f', backgroundColor: '#f9f9f9' }} />
-                </Badge>
-            </div>
         </Header>
     )
 };

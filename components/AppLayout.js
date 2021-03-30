@@ -24,12 +24,12 @@ const AppLayout = props => {
 
 
                 pathName !== '/' && showHeaderFooter ?
-                    <Layout style={{ minHeight: "100vh" }}>
+                    <Layout className="min-vh-100">
                         <AppHeader current={pathName} />
                         <Content>{props.children}</Content>
                         <AppFooter />
                     </Layout> :
-                    <div style={{ minHeight: "100vh" }}>
+                    <div className="min-vh-100">
                         {props.children}
                     </div>
             }

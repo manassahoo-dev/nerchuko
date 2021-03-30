@@ -1,5 +1,5 @@
 import { DownOutlined, LogoutOutlined, UserOutlined, MenuOutlined } from '@ant-design/icons';
-import { Button, Col, Dropdown, Layout, Menu, Row, Space, Drawer } from 'antd';
+import { Button, Col, Dropdown, Layout, Menu, Row, Space, Drawer, Avatar } from 'antd';
 import Link from 'next/link';
 import { useContext, useEffect, useState } from 'react';
 import Auth from '../pages/auth';
@@ -23,7 +23,7 @@ const AppHeader = (props) => {
     const { logOut } = useContext(UserContext);
 
     const menu = (
-        <Menu style={{ minWidth: '150px' }}>
+        <Menu>
             <Menu.Item key="profile" icon={<UserOutlined />}><Link href="/profile"><a>Profile</a></Link></Menu.Item>
             <Menu.Divider></Menu.Divider>
             <Menu.Item key="logOut" icon={<LogoutOutlined />}><Link href="/"><a onClick={logOut}>Logout</a></Link></Menu.Item>
@@ -37,7 +37,7 @@ const AppHeader = (props) => {
         }
     }, []);
 
-    const home = <Link href="/"><a><img src="/images/logo.svg" alt="logo" className="logo"></img></a></Link>
+    const home = <Link href="/"><a><img src="/images/logo.svg" alt="logo" className="logo" /></a></Link>
 
     const showDrawer = () => {
         setVisible(true);
@@ -57,7 +57,7 @@ const AppHeader = (props) => {
                             {menus.map((menu, index) =>
                                 <Menu.Item key={menu.link}>
                                     <Link key={index} href={menu.link}>
-                                        <a style={{ fontWeight: 500 }}>{menu.title}</a>
+                                        <a>{menu.title}</a>
                                     </Link>
                                 </Menu.Item>
                             )
@@ -66,10 +66,10 @@ const AppHeader = (props) => {
                     </Col>
                     <Col xs={4} sm={0}>
                         <Button type="text" className="icon" onClick={showDrawer}>
-                            <MenuOutlined style={{ fontSize: '24px', fontWeight: 'bold' }} />
+                            <MenuOutlined />
                         </Button>
                     </Col>
-                    <Col xs={16} sm={0} style={{ textAlign: 'center' }}>{home}</Col>
+                    <Col xs={16} sm={0} className="text-center">{home}</Col>
                     <Col xs={4} sm={0}></Col>
                     <Col xs={0} sm={4}>
                         <Row justify="end">
@@ -79,7 +79,8 @@ const AppHeader = (props) => {
                                     {user ?
                                         <Dropdown overlay={menu} className="float-right" placement="bottomCenter">
                                             <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-                                                <img src="/images/user.png" height="32" style={{ marginRight: '10px' }} /> <DownOutlined />
+                                                <Avatar>A</Avatar>
+                                                <DownOutlined />
                                             </a>
                                         </Dropdown>
                                         :
@@ -100,7 +101,8 @@ const AppHeader = (props) => {
                     {user ?
                         <Dropdown overlay={menu} placement="bottomCenter">
                             <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-                                <img src="/image/profile.png" height="32" style={{ marginRight: '10px' }} /> <DownOutlined />
+                                <Avatar>A</Avatar>
+                                <DownOutlined />
                             </a>
                         </Dropdown>
                         :

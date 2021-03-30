@@ -50,10 +50,10 @@ const VocabularyIndex = (props) => {
                                     <Card
                                         hoverable
                                         className="animate__animated animate__fadeIn animate__slow"
-                                        style={{ textAlign: "center", borderRadius: '1rem' }}
-                                        cover={<img alt={`Vocabulary ${item.name}`} rel="preconnect" src={item.imageUrl} style={{ height: "70px", width: "auto", margin: "20px auto -10px" }} />}
+                                        className="text-center"
+                                        cover={<img alt={`Vocabulary ${item.name}`} rel="preconnect" src={item.imageUrl} className="vocabulary-card" />}
                                     >
-                                        <Meta title={item.name} description={item.telugu} style={{ textAlign: "center" }} />
+                                        <Meta title={item.name} description={item.telugu} className="text-center" />
                                     </Card>
                                 </a>
                             </Link>
@@ -61,8 +61,7 @@ const VocabularyIndex = (props) => {
                         <Col key={`m${index}`} xs={24} sm={0}>
                             <Link href={`/telugu/vocabulary/${item.name.toLowerCase()}`}>
                                 <a>
-                                    <Card hoverable
-                                        style={{ borderRadius: '1rem' }}>
+                                    <Card hoverable>
                                         <Meta avatar={<Avatar alt={`Vocabulary ${item.name}`} src={item.imageUrl} shape="square" size={50} />}
                                             title={item.name} description={item.telugu}
                                         />

@@ -21,12 +21,12 @@ const Home = ({ resolution }) => {
               <Button size="large" type="primary"></Button>
             </Col>
             <Col xs={24} sm={12}>
-              <img style={{ maxWidth: '100%' }} src="/images/banner.webp" alt="Banner" />
+              <img src="/images/banner.webp" alt="Banner" className="mw-100" />
             </Col>
           </Row>
         </Content>
       </Layout>
-      <Content style={{ backgroundColor: '#eaeaea' }}>
+      <Content className="lime-1">
         <Title className="m1">Learn Telugu Vocabulary</Title>
         <VocabularyIndex />
       </Content>
