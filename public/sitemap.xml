@@ -1,59 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://nerchuko.in/</loc>
-    <changefreq>daily</changefreq>
-  </url>
-  <url>
-    <loc>https://nerchuko.in/privacy</loc>
-    <changefreq>daily</changefreq>
-  </url>
-  <url>
-    <loc>https://nerchuko.in/sitemap</loc>
-    <changefreq>daily</changefreq>
-  </url>
-  <url>
-    <loc>https://nerchuko.in/login</loc>
-    <changefreq>daily</changefreq>
-  </url>
-  <url>
-    <loc>https://nerchuko.in/resources</loc>
-    <changefreq>daily</changefreq>
-  </url>
-  <url>
-    <loc>https://nerchuko.in/signup</loc>
-    <changefreq>daily</changefreq>
-  </url>
-  <url>
-    <loc>https://nerchuko.in/telugu/alphabets</loc>
-    <changefreq>daily</changefreq>
-  </url>
-  <url>
-    <loc>https://nerchuko.in/resources/books/9350570769</loc>
-    <changefreq>daily</changefreq>
-  </url>
-  <url>
-    <loc>https://nerchuko.in/telugu/vocabulary</loc>
-    <changefreq>daily</changefreq>
-  </url>
-  <url>
-    <loc>https://nerchuko.in/resources/books/8128811886</loc>
-    <changefreq>daily</changefreq>
-  </url>
-  <url>
-    <loc>https://nerchuko.in/terms</loc>
-    <changefreq>daily</changefreq>
-  </url>
-  <url>
-    <loc>https://nerchuko.in/resources/books/9353618967</loc>
-    <changefreq>daily</changefreq>
-  </url>
-  <url>
-    <loc>https://nerchuko.in/telugu/translate</loc>
-    <changefreq>daily</changefreq>
-  </url>
-  <url>
-    <loc>https://nerchuko.in/telugu/forum</loc>
-    <changefreq>daily</changefreq>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url><loc>https://nerchuko.in</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-03-31T06:52:57.342Z</lastmod></url>
+<url><loc>https://nerchuko.in/admin</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-03-31T06:52:57.342Z</lastmod></url>
+<url><loc>https://nerchuko.in/forgot</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-03-31T06:52:57.342Z</lastmod></url>
+<url><loc>https://nerchuko.in/login</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-03-31T06:52:57.342Z</lastmod></url>
+<url><loc>https://nerchuko.in/privacy</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-03-31T06:52:57.342Z</lastmod></url>
+<url><loc>https://nerchuko.in/resources</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-03-31T06:52:57.342Z</lastmod></url>
+<url><loc>https://nerchuko.in/resources/books</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-03-31T06:52:57.342Z</lastmod></url>
+<url><loc>https://nerchuko.in/signup</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-03-31T06:52:57.342Z</lastmod></url>
+<url><loc>https://nerchuko.in/sitemap</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-03-31T06:52:57.342Z</lastmod></url>
+<url><loc>https://nerchuko.in/terms</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-03-31T06:52:57.342Z</lastmod></url>
 </urlset>
