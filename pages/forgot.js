@@ -1,13 +1,13 @@
-import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import { Alert, Button, Card, Checkbox, Col, Form, Input, Layout, Row } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
+import { Alert, Button, Card, Col, Form, Input, Layout, Row, Typography } from 'antd';
 import axios from 'axios';
 import Link from 'next/link';
 import Router from 'next/router';
 import React, { useContext, useState } from 'react';
 import { API_BASE_URL } from '../components/constants/api-config';
-import { Authentication } from '../components/constants/authentication';
 import { authHeader } from '../components/constants/authHeader';
 import UserContext from '../components/contexts/UserContext';
+const { Title } = Typography;
 
 export default function Forgot() {
     const [form] = Form.useForm();
@@ -78,11 +78,12 @@ export default function Forgot() {
     return (
         <Layout>
             <Row type="flex" justify="center" align="middle" style={{ minHeight: '100vh' }}>
-                <Col xs={1} sm={6} md={8}></Col>
-                <Col xs={22} sm={12} md={8}>
-                    <Card>
+                <Col xs={1} sm={6} md={6} lg={8}></Col>
+                <Col xs={22} sm={12} md={12} lg={8}>
+                    <Card className="auth-card">
                         <div>
-                            <h1 className="m0">Password Reset</h1><br />
+                            <Title>Reset Password</Title>
+                            <p>Enter the email associated with your account and we'll send an email with instructions to reset your password</p>
                             {error &&
                                 <>
                                     <Alert
@@ -114,7 +115,7 @@ export default function Forgot() {
                         </p>
                     </Card>
                 </Col>
-                <Col xs={1} sm={6} md={8}></Col>
+                <Col xs={1} sm={6} md={6} lg={8}></Col>
             </Row>
         </Layout>
     )

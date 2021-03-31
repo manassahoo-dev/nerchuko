@@ -25,8 +25,8 @@ const Home = ({ resolution }) => {
           </Row>
         </Content>
       </Layout>
-      <Content className="lime-1">
-        <Title className="m1">Learn Telugu Vocabulary</Title>
+      <Content className="vocabulary-section">
+        <Title>Learn Telugu Vocabulary</Title>
         <VocabularyIndex />
       </Content>
     </main >
