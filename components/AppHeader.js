@@ -1,5 +1,5 @@
-import { DownOutlined, LogoutOutlined, MenuOutlined, UserOutlined } from '@ant-design/icons';
-import { Avatar, Button, Col, Drawer, Dropdown, Layout, Menu, Row, Space } from 'antd';
+import { DownOutlined, LogoutOutlined, MenuOutlined, UserOutlined, CloseCircleOutlined } from '@ant-design/icons';
+import { Avatar, Button, Col, Drawer, Dropdown, Layout, Menu, Row, Space, List } from 'antd';
 import Link from 'next/link';
 import { useContext, useEffect, useState } from 'react';
 import UserContext from './contexts/UserContext';
@@ -92,10 +92,20 @@ const AppHeader = (props) => {
                 <Drawer
                     title={home}
                     placement="right"
+                    closeIcon={<CloseCircleOutlined />}
                     onClose={onClose}
                     visible={visible}
-                    width="100%"
                 >
+                    <Menu selectedKeys={[current]} mode="inline">
+                        {menus.map((menu, index) =>
+                            <Menu.Item key={menu.link}>
+                                <Link key={index} href={menu.link}>
+                                    <a onClick={onClose}>{menu.title}</a>
+                                </Link>
+                            </Menu.Item>
+                        )
+                        }
+                    </Menu>
                     {user ?
                         <Dropdown overlay={menu} placement="bottomCenter">
                             <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
@@ -104,12 +114,8 @@ const AppHeader = (props) => {
                             </a>
                         </Dropdown>
                         :
-                        <h4><Link href="/login"><a onClick={onClose}>LOGIN</a></Link></h4>
+                        <Link href="/login"><a onClick={onClose}><br /><Button type="primary" block>Login</Button></a></Link>
                     }
-                    {menus.map((menu, index) =>
-                        <h4 key={index}>
-                            <Link href={menu.link}><a onClick={onClose} className={current === menu.link ? 'active' : ''}>{menu.title}</a></Link>
-                        </h4>)}
                 </Drawer>
             </Header>
         </>

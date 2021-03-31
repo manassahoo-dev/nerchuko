@@ -80,6 +80,7 @@ export default function Login() {
             <Row type="flex" justify="center" align="middle" style={{ minHeight: '100vh' }}>
                 <Col xs={1} sm={6} md={6} lg={8}></Col>
                 <Col xs={22} sm={12} md={12} lg={8}>
+                    <Link href="/"><a className="text-center">Home</a></Link>
                     <Card className="auth-card">
                         <div>
                             <Title>Login</Title>
