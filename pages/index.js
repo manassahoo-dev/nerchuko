@@ -20,7 +20,7 @@ const Home = ({ resolution }) => {
               <Button size="large" type="primary"></Button>
             </Col>
             <Col xs={24} sm={12}>
-              <img src="/images/banner.webp" alt="Banner" className="mw-100" />
+              <img src="/images/banner.webp" alt="Banner" className="mw-100 animate__animated animate__headShake" />
             </Col>
           </Row>
         </Content>

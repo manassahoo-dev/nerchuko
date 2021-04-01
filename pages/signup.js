@@ -1,9 +1,11 @@
-import { Alert, Button, Card, Col, Form, Input, Row, Layout, Typography } from 'antd';
+import { Alert, Button, Card, Col, Form, Input, Layout, Row, Typography } from 'antd';
 import axios from 'axios';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { API_BASE_URL } from '../components/constants/api-config';
+
 const { Title } = Typography;
+const { Header } = Layout;
 
 export default function Signup() {
     const [signupForm] = Form.useForm();
@@ -51,13 +53,19 @@ export default function Signup() {
 
     return (
         <Layout>
-            <Row type="flex" justify="center" align="middle" style={{ minHeight: '100vh' }}>
+            <Header>
+                <Row>
+                    <Col span={12}><Link href="/"><a><img src="/images/logo.svg" alt="logo" className="logo" /></a></Link></Col>
+                    <Col span={12}><Link href="/login"><a className="float-right"><Button type="primary">Login</Button></a></Link></Col>
+                </Row>
+            </Header>
+            <Row type="flex" justify="center" align="middle" className="auth-card-row">
                 <Col xs={1} sm={6} md={6} lg={8}></Col>
                 <Col xs={22} sm={12} md={12} lg={8}>
                     <Card className="auth-card">
                         <div>
-                            <Title>Signup</Title>
-                            <p>Login with your data that you entered during registration.</p>
+                            <Title className="m0">Signup</Title>
+                            <p>Login with your data that you entered during registration.</p><br />
                             {error &&
                                 <Alert
                                     className="mb-4"

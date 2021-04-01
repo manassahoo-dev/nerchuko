@@ -1,3 +1,4 @@
+import { BackTop } from 'antd';
 import Head from 'next/head';
 import Router from 'next/router';
 import { useState } from 'react';
@@ -22,6 +23,7 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <title>The best way to learn Telugu - Nerchuko</title>
       </Head>
+      <BackTop />
       <AppLayout><Component {...pageProps} resolution={resolution} className="animate__animated animate__fadeInLeft" /></AppLayout>
     </UserContext.Provider>
   )

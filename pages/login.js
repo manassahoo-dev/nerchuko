@@ -7,7 +7,9 @@ import React, { useContext, useState } from 'react';
 import { API_BASE_URL } from '../components/constants/api-config';
 import { authHeader } from '../components/constants/authHeader';
 import UserContext from '../components/contexts/UserContext';
+
 const { Title } = Typography;
+const { Header } = Layout;
 
 export default function Login() {
     const [form] = Form.useForm();
@@ -69,7 +71,7 @@ export default function Login() {
             });
     }
     const validateMessages = {
-        required: '${label} is required!',
+        required: '${label} is required',
         types: {
             email: '${label} is not a valid',
         },
@@ -77,14 +79,19 @@ export default function Login() {
 
     return (
         <Layout>
-            <Row type="flex" justify="center" align="middle" style={{ minHeight: '100vh' }}>
+            <Header>
+                <Row>
+                    <Col span={12}><Link href="/"><a><img src="/images/logo.svg" alt="logo" className="logo" /></a></Link></Col>
+                    <Col span={12}><Link href="/signup"><a className="float-right"><Button type="primary">Signup</Button></a></Link></Col>
+                </Row>
+            </Header>
+            <Row type="flex" justify="center" align="middle" className="auth-card-row">
                 <Col xs={1} sm={6} md={6} lg={8}></Col>
                 <Col xs={22} sm={12} md={12} lg={8}>
-                    <Link href="/"><a className="text-center">Home</a></Link>
                     <Card className="auth-card">
                         <div>
-                            <Title>Login</Title>
-                            <p>Login with your data that you entered during registration.</p>
+                            <Title className="m0">Login</Title>
+                            <p>Login with your data that you entered during registration.</p><br />
 
                             {error &&
                                 <>

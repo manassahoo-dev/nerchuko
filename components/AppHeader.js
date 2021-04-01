@@ -63,7 +63,7 @@ const AppHeader = (props) => {
                         </Menu>
                     </Col>
                     <Col xs={4} sm={0}>
-                        <Button type="text" className="icon" onClick={showDrawer}>
+                        <Button type="link" className="icon" onClick={showDrawer}>
                             <MenuOutlined />
                         </Button>
                     </Col>

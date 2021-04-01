@@ -1,5 +1,5 @@
 import { UserOutlined } from '@ant-design/icons';
-import { Alert, Button, Card, Col, Form, Input, Layout, Row, Typography } from 'antd';
+import { Alert, Button, Card, Col, Form, Input, Layout, Row, Space, Typography } from 'antd';
 import axios from 'axios';
 import Link from 'next/link';
 import Router from 'next/router';
@@ -7,7 +7,9 @@ import React, { useContext, useState } from 'react';
 import { API_BASE_URL } from '../components/constants/api-config';
 import { authHeader } from '../components/constants/authHeader';
 import UserContext from '../components/contexts/UserContext';
+
 const { Title } = Typography;
+const { Header } = Layout;
 
 export default function Forgot() {
     const [form] = Form.useForm();
@@ -69,7 +71,7 @@ export default function Forgot() {
             });
     }
     const validateMessages = {
-        required: '${label} is required!',
+        required: '${label} is required',
         types: {
             email: '${label} is not a valid',
         },
@@ -77,13 +79,24 @@ export default function Forgot() {
 
     return (
         <Layout>
-            <Row type="flex" justify="center" align="middle" style={{ minHeight: '100vh' }}>
+            <Header>
+                <Row>
+                    <Col span={12}><Link href="/"><a><img src="/images/logo.svg" alt="logo" className="logo" /></a></Link></Col>
+                    <Col span={12}>
+                        <Space className="float-right">
+                            <Link href="/signup"><a ><Button >Signup</Button></a></Link>
+                            <Link href="/login"><a ><Button type="primary">Login</Button></a></Link>
+                        </Space>
+                    </Col>
+                </Row>
+            </Header>
+            <Row type="flex" justify="center" align="middle" className="auth-card-row">
                 <Col xs={1} sm={6} md={6} lg={8}></Col>
                 <Col xs={22} sm={12} md={12} lg={8}>
                     <Card className="auth-card">
                         <div>
-                            <Title>Reset Password</Title>
-                            <p>Enter the email associated with your account and we'll send an email with instructions to reset your password</p>
+                            <Title className="m0">Reset Password</Title>
+                            <p>Enter the email associated with your account and we'll send an email with instructions to reset your password</p><br />
                             {error &&
                                 <>
                                     <Alert
@@ -111,8 +124,6 @@ export default function Forgot() {
                                 </Form.Item>
                             </Form>
                         </div>
-                        <p className="text-center">Do not have an account yet? <Link href="/signup"><a>Signup</a></Link>
-                        </p>
                     </Card>
                 </Col>
                 <Col xs={1} sm={6} md={6} lg={8}></Col>
