@@ -11,8 +11,8 @@ export default function Sitemap() {
         <h1 className="my-4">Sitemap</h1>
         <ul>
             <li><Link href="/"><a className="text-primary">Home</a></Link></li>
-            <li><Link href="/login"><a className="text-primary">Login</a></Link></li>
-            <li><Link href="/signup"><a className="text-primary">Signup</a></Link></li>
+            <li><Link href="/accounts/login"><a className="text-primary">Login</a></Link></li>
+            <li><Link href="/accounts/signup"><a className="text-primary">Signup</a></Link></li>
         </ul>
     </>
 }

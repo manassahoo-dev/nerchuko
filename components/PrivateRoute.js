@@ -20,7 +20,7 @@ function privateRoute(AuthComponent) {
         }
         componentDidMount() {
             if (!localStorage.getItem("t")) {
-                Router.push('/login')
+                Router.push('/accounts/login')
             }
             this.setState({ isLoading: false })
         }
@@ -30,8 +30,8 @@ function privateRoute(AuthComponent) {
                     {this.state.isLoading ? (
                         <div>LOADING....</div>
                     ) : (
-                            <AuthComponent {...this.props} />
-                        )}
+                        <AuthComponent {...this.props} />
+                    )}
                 </div>
             )
         }

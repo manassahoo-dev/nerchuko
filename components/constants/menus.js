@@ -16,8 +16,5 @@ export const menus = [
     { link: '/admin/images', name: 'Login Images', icon: <FileImageOutlined /> },
 
     { link: '/dashboard', name: 'Dashboard', icon: <HomeOutlined />, role: 'USER' },
-    { link: '/courses', name: 'My Courses', icon: <CodeOutlined />, role: 'USER' },
     { link: '/profile', name: 'My Profile', icon: <UserOutlined />, role: 'USER' },
-    { link: '/contact-us', name: 'Contact Us', icon: <MailOutlined />, role: 'USER' },
-    { link: '/invoice', name: 'My Invoice', icon: <FilePdfOutlined />, role: 'USER' },
 ]

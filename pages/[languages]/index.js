@@ -2,5 +2,5 @@ import { useRouter } from "next/router";
 
 export default function PostPage() {
     const router = useRouter();
-    return <div>Post #{router.query.lang}</div>;
+    return <div>{router.query.lang}</div>;
 }

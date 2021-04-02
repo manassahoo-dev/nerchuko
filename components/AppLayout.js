@@ -8,7 +8,8 @@ const AppLayout = props => {
     let pathName = "/"
     if (typeof window !== "undefined") {
         pathName = window.location.pathname;
-        const paths = ["/login", "/signup", "/forgot", "/", "/profile", "/dashboard", "/courses", "/settings", "/admin"];
+        const paths = ["/accounts/login", "/accounts/signup", "/accounts/forgot", "/accounts/verify",
+            "/", "/profile", "/dashboard", "/courses", "/settings", "/admin", "/dashboard"];
         showHeaderFooter = paths.includes(pathName) ? false : true;
 
     }

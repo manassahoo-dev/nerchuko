@@ -1,17 +1,17 @@
-import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import { Alert, Button, Card, Checkbox, Col, Form, Input, Layout, Row, Typography } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
+import { Alert, Button, Card, Col, Form, Input, Layout, Row, Space, Typography } from 'antd';
 import axios from 'axios';
 import Link from 'next/link';
 import Router from 'next/router';
 import React, { useContext, useState } from 'react';
-import { API_BASE_URL } from '../components/constants/api-config';
-import { authHeader } from '../components/constants/authHeader';
-import UserContext from '../components/contexts/UserContext';
+import { API_BASE_URL } from '../../components/constants/api-config';
+import { authHeader } from '../../components/constants/authHeader';
+import UserContext from '../../components/contexts/UserContext';
 
 const { Title } = Typography;
 const { Header } = Layout;
 
-export default function Login() {
+export default function Forgot() {
     const [form] = Form.useForm();
     const { login } = useContext(UserContext);
     const [error, setError] = useState(null);
@@ -82,7 +82,12 @@ export default function Login() {
             <Header>
                 <Row>
                     <Col span={12}><Link href="/"><a><img src="/images/logo.svg" alt="logo" className="logo" /></a></Link></Col>
-                    <Col span={12}><Link href="/signup"><a className="float-right"><Button type="primary">Signup</Button></a></Link></Col>
+                    <Col span={12}>
+                        <Space className="float-right">
+                            <Link href="/accounts/signup"><a ><Button >Signup</Button></a></Link>
+                            <Link href="/accounts/login"><a ><Button type="primary">Login</Button></a></Link>
+                        </Space>
+                    </Col>
                 </Row>
             </Header>
             <Row type="flex" justify="center" align="middle" className="auth-card-row">
@@ -90,9 +95,8 @@ export default function Login() {
                 <Col xs={22} sm={12} md={12} lg={8}>
                     <Card className="auth-card">
                         <div>
-                            <Title className="m0">Login</Title>
-                            <p>Login with your data that you entered during registration.</p><br />
-
+                            <Title className="m0">Reset Password</Title>
+                            <p>Enter the email associated with your account and we'll send an email with instructions to reset your password</p><br />
                             {error &&
                                 <>
                                     <Alert
@@ -115,24 +119,11 @@ export default function Login() {
                                 <Form.Item label="Email address" name="email" rules={[{ type: 'email', required: true }]} >
                                     <Input prefix={<UserOutlined />} placeholder="Email" />
                                 </Form.Item>
-
-                                <Form.Item label="Password" name="password" rules={[{ required: true }]} >
-                                    <Input.Password prefix={<LockOutlined />} placeholder="Password" />
-                                </Form.Item>
                                 <Form.Item>
-                                    <Form.Item name="remember" valuePropName="checked" noStyle>
-                                        <Checkbox>Remember me</Checkbox>
-                                    </Form.Item>
-                                    <span className="float-right">
-                                        <Link href="/forgot"><a>Forgot Password?</a></Link>
-                                    </span>
-                                </Form.Item>
-                                <Form.Item>
-                                    <Button type="primary" htmlType="submit" block disabled={loading} loading={loading}>Login</Button>
+                                    <Button type="primary" htmlType="submit" block disabled={loading} loading={loading}>Submit</Button>
                                 </Form.Item>
                             </Form>
                         </div>
-                        <p className="text-center">Do not have an account yet? <Link href="/signup"><a>Signup</a></Link></p>
                     </Card>
                 </Col>
                 <Col xs={1} sm={6} md={6} lg={8}></Col>

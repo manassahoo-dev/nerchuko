@@ -82,7 +82,7 @@ const AppHeader = (props) => {
                                             </a>
                                         </Dropdown>
                                         :
-                                        <Link href="/login"><a><Button type="primary">Login</Button></a></Link>
+                                        <Link href="/accounts/login"><a><Button type="primary">Login</Button></a></Link>
                                     }
                                 </Space>
                             </Col>
@@ -114,7 +114,7 @@ const AppHeader = (props) => {
                             </a>
                         </Dropdown>
                         :
-                        <Link href="/login"><a onClick={onClose}><br /><Button type="primary" block>Login</Button></a></Link>
+                        <Link href="/accounts/login"><a onClick={onClose}><br /><Button type="primary" block>Login</Button></a></Link>
                     }
                 </Drawer>
             </Header>
