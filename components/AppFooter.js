@@ -8,11 +8,19 @@ const { Panel } = Collapse;
 const AppFooter = (props) => {
   const links = [
     {
+      name: 'Abut Us',
+      links: [
+        { link: '/about', title: 'About Us' },
+        { link: '/contact', title: 'Contact Us' },
+        { link: '/faq', title: 'FAQs' }
+      ]
+    },
+    {
       name: 'Privacy & Terms',
       links: [
-        { link: '/privacy', title: 'Privacy Policy' },
-        { link: '/terms', title: 'Terms of Service' },
-        { link: '/sitemap', title: 'Sitemap' }
+        { link: '/about/privacy', title: 'Privacy Policy' },
+        { link: '/about/terms', title: 'Terms of Service' },
+        { link: '/about/sitemap', title: 'Sitemap' }
       ]
     },
     {

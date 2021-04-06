@@ -120,7 +120,7 @@ export default function Forgot() {
                                     <Input prefix={<UserOutlined />} placeholder="Email" />
                                 </Form.Item>
                                 <Form.Item>
-                                    <Button type="primary" htmlType="submit" block disabled={loading} loading={loading}>Submit</Button>
+                                    <Button type="primary" htmlType="submit" block disabled={loading} loading={loading}>Send Email Instructions</Button>
                                 </Form.Item>
                             </Form>
                         </div>

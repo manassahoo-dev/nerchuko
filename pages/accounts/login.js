@@ -60,7 +60,7 @@ export default function Login() {
                     if (roles.some(role => role.name === 'ADMIN')) {
                         Router.push('/admin');
                     } else {
-                        Router.push('/dashboard');
+                        Router.push('/accounts/dashboard');
                     }
                 }
             })

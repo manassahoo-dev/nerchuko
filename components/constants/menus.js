@@ -15,6 +15,6 @@ export const menus = [
     { link: '/admin/quiz', name: 'Quiz', icon: <QuestionOutlined />, role: 'ADMIN' },
     { link: '/admin/images', name: 'Login Images', icon: <FileImageOutlined /> },
 
-    { link: '/dashboard', name: 'Dashboard', icon: <HomeOutlined />, role: 'USER' },
-    { link: '/profile', name: 'My Profile', icon: <UserOutlined />, role: 'USER' },
+    { link: '/accounts/dashboard', name: 'Dashboard', icon: <HomeOutlined />, role: 'USER' },
+    { link: '/accounts/profile', name: 'My Profile', icon: <UserOutlined />, role: 'USER' },
 ]

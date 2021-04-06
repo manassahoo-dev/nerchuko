@@ -2,9 +2,9 @@ import { Layout, Typography } from 'antd';
 const { Content } = Layout;
 const { Title } = Typography;
 
-import SideNavBar from "../components/SideNavBar";
-import AuthHeader from "../components/AuthHeader";
-import privateRoute from "../components/PrivateRoute";
+import SideNavBar from "../../components/SideNavBar";
+import AuthHeader from "../../components/AuthHeader";
+import privateRoute from "../../components/PrivateRoute";
 function Dashboard() {
 
     return (
