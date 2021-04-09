@@ -50,7 +50,7 @@ export default function Forgot() {
 
     const processAfterLoginSuccess = (accessToken) => {
         localStorage.setItem("t", accessToken);
-        axios.get(`${API_BASE_URL}user/me`, authHeader())
+        axios.get(`${API_BASE_URL}users/me`, authHeader())
             .then(function (response) {
                 if (response.status === 200) {
                     localStorage.setItem("r", btoa(JSON.stringify(response.data.roles)));

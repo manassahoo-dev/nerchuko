@@ -1,43 +1,31 @@
 import Head from 'next/head'
 const Meta = (props) => (
     <Head>
-        <title>{props.title}</title>
-        <meta name="description" content={props.desc} />
+        <meta name="keywords" content={keywords} />
+        <meta name="description" content={description} />
+        <link rel="icon" href="/images/favicon.ico" />
+        <meta name="title" content={title} />
+        <link rel="canonical" href={url} />
         <meta property="og:type" content="website" />
-        <meta name="og:title" property="og:title" content={props.title} />
-        <meta name="og:description" property="og:description" content={props.desc} />
-        <meta property="og:site_name" content="Proper Noun" />
-        <meta property="og:url" content={`${props.canonical}`} />
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content={props.title} />
-        <meta name="twitter:description" content={props.desc} />
-        <meta name="twitter:site" content="@propernounco" />
-        <meta name="twitter:creator" content="@propernounco" />
-        <link rel="icon" type="image/png" href="/images/favicon.ico" />
-        <link rel="apple-touch-icon" href="/images/favicon.ico" />
-        {
-            props.css &&
-            <link rel="stylesheet" href={`${props.css}`} />
-        }
-        {
-            props.image ? (
-                <meta property="og:image" content={`${props.image}`} />
-            ) : (
-                <meta property="og:image" content="https://www.propernoun.co/static/images/proper-noun-social.png" />
-            )
-        }
-        {
-            props.image &&
-            <meta name="twitter:image" content={`${props.image}`} />
-        }
-        {
-            props.canonical &&
-            <link rel="canonical" href={`${props.canonical}`} />
-        }
-        {
-            props.js &&
-            <script type="text/javascript" src={`${props.js}`}></script>
-        }
+        <meta property="og:url" content={url} />
+        <meta property="og:title" content={title} />
+m        <meta property="og:description" content={description} />
+        <meta property="og:image" content={image} />
+
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={url} />
+        <meta property="twitter:title" content={title} />
+        <meta property="twitter:description" content={description} />
+        <meta property="twitter:image" content={image} />
     </Head>
 )
+
+Meta.defaultProps = {
+    image: 'https://nerchuko.in/images/thumbnail.png',
+    url: 'https://nerchuko.in',
+    title: 'The best way to learn Telugu - Nerchuko',
+    keywords: 'learn, telugu, free, lessons, course, language, study, flashcards',
+    description: 'Learn Telugu through our lessons such as alphabet, adjectives, nouns, plural, gender, numbers, phrases, grammar, vocabulary, verbs, exam, audio, translation and much more online and for free easily and quickly.',
+}
+
 export default Meta

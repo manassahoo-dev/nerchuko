@@ -5,6 +5,7 @@ import { useState } from 'react';
 import AppLayout from "../components/AppLayout";
 import { screenResolution } from '../components/constants/screenResolution';
 import UserContext from '../components/contexts/UserContext';
+
 import '../public/styles/antd.less';
 
 function MyApp({ Component, pageProps }) {
@@ -24,7 +25,7 @@ function MyApp({ Component, pageProps }) {
         <title>The best way to learn Telugu - Nerchuko</title>
       </Head>
       <BackTop />
-      <AppLayout><Component {...pageProps} resolution={resolution} className="animate__animated animate__fadeInLeft" /></AppLayout>
+      <AppLayout><Component {...pageProps} resolution={resolution} /></AppLayout>
     </UserContext.Provider>
   )
 }

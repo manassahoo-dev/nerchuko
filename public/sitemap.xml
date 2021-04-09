@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://nerchuko.in</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-03-31T06:52:57.342Z</lastmod></url>
-<url><loc>https://nerchuko.in/admin</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-03-31T06:52:57.342Z</lastmod></url>
-<url><loc>https://nerchuko.in/accounts/forgot</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-03-31T06:52:57.342Z</lastmod></url>
-<url><loc>https://nerchuko.in/accounts/login</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-03-31T06:52:57.342Z</lastmod></url>
-<url><loc>https://nerchuko.in/privacy</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-03-31T06:52:57.342Z</lastmod></url>
-<url><loc>https://nerchuko.in/resources</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-03-31T06:52:57.342Z</lastmod></url>
-<url><loc>https://nerchuko.in/resources/books</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-03-31T06:52:57.342Z</lastmod></url>
-<url><loc>https://nerchuko.in/accounts/signup</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-03-31T06:52:57.342Z</lastmod></url>
-<url><loc>https://nerchuko.in/sitemap</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-03-31T06:52:57.342Z</lastmod></url>
-<url><loc>https://nerchuko.in/terms</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-03-31T06:52:57.342Z</lastmod></url>
+<url><loc>https://nerchuko.in</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-04-09T17:08:34.806Z</lastmod></url>
+<url><loc>https://nerchuko.in/about</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-04-09T17:08:34.806Z</lastmod></url>
+<url><loc>https://nerchuko.in/about/privacy</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-04-09T17:08:34.806Z</lastmod></url>
+<url><loc>https://nerchuko.in/about/sitemap</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-04-09T17:08:34.806Z</lastmod></url>
+<url><loc>https://nerchuko.in/about/terms</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-04-09T17:08:34.806Z</lastmod></url>
+<url><loc>https://nerchuko.in/accounts/dashboard</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-04-09T17:08:34.806Z</lastmod></url>
+<url><loc>https://nerchuko.in/accounts/forgot</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-04-09T17:08:34.806Z</lastmod></url>
+<url><loc>https://nerchuko.in/accounts/login</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-04-09T17:08:34.806Z</lastmod></url>
+<url><loc>https://nerchuko.in/accounts/profile</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-04-09T17:08:34.806Z</lastmod></url>
+<url><loc>https://nerchuko.in/accounts/signup</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-04-09T17:08:34.807Z</lastmod></url>
+<url><loc>https://nerchuko.in/accounts/verify</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-04-09T17:08:34.807Z</lastmod></url>
+<url><loc>https://nerchuko.in/admin</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-04-09T17:08:34.807Z</lastmod></url>
+<url><loc>https://nerchuko.in/contact</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-04-09T17:08:34.807Z</lastmod></url>
+<url><loc>https://nerchuko.in/faq</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-04-09T17:08:34.807Z</lastmod></url>
+<url><loc>https://nerchuko.in/resources</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-04-09T17:08:34.807Z</lastmod></url>
+<url><loc>https://nerchuko.in/resources/books</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-04-09T17:08:34.807Z</lastmod></url>
 </urlset>

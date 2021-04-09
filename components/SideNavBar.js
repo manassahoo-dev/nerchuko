@@ -1,12 +1,14 @@
 import { LogoutOutlined } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
 import Link from 'next/link';
+import { useRouter } from 'next/router'
 import React, { useContext, useEffect, useState } from 'react';
 import { menus } from '../components/constants/menus';
 import UserContext from '../components/contexts/UserContext';
 const { Header, Sider, Content } = Layout;
 
 const SideNavBar = props => {
+    const router = useRouter()
     const { logOut } = useContext(UserContext);
     const [current, setCurrent] = useState('dashboard');
     const [roles, setRoles] = useState([]);
@@ -17,8 +19,13 @@ const SideNavBar = props => {
             const pathName = window.location.pathname;
             setCurrent(pathName);
         }
-        let result = JSON.parse(atob(localStorage.getItem("r"))).map(a => a.name);
-        setRoles(result);
+        const role = localStorage.getItem("r");
+        if (role) {
+            let result = JSON.parse(atob(role)).map(a => a.name);
+            setRoles(result);
+        } else {
+            router.push("/");
+        }
     }, []);
 
     function onCollapse(collapsed) {

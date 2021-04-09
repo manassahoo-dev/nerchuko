@@ -49,7 +49,6 @@ const VocabularyIndex = (props) => {
                                 <a>
                                     <Card
                                         hoverable
-                                        className="animate__animated animate__fadeIn animate__slow"
                                         className="text-center"
                                         cover={<img alt={`Vocabulary ${item.name}`} rel="preconnect" src={item.imageUrl} className="vocabulary-card" />}
                                     >

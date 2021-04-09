@@ -9,27 +9,7 @@ class MyDocument extends Document {
     render() {
         return (
             <Html lang="en">
-                <Head>
-                    <meta name="keywords" content="learn, telugu, free, lessons, course, language, study, flashcards" />
-                    <meta name="description" content="Learn Telugu through our lessons such as alphabet, adjectives, nouns, plural, gender, numbers, phrases, grammar, vocabulary, verbs, exam, audio, translation and much more online and for free easily and quickly." />
-                    <link rel="icon" href="/images/favicon.ico" />
-                    <meta name="title" content="The best way to learn Telugu - Nerchuko" />
-                    <link rel="canonical" href="https://nerchuko.in/" />
-                    <meta property="og:type" content="website" />
-                    <meta property="og:url" content="https://nerchuko.in/" />
-                    <meta property="og:title" content="The best way to learn Telugu - Nerchuko" />
-                    <meta property="og:description" content="Learn Telugu through our lessons such as alphabet, adjectives, nouns, plural, gender, numbers, phrases, grammar, vocabulary, verbs, exam, audio, translation and much more online and for free easily and quickly." />
-                    <meta property="og:image" content="https://nerchuko.in/images/thumbnail.png" />
-
-                    <meta property="twitter:card" content="summary_large_image" />
-                    <meta property="twitter:url" content="https://nerchuko.in/" />
-                    <meta property="twitter:title" content="The best way to learn Telugu - Nerchuko" />
-                    <meta property="twitter:description" content="Learn Telugu through our lessons such as alphabet, adjectives, nouns, plural, gender, numbers, phrases, grammar, vocabulary, verbs, exam, audio, translation and much more online and for free easily and quickly." />
-                    <meta property="twitter:image" content="https://nerchuko.in/images/thumbnail.png" />
-                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-
-
-                </Head>
+                <Head />
                 <body>
                     <Main />
                     <NextScript />

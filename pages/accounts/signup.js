@@ -51,7 +51,7 @@ export default function Signup() {
             <Row type="flex" justify="center" align="middle" className="auth-card-row">
                 <Col xs={1} sm={6} md={6} lg={8}></Col>
                 <Col xs={22} sm={12} md={12} lg={8}>
-                    <Spin spinning={loading} indicator={<LoadingOutlined style={{ fontSize: 24 }} spin />} >
+                    <Spin spinning={loading} tip="Processing..." indicator={<LoadingOutlined style={{ fontSize: 24 }} spin />} >
                         <Card className="auth-card">
                             <div>
                                 <Title className="m0">Signup</Title>
