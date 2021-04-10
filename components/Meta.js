@@ -3,7 +3,6 @@ const Meta = (props) => (
     <Head>
         <meta name="keywords" content={keywords} />
         <meta name="description" content={description} />
-        <link rel="icon" href="/images/favicon.ico" />
         <meta name="title" content={title} />
         <link rel="canonical" href={url} />
         <meta property="og:type" content="website" />
