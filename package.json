@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "set NODE_ENV=production & next build",
+    "build": "next build",
     "postbuild": "next-sitemap --config next-sitemap.config.js",
     "start": "next start"
   },
@@ -14,8 +14,10 @@
     "axios": "0.21.1",
     "babel-plugin-import": "1.13.3",
     "framer-motion": "3.2.1",
+    "jsonwebtoken": "^8.5.1",
     "less": "4.1.1",
     "next": "10.0.5",
+    "next-auth": "^3.14.0",
     "next-compose-plugins": "^2.2.1",
     "next-sitemap": "^1.6.18",
     "optimize-css-assets-webpack-plugin": "^5.0.4",

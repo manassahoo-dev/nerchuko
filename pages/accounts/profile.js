@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import AuthHeader from "../../components/AuthHeader";
 import { API_BASE_URL } from '../../components/constants/api-config';
 import { authHeader } from '../../components/constants/authHeader';
-import privateRoute from "../../components/PrivateRoute";
 import SideNavBar from "../../components/SideNavBar";
 
 const { Content } = Layout;
@@ -15,7 +14,7 @@ function Profile() {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        getUser();
+        // getUser();
     }, []);
 
     const getUser = () => {
@@ -45,4 +44,4 @@ function Profile() {
     )
 }
 
-export default privateRoute(Profile);
+export default (Profile);

@@ -40,6 +40,13 @@ export default function Signup() {
         setError('Validation Failed');
     };
 
+    const validateMessages = {
+        required: '${label} is required',
+        types: {
+            email: '${label} is not a valid',
+        },
+    };
+
     return (
         <Layout>
             <Header>
@@ -73,18 +80,19 @@ export default function Signup() {
                                     layout="vertical"
                                     onFinish={onFinish}
                                     onFinishFailed={onFinishFailed}
+                                    validateMessages={validateMessages}
                                 >
                                     <Form.Item
                                         label="Name"
                                         name="name"
-                                        rules={[{ required: true, message: 'Please input your Name' }]}
+                                        rules={[{ required: true }]}
                                     >
                                         <Input />
                                     </Form.Item>
                                     <Form.Item
                                         label="Email address"
                                         name="email"
-                                        rules={[{ required: true, message: 'Please input your Email' }]}
+                                        rules={[{ type: 'email', required: true }]}
                                     >
                                         <Input />
                                     </Form.Item>
@@ -92,7 +100,7 @@ export default function Signup() {
                                     <Form.Item
                                         label="Password"
                                         name="password"
-                                        rules={[{ required: true, message: 'Please input your Password' }]}
+                                        rules={[{ required: true }]}
                                     >
                                         <Input.Password />
                                     </Form.Item>
@@ -101,10 +109,7 @@ export default function Signup() {
                                         label="Confirm Password"
                                         dependencies={['password']}
                                         rules={[
-                                            {
-                                                required: true,
-                                                message: 'Please confirm your password',
-                                            },
+                                            { required: true },
                                             ({ getFieldValue }) => ({
                                                 validator(_, value) {
                                                     if (!value || getFieldValue('password') === value) {

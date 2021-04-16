@@ -7,6 +7,7 @@ const { Title } = Typography;
 
 const Home = ({ resolution }) => {
   const isMobile = resolution.isMobile;
+
   return (
     <main>
       <Layout>

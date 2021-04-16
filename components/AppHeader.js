@@ -1,12 +1,18 @@
-import { DownOutlined, LogoutOutlined, MenuOutlined, UserOutlined, CloseCircleOutlined } from '@ant-design/icons';
-import { Avatar, Button, Col, Drawer, Dropdown, Layout, Menu, Row, Space, List } from 'antd';
+import { CloseCircleOutlined, DownOutlined, LogoutOutlined, MenuOutlined, UserOutlined } from '@ant-design/icons';
+import { Avatar, Button, Col, Drawer, Dropdown, Layout, Menu, Row, Space } from 'antd';
+import { signOut, useSession } from 'next-auth/client';
 import Link from 'next/link';
-import { useContext, useEffect, useState } from 'react';
-import UserContext from './contexts/UserContext';
+import { useEffect, useState } from 'react';
 
 const { Header } = Layout;
 
 const AppHeader = (props) => {
+    const [session] = useSession();
+
+    const handleSignout = (e) => {
+        e.preventDefault()
+        signOut()
+    }
     const { current } = props;
     const [user, setUser] = useState(null);
     const [visible, setVisible] = useState(false);
@@ -18,13 +24,12 @@ const AppHeader = (props) => {
         { link: '/telugu/translate', title: 'TRANSLATE' },
         { link: '/telugu/alphabets', title: 'ALPHABETS' },
     ];
-    const { logOut } = useContext(UserContext);
 
     const menu = (
         <Menu>
-            <Menu.Item key="profile" icon={<UserOutlined />}><Link href="/profile"><a>Profile</a></Link></Menu.Item>
+            <Menu.Item key="profile" icon={<UserOutlined />}><Link href="/accounts/profile"><a>Profile</a></Link></Menu.Item>
             <Menu.Divider></Menu.Divider>
-            <Menu.Item key="logOut" icon={<LogoutOutlined />}><Link href="/"><a onClick={logOut}>Logout</a></Link></Menu.Item>
+            <Menu.Item key="logOut" icon={<LogoutOutlined />}><a onClick={handleSignout}>Logout</a></Menu.Item>
         </Menu>
     );
 
@@ -74,10 +79,10 @@ const AppHeader = (props) => {
                             <Col>
                                 <Space>
                                     <Button>+</Button>
-                                    {user ?
+                                    {session ?
                                         <Dropdown overlay={menu} className="float-right" placement="bottomCenter">
                                             <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-                                                <Avatar>A</Avatar>
+                                                <Avatar src={session.user.image}>{session.user.name}</Avatar>
                                                 <DownOutlined />
                                             </a>
                                         </Dropdown>
@@ -106,10 +111,10 @@ const AppHeader = (props) => {
                         )
                         }
                     </Menu>
-                    {user ?
+                    {session ?
                         <Dropdown overlay={menu} placement="bottomCenter">
                             <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-                                <Avatar>A</Avatar>
+                                <Avatar src={session.user.image}>A</Avatar>
                                 <DownOutlined />
                             </a>
                         </Dropdown>

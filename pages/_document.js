@@ -11,6 +11,7 @@ class MyDocument extends Document {
             <Html lang="en">
                 <Head>
                     <link rel="icon" href="/images/favicon.ico" />
+                    <script src="https://apis.google.com/js/platform.js" async defer></script>
                 </Head>
                 <body>
                     <Main />

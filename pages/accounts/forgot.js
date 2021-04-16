@@ -3,17 +3,15 @@ import { Alert, Button, Card, Col, Form, Input, Layout, Row, Space, Typography }
 import axios from 'axios';
 import Link from 'next/link';
 import Router from 'next/router';
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { API_BASE_URL } from '../../components/constants/api-config';
 import { authHeader } from '../../components/constants/authHeader';
-import UserContext from '../../components/contexts/UserContext';
 
 const { Title } = Typography;
 const { Header } = Layout;
 
 export default function Forgot() {
     const [form] = Form.useForm();
-    const { login } = useContext(UserContext);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
 

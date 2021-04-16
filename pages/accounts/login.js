@@ -1,19 +1,17 @@
-import { LockOutlined, UserOutlined, LoadingOutlined } from '@ant-design/icons';
-import { Alert, Button, Card, Checkbox, Col, Form, Input, Layout, Row, Spin, Typography } from 'antd';
+import { LoadingOutlined, LockOutlined, UserOutlined } from '@ant-design/icons';
+import { Alert, Button, Card, Checkbox, Col, Divider, Form, Input, Layout, Row, Spin, Typography } from 'antd';
 import axios from 'axios';
+import { getCsrfToken, signIn } from 'next-auth/client';
 import Link from 'next/link';
-import Router from 'next/router';
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
+import { RiFacebookFill, RiGithubFill, RiGoogleFill } from "react-icons/ri";
 import { API_BASE_URL } from '../../components/constants/api-config';
-import { authHeader } from '../../components/constants/authHeader';
-import UserContext from '../../components/contexts/UserContext';
 
 const { Title } = Typography;
 const { Header } = Layout;
 
-export default function Login() {
+export default function Login({ csrfToken }) {
     const [form] = Form.useForm();
-    const { login } = useContext(UserContext);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
 
@@ -24,7 +22,7 @@ export default function Login() {
         axios.post(`${API_BASE_URL}auth/login`, values)
             .then(function (response) {
                 if (response.status === 200) {
-                    processAfterLoginSuccess(response.data.accessToken);
+                    signIn('credentials', { ...values, name: response.data.name, image: response.data.image })
                 }
             })
             .catch(function (error) {
@@ -48,34 +46,18 @@ export default function Login() {
         console.log('Failed:', errorInfo);
     };
 
-    const processAfterLoginSuccess = (accessToken) => {
-        localStorage.setItem("t", accessToken);
-        axios.get(`${API_BASE_URL}users/me`, authHeader())
-            .then(function (response) {
-                if (response.status === 200) {
-                    localStorage.setItem("r", btoa(JSON.stringify(response.data.roles)));
-                    localStorage.setItem("m", btoa(response.data.email))
-                    login(response.data);
-                    const roles = response.data.roles;
-                    if (roles.some(role => role.name === 'ADMIN')) {
-                        Router.push('/admin');
-                    } else {
-                        Router.push('/accounts/dashboard');
-                    }
-                }
-            })
-            .catch(function (error) {
-                setError(error.response.data);
-            }).then(function () {
-                setLoading(false);
-            });
-    }
     const validateMessages = {
         required: '${label} is required',
         types: {
             email: '${label} is not a valid',
         },
     };
+
+    const socialLoginOptions = [
+        { name: 'facebook', label: 'Facebook', icon: <RiFacebookFill /> },
+        { name: 'google', label: 'Google', icon: <RiGoogleFill /> },
+        { name: 'github', label: 'Github', icon: <RiGithubFill /> },
+    ]
 
     return (
         <Layout>
@@ -113,6 +95,9 @@ export default function Login() {
                                     onFinishFailed={onFinishFailed}
                                     validateMessages={validateMessages}
                                 >
+                                    <Form.Item hidden name="csrfToken" defaultValue={csrfToken} >
+                                        <Input />
+                                    </Form.Item>
                                     <Form.Item label="Email address" name="email" rules={[{ type: 'email', required: true }]} >
                                         <Input prefix={<UserOutlined />} placeholder="Email" />
                                     </Form.Item>
@@ -132,14 +117,29 @@ export default function Login() {
                                         <Button type="primary" htmlType="submit" block disabled={loading} loading={loading}>Login</Button>
                                     </Form.Item>
                                 </Form>
+                                <Divider>OR</Divider>
                             </div>
-                            <p className="text-center">Do not have an account yet? <Link href="/accounts/signup"><a>Signup</a></Link></p>
+                            <Row gutter={[16, 16]}>
+                                {socialLoginOptions.map((option, key) =>
+                                    <Col span={24 / socialLoginOptions.length} key={key}>
+                                        <Button block onClick={() => signIn(`${option.name}`)} icon={option.icon} >{option.label}</Button>
+                                    </Col>
+                                )}
+                            </Row>
+                            <br /><p className="text-center">Do not have an account yet? <Link href="/accounts/signup"><a>Signup</a></Link></p>
                         </Card>
                     </Spin>
                 </Col>
                 <Col xs={1} sm={6} md={6} lg={8}></Col>
             </Row>
-        </Layout>
+        </Layout >
     )
 }
 
+export async function getServerSideProps(context) {
+    return {
+        props: {
+            csrfToken: await getCsrfToken(context)
+        }
+    }
+}

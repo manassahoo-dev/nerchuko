@@ -1,6 +1,7 @@
 import Head from 'next/head'
-const Meta = (props) => (
+const Meta = ({ keywords, description, title, url, image }) => (
     <Head>
+        <title>{title}</title>
         <meta name="keywords" content={keywords} />
         <meta name="description" content={description} />
         <meta name="title" content={title} />

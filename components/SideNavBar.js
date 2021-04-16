@@ -1,15 +1,14 @@
 import { LogoutOutlined } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
+import { signOut } from 'next-auth/client';
 import Link from 'next/link';
-import { useRouter } from 'next/router'
-import React, { useContext, useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import React, { useEffect, useState } from 'react';
 import { menus } from '../components/constants/menus';
-import UserContext from '../components/contexts/UserContext';
 const { Header, Sider, Content } = Layout;
 
 const SideNavBar = props => {
     const router = useRouter()
-    const { logOut } = useContext(UserContext);
     const [current, setCurrent] = useState('dashboard');
     const [roles, setRoles] = useState([]);
     const [collapsed, setCollapsed] = useState(null);
@@ -24,7 +23,7 @@ const SideNavBar = props => {
             let result = JSON.parse(atob(role)).map(a => a.name);
             setRoles(result);
         } else {
-            router.push("/");
+            // router.push("/");
         }
     }, []);
 
@@ -46,7 +45,7 @@ const SideNavBar = props => {
                             <Link href={menu.link}><a>{menu.name}</a></Link>
                         </Menu.Item>
                     )}
-                    <Menu.Item key="5" icon={<LogoutOutlined />}><Link href="/"><a onClick={logOut}>Logout</a></Link></Menu.Item>
+                    <Menu.Item key="5" icon={<LogoutOutlined />}><Link href="/"><a onClick={signOut}>Logout</a></Link></Menu.Item>
                 </Menu>
             </Sider>
         </>
