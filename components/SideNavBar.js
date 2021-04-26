@@ -1,13 +1,16 @@
 import { LogoutOutlined } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
-import { signOut } from 'next-auth/client';
+import { signOut, useSession } from 'next-auth/client';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { menus } from '../components/constants/menus';
+
 const { Header, Sider, Content } = Layout;
 
 const SideNavBar = props => {
+    const [session, loading] = useSession()
+
     const router = useRouter()
     const [current, setCurrent] = useState('dashboard');
     const [roles, setRoles] = useState([]);
@@ -18,12 +21,11 @@ const SideNavBar = props => {
             const pathName = window.location.pathname;
             setCurrent(pathName);
         }
-        const role = localStorage.getItem("r");
-        if (role) {
-            let result = JSON.parse(atob(role)).map(a => a.name);
-            setRoles(result);
+        if (session) {
+            const roles = session.user.email === process.env.NEXT_PUBLIC_ADMIN_MAIL ? ['ADMIN'] : ['USER'];
+            setRoles(roles);
         } else {
-            // router.push("/");
+            router.push('/');
         }
     }, []);
 

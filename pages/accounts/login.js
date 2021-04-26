@@ -5,8 +5,7 @@ import { getCsrfToken, signIn } from 'next-auth/client';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { RiFacebookFill, RiGithubFill, RiGoogleFill } from "react-icons/ri";
-import { API_BASE_URL } from '../../components/constants/api-config';
-
+import { useRouter } from 'next/router';
 const { Title } = Typography;
 const { Header } = Layout;
 
@@ -14,15 +13,15 @@ export default function Login({ csrfToken }) {
     const [form] = Form.useForm();
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
+    const router = useRouter();
 
     const handleAuthentication = (values) => {
         setLoading(true);
         setError(null);
-
-        axios.post(`${API_BASE_URL}auth/login`, values)
+        axios.post(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`, values)
             .then(function (response) {
                 if (response.status === 200) {
-                    signIn('credentials', { ...values, name: response.data.name, image: response.data.image })
+                    signIn('credentials', { ...values, name: response.data.name, image: response.data.image });
                 }
             })
             .catch(function (error) {

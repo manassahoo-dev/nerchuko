@@ -1,3 +1,4 @@
+import axios from 'axios';
 import NextAuth from 'next-auth';
 import Providers from 'next-auth/providers';
 
@@ -27,12 +28,27 @@ const options = {
         })
     ],
     debug: false,
-    site: process.env.NEXTAUTH_URL,
+    jwt: {
+        secret: process.env.JWT_SECRET,
+        raw: true
+    },
+    cookies: { sessionToken: { name: `next-auth.session-token`, options: { httpOnly: false } } },
+    site: process.env.NEXT_PUBLIC_BASE_URL,
     callbacks: {
         async signIn(user, account, profile) {
-            console.error('-------callbacks signin-------');
-            console.log(account);
-            return true
+            const param = { user, account }
+            axios.post(`${process.env.NEXT_PUBLIC_API_URL}/auth/session`, param)
+                .then(function (response) {
+                    if (response.status === 200) {
+                        return true;
+                    }
+                })
+                .catch(function (error) {
+                    console.error(error.response);
+                    return false;
+                }).then(function () {
+                    // setLoading(false);
+                });
         },
         async redirect(url, baseUrl) {
             return baseUrl

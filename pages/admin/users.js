@@ -3,7 +3,6 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import AuthHeader from "../../components/AuthHeader";
 import { API_BASE_URL } from '../../components/constants/api-config';
-import { authHeader } from '../../components/constants/authHeader';
 import privateRoute from "../../components/PrivateRoute";
 import SideNavBar from "../../components/SideNavBar";
 
@@ -20,7 +19,7 @@ function AdminUsers() {
     }, []);
 
     const listUsers = () => {
-        axios.get(`${API_BASE_URL}users`, authHeader())
+        axios.get(`${API_BASE_URL}users`)
             .then(function (response) {
                 if (response.status === 200) {
                     setUsers(response.data);
@@ -47,7 +46,7 @@ function AdminUsers() {
                 <AuthHeader />
                 <Content>
                     <Title>Users</Title>
-                    <Table columns={columns} dataSource={users} loading={loading} />
+                    <Table columns={columns} dataSource={users} loading={loading} rowKey="email" />
                 </Content>
             </Layout>
         </Layout>

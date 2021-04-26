@@ -1,11 +1,20 @@
 import { Button, Col, Layout, Row, Typography } from 'antd';
+import { useSession } from 'next-auth/client';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import VocabularyIndex from './[languages]/vocabulary/index';
 
 const { Content } = Layout;
 const { Title } = Typography;
 
 const Home = ({ resolution }) => {
+  const [session, loading] = useSession();
+  const router = useRouter();
+
+  if (session && session.user.email === process.env.NEXT_PUBLIC_ADMIN_MAIL) {
+    router.push('/admin');
+  }
+
   const isMobile = resolution.isMobile;
 
   return (

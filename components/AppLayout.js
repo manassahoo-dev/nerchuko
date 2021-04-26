@@ -1,6 +1,7 @@
 import { Layout } from 'antd';
 import AppFooter from "./AppFooter";
 import AppHeader from "./AppHeader";
+
 const { Content } = Layout;
 
 const AppLayout = props => {

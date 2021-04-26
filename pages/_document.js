@@ -16,7 +16,7 @@ class MyDocument extends Document {
                 <body>
                     <Main />
                     <NextScript />
-                    <script type="text/javascript" src="/scripts/clarity.js"></script>
+
                     <script type="application/ld+json" dangerouslySetInnerHTML={{
                         __html: JSON.stringify({
                             "@context": "https://schema.org/",
@@ -33,8 +33,9 @@ class MyDocument extends Document {
                         })
                     }}>
                     </script>
-                    <script src="https://www.googleoptimize.com/optimize.js?id=OPT-NJP7KPV"></script>
-                    <script async src={`https://www.googletagmanager.com/gtag/js?id=UA-49136745-2`} />
+                    <script type="text/javascript" src="/scripts/clarity.js" />
+                    <script async src="https://www.googleoptimize.com/optimize.js?id=OPT-NJP7KPV" />
+                    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-49136745-2" />
                     <script
                         dangerouslySetInnerHTML={{
                             __html: `

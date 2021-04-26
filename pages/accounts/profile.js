@@ -3,7 +3,6 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import AuthHeader from "../../components/AuthHeader";
 import { API_BASE_URL } from '../../components/constants/api-config';
-import { authHeader } from '../../components/constants/authHeader';
 import SideNavBar from "../../components/SideNavBar";
 
 const { Content } = Layout;
@@ -14,11 +13,11 @@ function Profile() {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        // getUser();
+        getUser();
     }, []);
 
     const getUser = () => {
-        axios.get(`${API_BASE_URL}users/me`, authHeader())
+        axios.get(`${API_BASE_URL}users/me`)
             .then(function (response) {
                 if (response.status === 200) {
                     console.log(response.data);
