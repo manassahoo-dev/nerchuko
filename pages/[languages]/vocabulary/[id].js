@@ -2,7 +2,6 @@ import { Layout, PageHeader, Table, Typography } from 'antd';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { API_BASE_URL } from '../../../components/constants/api-config';
 
 const { Text } = Typography;
 const { Content } = Layout;
@@ -25,7 +24,7 @@ const Vocabulary = (props) => {
 
     const getPhrasesByTopic = (topicName) => {
         if (topicName) {
-            axios.get(`${API_BASE_URL}topics/${topicName}/phrases`)
+            axios.get(`${process.env.NEXT_PUBLIC_API_URL}/topics/${topicName}/phrases`)
                 .then(function (response) {
                     setPhrases(response.data);
                 })

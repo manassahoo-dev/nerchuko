@@ -10,7 +10,6 @@ import '../public/styles/antd.less';
 axios.interceptors.request.use(request => {
   const accessToken = Cookies.get('next-auth.session-token');
   request.headers.Authorization = accessToken ? `Bearer ${accessToken}` : '';
-  console.log(request);
   return request;
 },
   error => {

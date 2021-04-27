@@ -4,7 +4,6 @@ import axios from 'axios';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
-import { API_BASE_URL } from '../../components/constants/api-config';
 
 const { Title } = Typography;
 const { Header } = Layout;
@@ -30,7 +29,7 @@ export default function Verify() {
         setLoading(true);
         setError(null);
 
-        axios.get(`${API_BASE_URL}auth/register/confirm?token=${token}`)
+        axios.get(`${process.env.NEXT_PUBLIC_API_URL}/auth/register/confirm?token=${token}`)
             .then(function (response) {
                 console.log(response)
                 if (response.status === 200) {

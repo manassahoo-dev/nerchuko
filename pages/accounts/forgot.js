@@ -4,7 +4,6 @@ import axios from 'axios';
 import Link from 'next/link';
 import Router from 'next/router';
 import React, { useState } from 'react';
-import { API_BASE_URL } from '../../components/constants/api-config';
 
 const { Title } = Typography;
 const { Header } = Layout;
@@ -18,7 +17,7 @@ export default function Forgot() {
         setLoading(true);
         setError(null);
 
-        axios.post(`${API_BASE_URL}auth/login`, values)
+        axios.post(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`, values)
             .then(function (response) {
                 if (response.status === 200) {
                     processAfterLoginSuccess(response.data.accessToken);
@@ -47,7 +46,7 @@ export default function Forgot() {
 
     const processAfterLoginSuccess = (accessToken) => {
         localStorage.setItem("t", accessToken);
-        axios.get(`${API_BASE_URL}users/me`)
+        axios.get(`${process.env.NEXT_PUBLIC_API_URL}/users/me`)
             .then(function (response) {
                 if (response.status === 200) {
                     localStorage.setItem("r", btoa(JSON.stringify(response.data.roles)));

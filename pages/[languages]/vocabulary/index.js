@@ -2,7 +2,6 @@ import { Avatar, Card, Col, Row } from 'antd';
 import axios from 'axios';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
-import { API_BASE_URL } from '../../../components/constants/api-config';
 
 const { Meta } = Card;
 const VocabularyIndex = (props) => {
@@ -14,7 +13,7 @@ const VocabularyIndex = (props) => {
         setLoading(true);
         setError(null);
 
-        axios.get(`${API_BASE_URL}topics`)
+        axios.get(`${process.env.NEXT_PUBLIC_API_URL}/topics`)
             .then(function (response) {
                 if (response.status === 200) {
                     setTopics(response.data);

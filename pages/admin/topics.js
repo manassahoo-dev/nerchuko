@@ -8,20 +8,20 @@ import SideNavBar from "../../components/SideNavBar";
 const { Content } = Layout;
 const { Title } = Typography;
 
-function AdminUsers() {
+function AdminTopics() {
     const [loading, setLoading] = useState(true);
-    const [users, setUsers] = useState([]);
+    const [topics, setTopics] = useState([]);
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        listUsers();
+        listTopics();
     }, []);
 
-    const listUsers = () => {
-        axios.get(`${process.env.NEXT_PUBLIC_API_URL}/users`)
+    const listTopics = () => {
+        axios.get(`${process.env.NEXT_PUBLIC_API_URL}/topics`)
             .then(function (response) {
                 if (response.status === 200) {
-                    setUsers(response.data);
+                    setTopics(response.data);
                 }
             })
             .catch(function (error) {
@@ -32,10 +32,8 @@ function AdminUsers() {
     }
 
     const columns = [
-        { title: 'Name', dataIndex: 'name', key: 'name', },
-        { title: 'Email', dataIndex: 'email', key: 'email', },
-        { title: 'Enabled', dataIndex: 'enabled', key: 'enabled', },
-        { title: 'Verified', dataIndex: 'emailVerified', key: 'emailVerified', },
+        { title: 'name', dataIndex: 'name', key: 'name', },
+        { title: 'Image', dataIndex: 'imageUrl', key: 'imageUrl', },
     ];
 
     return (
@@ -44,11 +42,11 @@ function AdminUsers() {
             <Layout>
                 <AuthHeader />
                 <Content>
-                    <Title>Manage Users</Title>
-                    <Table columns={columns} dataSource={users} loading={loading} rowKey="email" />
+                    <Title>Manage Topics</Title>
+                    <Table columns={columns} dataSource={topics} loading={loading} rowKey="id" />
                 </Content>
             </Layout>
         </Layout>
     )
 }
-export default privateRoute(AdminUsers);
+export default privateRoute(AdminTopics);

@@ -3,7 +3,6 @@ import { Alert, Button, Card, Col, Form, Input, Layout, message, Row, Spin, Typo
 import axios from 'axios';
 import Link from 'next/link';
 import React, { useState } from 'react';
-import { API_BASE_URL } from '../../components/constants/api-config';
 
 const { Title } = Typography;
 const { Header } = Layout;
@@ -17,7 +16,7 @@ export default function Signup() {
         setLoading(true);
         setError(null);
 
-        axios.post(`${API_BASE_URL}auth/register`, values)
+        axios.post(`${process.env.NEXT_PUBLIC_API_URL}/auth/register`, values)
             .then(function (response) {
                 console.log(response)
                 if (response.status === 200) {

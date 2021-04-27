@@ -8,20 +8,20 @@ import SideNavBar from "../../components/SideNavBar";
 const { Content } = Layout;
 const { Title } = Typography;
 
-function AdminUsers() {
+function AdminSeo() {
     const [loading, setLoading] = useState(true);
-    const [users, setUsers] = useState([]);
+    const [seo, setSeo] = useState([]);
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        listUsers();
+        listSeo();
     }, []);
 
-    const listUsers = () => {
-        axios.get(`${process.env.NEXT_PUBLIC_API_URL}/users`)
+    const listSeo = () => {
+        axios.get(`${process.env.NEXT_PUBLIC_API_URL}/seo`)
             .then(function (response) {
                 if (response.status === 200) {
-                    setUsers(response.data);
+                    setSeo(response.data);
                 }
             })
             .catch(function (error) {
@@ -32,10 +32,11 @@ function AdminUsers() {
     }
 
     const columns = [
-        { title: 'Name', dataIndex: 'name', key: 'name', },
-        { title: 'Email', dataIndex: 'email', key: 'email', },
-        { title: 'Enabled', dataIndex: 'enabled', key: 'enabled', },
-        { title: 'Verified', dataIndex: 'emailVerified', key: 'emailVerified', },
+        { title: 'Title', dataIndex: 'title', key: 'title', },
+        { title: 'Keywords', dataIndex: 'keywords', key: 'keywords', },
+        { title: 'Description', dataIndex: 'description', key: 'description', },
+        { title: 'Image', dataIndex: 'image', key: 'image', },
+        { title: 'URL', dataIndex: 'url', key: 'url', },
     ];
 
     return (
@@ -44,11 +45,11 @@ function AdminUsers() {
             <Layout>
                 <AuthHeader />
                 <Content>
-                    <Title>Manage Users</Title>
-                    <Table columns={columns} dataSource={users} loading={loading} rowKey="email" />
+                    <Title>Manage SEO</Title>
+                    <Table columns={columns} dataSource={seo} loading={loading} rowKey="id" />
                 </Content>
             </Layout>
         </Layout>
     )
 }
-export default privateRoute(AdminUsers);
+export default privateRoute(AdminSeo);
