@@ -23,6 +23,7 @@ const AppHeader = (props) => {
         { link: '/telugu/forum', title: 'FORUM' },
         { link: '/telugu/translate', title: 'TRANSLATE' },
         { link: '/telugu/alphabets', title: 'ALPHABETS' },
+        { link: '/tutors', title: 'TUTORS' },
     ];
 
     const menu = (
